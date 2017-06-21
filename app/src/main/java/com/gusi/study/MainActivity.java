@@ -1,9 +1,9 @@
 package com.gusi.study;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.gusi.study.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
