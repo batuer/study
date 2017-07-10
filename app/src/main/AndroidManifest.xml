@@ -11,17 +11,18 @@
       android:supportsRtl="true"
       android:theme="@style/BaseTheme">
     <activity android:name=".MainActivity">
-
-    </activity>
-    <activity android:name=".ui.ContactsActivity" />
-    <activity android:name=".ui.PieChartActivity"></activity>
-    <activity android:name=".slide.SlideActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:name=".ui.ContactsActivity" />
+    <activity android:name=".ui.PieChartActivity" />
+    <activity android:name=".slide.SlideActivity">
+
+    </activity>
+    <activity android:name=".flow.FlowActivity"></activity>
   </application>
 
 </manifest>
