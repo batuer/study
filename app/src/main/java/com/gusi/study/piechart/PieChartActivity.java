@@ -1,18 +1,13 @@
-package com.gusi.study.ui;
+package com.gusi.study.piechart;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
-import butterknife.BindView;
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
-import com.gusi.study.piechart.Entry;
-import com.gusi.study.piechart.PieChartView;
 import java.util.ArrayList;
 
 public class PieChartActivity extends BaseActivity {
 
-  @BindView(R.id.tool_bar) Toolbar mToolbar;
   private PieChartView mPieChart;
   private PieChartView mPieChart1;
   private PieChartView mPieChart12;

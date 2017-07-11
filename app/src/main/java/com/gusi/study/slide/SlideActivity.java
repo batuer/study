@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import butterknife.BindView;
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlideActivity extends BaseActivity {
-  @BindView(R.id.tool_bar) Toolbar mToolbar;
   @BindView(R.id.view_pager) ViewPager mViewPager;
 
   @Override protected int getLayout() {
@@ -25,6 +23,7 @@ public class SlideActivity extends BaseActivity {
     super.onCreate(savedInstanceState);
     initToolBar(mToolbar, true, "Slide");
     mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+
   }
 
   class MyPagerAdapter extends FragmentPagerAdapter {

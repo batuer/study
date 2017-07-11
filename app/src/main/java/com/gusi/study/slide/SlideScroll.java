@@ -48,6 +48,7 @@ public class SlideScroll extends ScrollView {
         mPreY = currentY;
         if (diffY < 0) {//上拉
           if (!isBottom(mLv)) {
+            return false;
           }
         } else {//下拉
           if (!isTop(mLv)) {
