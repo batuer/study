@@ -6,6 +6,7 @@ import android.view.View;
 import butterknife.OnClick;
 import com.gusi.study.base.BaseActivity;
 import com.gusi.study.drawable.DrawableActivity;
+import com.gusi.study.flow.FlowActivity;
 import com.gusi.study.piechart.PieChartActivity;
 
 public class MainActivity extends BaseActivity {
@@ -25,5 +26,9 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_drawable) public void drawable(View view) {
     startActivity(new Intent(this, DrawableActivity.class));
+  }
+
+  @OnClick(R.id.btn_flow) public void flowLayout(View view) {
+    startActivity(new Intent(this, FlowActivity.class));
   }
 }
