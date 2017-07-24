@@ -1,6 +1,7 @@
 package com.gusi.study;
 
 import android.app.Application;
+import com.gusi.study.utils.Utils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
@@ -14,6 +15,7 @@ public class App extends Application {
     super.onCreate();
 
     initLog();
+    Utils.init(this);
   }
 
   private void initLog() {

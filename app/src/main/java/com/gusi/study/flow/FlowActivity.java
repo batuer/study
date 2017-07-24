@@ -1,7 +1,6 @@
 package com.gusi.study.flow;
 
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -30,7 +29,7 @@ public class FlowActivity extends BaseActivity {
       "Button ImageView", "TextView", "Helloworld", "Android", "Weclome Hello", "Button Text",
       "TextView"
   };
-  @BindView(R.id.tool_bar) Toolbar mToolbar;
+
   @BindView(R.id.id_flowlayout) TagFlowLayout mFlowLayout;
   @BindView(R.id.id_flowlayout1) TagFlowLayout mFlowLayout1;
   @BindView(R.id.id_flowlayout2) TagFlowLayout mFlowLayout2;

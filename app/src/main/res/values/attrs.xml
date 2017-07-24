@@ -3,9 +3,24 @@
   <declare-styleable name="RightArrowTv">
     <attr name="text" format="string" />
     <attr name="right_arrow" format="reference" />
-    <attr name="text_color" format="color"/>
-    <attr name="text_size" format="dimension"/>
+    <attr name="text_color" format="color" />
+    <attr name="text_size" format="dimension" />
 
   </declare-styleable>
+  <declare-styleable name="FormLayout">
+    <attr name="column_weight_array" format="reference" />
+    <attr name="rowCount" format="integer" />
+    <attr name="columnCount" format="integer" />
+    <attr name="dividerColor" format="color" />
+    <attr name="dividerWidth" format="dimension" />
+  </declare-styleable>
+
+  <declare-styleable name="FormLayout_Layout">
+    <attr name="layout_rowIndex" format="integer" />
+    <attr name="layout_rowCount" format="integer" />
+    <attr name="layout_columnIndex" format="integer" />
+    <attr name="layout_columnCount" format="integer" />
+  </declare-styleable>
+
 
 </resources>

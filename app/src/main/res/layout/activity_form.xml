@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+  <include layout="@layout/layout_tool_bar" />
+
+  <com.gusi.study.formlayout.FormLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:columnCount="3"
+      app:rowCount="3">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="占一列三行"
+        app:layout_columnIndex="0"
+        app:layout_rowCount="3"
+        app:layout_rowIndex="0" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="占两列一行"
+        app:layout_columnCount="2"
+        app:layout_columnIndex="1"
+        app:layout_rowIndex="0" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="占一列一行"
+        app:layout_columnIndex="1"
+        app:layout_rowIndex="1" />
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="占一列一行"
+        app:layout_columnIndex="1"
+        app:layout_rowIndex="2" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center"
+        android:text="占一列两行"
+        app:layout_columnIndex="2"
+        app:layout_rowCount="2"
+        app:layout_rowIndex="1" />
+
+  </com.gusi.study.formlayout.FormLayout>
+
+
+</LinearLayout>

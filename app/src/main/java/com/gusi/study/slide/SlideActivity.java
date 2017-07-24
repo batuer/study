@@ -21,7 +21,6 @@ public class SlideActivity extends BaseActivity {
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    initToolBar(mToolbar, true, "Slide");
     mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
   }

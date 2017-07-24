@@ -14,7 +14,9 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/BaseTheme">
-    <activity android:name=".MainActivity">
+    <activity
+        android:name=".MainActivity"
+        android:label="Study">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -22,27 +24,29 @@
       </intent-filter>
     </activity>
     <activity android:name=".ui.ContactsActivity" />
-    <activity android:name=".piechart.PieChartActivity"></activity>
-    <activity android:name=".slide.SlideActivity">
+    <activity android:name=".piechart.PieChartActivity" />
+    <activity android:name=".slide.SlideActivity" />
+    <activity android:name=".flow.FlowActivity" />
 
-    </activity>
-    <activity android:name=".flow.FlowActivity"/>
+    <!-- <receiver android:name=".receiver.BootReceiver"> -->
+    <!-- <intent-filter android:priority="2147483647"> -->
+    <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
 
-    <!--<receiver android:name=".receiver.BootReceiver">-->
-      <!--<intent-filter android:priority="2147483647">-->
-        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
 
-        <!--<category android:name="android.intent.category.LAUNCHER" />-->
-      <!--</intent-filter>-->
-      <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MEDIA_MOUNTED" />-->
-        <!--<action android:name="android.intent.action.MEDIA_UNMOUNTED" />-->
+    <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+    <!-- </intent-filter> -->
+    <!-- <intent-filter> -->
+    <!-- <action android:name="android.intent.action.MEDIA_MOUNTED" /> -->
+    <!-- <action android:name="android.intent.action.MEDIA_UNMOUNTED" /> -->
 
-        <!--<data android:scheme="file" />-->
-      <!--</intent-filter>-->
-    <!--</receiver>-->
 
-    <activity android:name=".drawable.DrawableActivity"></activity>
+    <!-- <data android:scheme="file" /> -->
+    <!-- </intent-filter> -->
+    <!-- </receiver> -->
+
+    <activity android:name=".drawable.DrawableActivity" />
+    <activity android:name=".constraint.ConstraintActivity" />
+    <activity android:name=".formlayout.FormActivity"></activity>
   </application>
 
 </manifest>
