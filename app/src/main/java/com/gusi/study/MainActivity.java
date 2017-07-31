@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import butterknife.OnClick;
+import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
 import com.gusi.study.constraint.ConstraintActivity;
 import com.gusi.study.drawable.DrawableActivity;
@@ -40,5 +41,8 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_form) public void formLayout(View view) {
     startActivity(new Intent(this, FormActivity.class));
+  }
+  @OnClick(R.id.btn_scroll_tv) public void scrollTv(View view) {
+    startActivity(new Intent(this, ScrollTvActivity.class));
   }
 }
