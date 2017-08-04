@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
   <com.gusi.study.ScrollTv.ScrollTv
       android:layout_width="match_parent"
-      android:layout_height="60dp"
-      android:text="啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n
-      啊大发送到发送到啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到" />
+      android:layout_height="100dp"
+      android:text="啊大发送到发送到11\n啊大发送到发送到22\n啊大发送到发送到33\n啊大发送到发送到44\n啊大发送到发送到55\n啊大发送到发送到66
+      \n啊大发送到发送到啊大发送到发送到77\n啊大发送到发送到88\n啊大发送到发送到99\n啊大发送到发送到1010\n啊大发送到发送到1111\n啊大发送到发送到1212\n啊大发送到发送到1313
+\n啊大发送到发送到啊大发送到发送到1414\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到166\n啊大发送到发送到\n啊大发送到发送到\n啊大发送到发送到
+\n啊大发送到发送到啊大发送到发送到\n啊大发送到发送到15\n啊大发送到发送到\n啊大发送到454发送到\n啊大发送到发送到\n啊大发送78到发送到\n啊大发送到发送到
+\n啊大发送到发送到啊78大发送到发送到\n啊大发送到发78送到\n啊大发送到发送到\n啊大发送78778到发送到\n啊大发送到发送到\n啊大;l发送到发送到\n啊大kj发送到发送到
+\n啊大发送到发送到啊kk大发送到发送到\n啊大发送kjk到发送到\n啊大发送到jk发送到\n啊大发送到发送到\n啊大发送到adsf发送到\n啊大发送dfasd到发送到\n啊大ad发送到发送到
+\n啊大发送到vsdfg发送到啊大发送到发送到\n啊大发送到sdfg发送到\n啊大发送到发qwe送到\n啊大发送dfsd到发送到\n啊大发dsfasdfsd送到发送到\n啊大adfdf发送到发送到\n啊大发送到asdfds发送到"
+      app:receive_move_event="true" />
 </LinearLayout>

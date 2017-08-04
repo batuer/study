@@ -22,5 +22,9 @@
     <attr name="layout_columnCount" format="integer" />
   </declare-styleable>
 
+  <declare-styleable name="ScrollTv">
+    <attr name="receive_move_event" format="boolean" />
+  </declare-styleable>
+
 
 </resources>

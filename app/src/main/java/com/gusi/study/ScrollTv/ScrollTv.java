@@ -1,12 +1,15 @@
 package com.gusi.study.ScrollTv;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 import android.widget.TextView;
+import com.gusi.study.R;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -15,22 +18,35 @@ import com.orhanobut.logger.Logger;
 public class ScrollTv extends TextView {
   private Scroller mScroller;
   private int mScaledTouchSlop;
+  private static final String DISPATCH = "Dispatch";
+  private static final String TOUCH = "DispatchTouch";
+  private final boolean mReceiveMoveEvent;
 
   public ScrollTv(Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
     mScroller = new Scroller(context);
     mScaledTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+    TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ScrollTv);
+    mReceiveMoveEvent = array.getBoolean(R.styleable.ScrollTv_receive_move_event, false);
+    array.recycle();
   }
 
-  @Override public boolean dispatchTouchEvent(MotionEvent event) {
-    Logger.w("dispatchTouchEvent: " + event);
-    return super.dispatchTouchEvent(event);
+  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    //MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE,MeasureSpec.EXACTLY);
+    //measure(widthMeasureSpec,);
+
+    int i = (1 << 30) - 1;
+    Logger.w("--:" + i);
+    int size = MeasureSpec.getSize(MeasureSpec.makeMeasureSpec(i, MeasureSpec.EXACTLY));
+    int size1 = MeasureSpec.getSize(MeasureSpec.makeMeasureSpec(i, MeasureSpec.AT_MOST));
+    int size2 = MeasureSpec.getSize(MeasureSpec.makeMeasureSpec(i, MeasureSpec.UNSPECIFIED));
+    Logger.w(size + ":--:" + size1 + ":--:" + size2);
   }
 
   private float mLastMoveY = 0;
 
   @Override public boolean onTouchEvent(MotionEvent event) {
-    Logger.w("onTouchEvent:" + event);
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         if (!mScroller.isFinished()) {
@@ -40,15 +56,15 @@ public class ScrollTv extends TextView {
         break;
       case MotionEvent.ACTION_MOVE:
         float currentY = event.getRawY();
-        Logger.i(mLastMoveY + ":--:" + currentY + ":--:" + mScaledTouchSlop);
+        Log.i(TOUCH, mLastMoveY + ":--:" + currentY + ":--:" + mScaledTouchSlop);
         if (Math.abs(mLastMoveY - currentY) > mScaledTouchSlop) {
           int scrollY = (int) (mLastMoveY - currentY);
           boolean topLimit = scrollY < 0 && (getScrollY() + scrollY) < getTop();//下拉界限
           boolean bottomLimit =
               scrollY > 0 && (scrollY + getScrollY() + getHeight()) > getBottom();//上拉界限
-          Logger.w(
-              currentY + ":--:" + mLastMoveY + ":--:" + getScrollY() + ":--:" + getTop() + ":--:"
-                  + getBottom() + ":--:" + getHeight());
+          Log.w(TOUCH, currentY + ":--mLastMoveY:" + mLastMoveY + ":--getScrollY:" + getScrollY()
+              + ":--getTop:" + getTop() + ":--getBottom:" + getBottom() + ":--getHeight:"
+              + getHeight() + ":--topLimit:" + topLimit + ":--bottomLimit:" + bottomLimit);
           if (topLimit) {
             scrollTo(0, getTop());
             return true;
@@ -66,6 +82,7 @@ public class ScrollTv extends TextView {
       case MotionEvent.ACTION_CANCEL:
         break;
     }
-    return super.onTouchEvent(event);
+    boolean b = super.onTouchEvent(event);
+    return mReceiveMoveEvent ? true : b;
   }
 }
