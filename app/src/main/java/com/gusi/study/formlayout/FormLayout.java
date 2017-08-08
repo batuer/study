@@ -249,13 +249,13 @@ public class FormLayout extends ViewGroup {
       int top = child.getTop();
       int bottom = child.getBottom();
       int right = child.getRight();
-      if (left <= 2){
+      if (left <= 2) {
         left = 3;
       }
-      if (top <= 2){
+      if (top <= 2) {
         top = 3;
       }
-      if ((screenWidth - right) <= 2){
+      if ((screenWidth - right) <= 2) {
 
       }
 
@@ -265,7 +265,8 @@ public class FormLayout extends ViewGroup {
       mDividerPath.lineTo(right + halfSize, top - halfSize);
       mDividerPath.lineTo(left - halfSize, top - halfSize);
 
-      Logger.w(left + ":--:" + right + ":--:" + top + ":--:" + bottom+":--:"+halfSize+":--:"+ screenWidth);
+      Logger.w(left + ":--:" + right + ":--:" + top + ":--:" + bottom + ":--:" + halfSize + ":--:"
+          + screenWidth);
     }
     canvas.drawPath(mDividerPath, mDividerPaint);
   }
@@ -298,6 +299,7 @@ public class FormLayout extends ViewGroup {
       rowCount = array.getInt(R.styleable.FormLayout_Layout_layout_rowCount, 1);
       columnIndex = array.getInt(R.styleable.FormLayout_Layout_layout_columnIndex, 0);
       columnCount = array.getInt(R.styleable.FormLayout_Layout_layout_columnCount, 1);
+      Logger.w(rowIndex + ":--:" + attrs);
       array.recycle();
     }
 

@@ -25,6 +25,22 @@
   <declare-styleable name="ScrollTv">
     <attr name="receive_move_event" format="boolean" />
   </declare-styleable>
+  <declare-styleable name="KeyBoardLayout">
+    <attr name="vertical_divide_space" format="dimension" />
+    <attr name="horizontal_divide_space" format="dimension" />
+    <attr name="divide_color" format="color" />
+    <attr name="column_count" format="integer" />
+    <attr name="row_count" format="integer" />
+    <attr name="width" format="dimension" />
+    <attr name="height" format="dimension" />
 
+  </declare-styleable>
+  <declare-styleable name="KeyBoardLayout_Child">
+    <attr name="rowIndex" format="integer" />
+    <attr name="columnIndex" format="integer" />
+    <attr name="vertical_span" format="integer" />
+    <attr name="horizontal_span" format="integer" />
+
+  </declare-styleable>
 
 </resources>
