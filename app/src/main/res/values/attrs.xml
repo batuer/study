@@ -33,7 +33,6 @@
     <attr name="row_count" format="integer" />
     <attr name="width" format="dimension" />
     <attr name="height" format="dimension" />
-
   </declare-styleable>
   <declare-styleable name="KeyBoardLayout_Child">
     <attr name="rowIndex" format="integer" />

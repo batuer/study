@@ -47,7 +47,8 @@
     <activity android:name=".drawable.DrawableActivity" />
     <activity android:name=".constraint.ConstraintActivity" />
     <activity android:name=".formlayout.FormActivity" />
-    <activity android:name=".ScrollTv.ScrollTvActivity"></activity>
+    <activity android:name=".ScrollTv.ScrollTvActivity" />
+    <activity android:name=".loading.LoadingActivity"></activity>
   </application>
 
 </manifest>

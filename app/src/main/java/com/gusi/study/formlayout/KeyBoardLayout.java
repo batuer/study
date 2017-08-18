@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.gusi.study.R;
@@ -98,13 +99,18 @@ public class KeyBoardLayout extends ViewGroup {
 
     public LayoutParams(Context c, AttributeSet attrs) {
       super(c, attrs);
-      TypedArray array = c.obtainStyledAttributes(attrs, R.styleable.KeyBoardLayout);
+      TypedArray array = c.obtainStyledAttributes(attrs, R.styleable.KeyBoardLayout_Child);
       mColumnIndex = array.getInt(R.styleable.KeyBoardLayout_Child_columnIndex, 0);
       mRowIndex = array.getInt(R.styleable.KeyBoardLayout_Child_rowIndex, 0);
       mHorizontalSpan = array.getInt(R.styleable.KeyBoardLayout_Child_horizontal_span, 1);
       mVerticalSpan = array.getInt(R.styleable.KeyBoardLayout_Child_vertical_span, 1);
-      Logger.i(attrs + ":--:" + mColumnIndex);
-      array.recycle();
+      Logger.e(attrs + ":--:" + mColumnIndex + ":--:" + mRowIndex);
+      for (int i = 0; i < array.getIndexCount(); i++) {
+        Log.e("FireIn", ":" + array.getIndex(i));
+      }
+      Log.e("FireIn", "" + array.getIndexCount()+":"+attrs.getAttributeCount());
+
+      //array.recycle();
     }
 
     public LayoutParams(ViewGroup.LayoutParams source) {

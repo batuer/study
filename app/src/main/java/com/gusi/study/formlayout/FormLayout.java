@@ -299,8 +299,6 @@ public class FormLayout extends ViewGroup {
       rowCount = array.getInt(R.styleable.FormLayout_Layout_layout_rowCount, 1);
       columnIndex = array.getInt(R.styleable.FormLayout_Layout_layout_columnIndex, 0);
       columnCount = array.getInt(R.styleable.FormLayout_Layout_layout_columnCount, 1);
-      Logger.w(rowIndex + ":--:" + attrs);
-      array.recycle();
     }
 
     public LayoutParams(@Px int width, @Px int height) {
