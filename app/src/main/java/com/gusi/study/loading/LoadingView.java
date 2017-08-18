@@ -32,8 +32,13 @@ public class LoadingView extends FrameLayout {
 
   public void show() {
     Activity context = (Activity) getContext();
-    ViewGroup decorView = (ViewGroup) context.getWindow().getDecorView();
+    final ViewGroup decorView = (ViewGroup) context.getWindow().getDecorView();
     decorView.addView(this);
+    postDelayed(new Runnable() {
+      @Override public void run() {
+        decorView.removeView(LoadingView.this);
+      }
+    }, 3000);
     //context.back
   }
 
@@ -54,7 +59,6 @@ public class LoadingView extends FrameLayout {
     Logger.w("----onTouch---------");
     return true;
   }
-
 
   @Override public boolean dispatchKeyEvent(KeyEvent event) {
     if (getVisibility() == VISIBLE && event.getKeyCode() == KeyEvent.KEYCODE_BACK) return true;
