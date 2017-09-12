@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22000000"
+    android:orientation="vertical"
+    tools:context="com.gusi.study.granzort.GranzortActivity">
+
+  <include layout="@layout/layout_tool_bar" />
+
+  <com.gusi.study.granzort.GranzortView
+  android:layout_width="300dp"
+  android:layout_height="300dp"
+  android:layout_gravity="center" />
+
+  <!--<com.gusi.study.granzort.GranzortView1-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_gravity="center"-->
+  <!--/>-->
+</LinearLayout>
