@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0.1333%p"
+    android:keyHeight="49dp"
+    android:keyWidth="24.9%p"
+    android:verticalGap="1px">
+  <Row>
+    <Key
+        android:codes="49"
+        android:keyEdgeFlags="left"
+        android:keyLabel="1" />
+    <Key
+        android:codes="50"
+        android:keyLabel="2" />
+    <Key
+        android:codes="51"
+        android:keyLabel="3" />
+    <Key
+        android:codes="-5"
+        android:iconPreview="@drawable/key_num_del_bg"
+        android:isRepeatable="true" />
+  </Row>
+  <Row>
+    <Key
+        android:codes="52"
+        android:keyEdgeFlags="left"
+        android:keyLabel="4" />
+    <Key
+        android:codes="53"
+        android:keyLabel="5" />
+    <Key
+        android:codes="54"
+        android:keyLabel="6" />
+    <Key
+        android:codes="-10010"
+        android:iconPreview="@drawable/key_num_done_bg"
+        android:keyHeight="148dp"
+        android:keyLabel="确定" />
+  </Row>
+  <Row android:horizontalGap="1px">
+    <Key
+        android:codes="55"
+        android:keyEdgeFlags="left"
+        android:keyLabel="7" />
+    <Key
+        android:codes="56"
+        android:keyLabel="8" />
+    <Key
+        android:codes="57"
+        android:keyLabel="9" />
+  </Row>
+  <Row android:horizontalGap="1px">
+    <Key
+        android:codes="48"
+        android:keyEdgeFlags="left"
+        android:keyLabel="0"
+        android:keyWidth="49.9%p" />
+    <Key
+        android:codes="46"
+        android:keyLabel="." />
+  </Row>
+</Keyboard>
+
+    <!--<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:keyHeight="100dp"--><!--android:keyWidth="33.3%p">--><!--&lt;!&ndash;//每一个按钮高度，可以设置百分比&ndash;&gt;--><!--&lt;!&ndash;//这一个就是每一个按钮的宽度&ndash;&gt;-->
+
+    <!--<Row>--><!--<Key--><!--android:codes="10"--><!--android:keyLabel="1" />--><!--<Key--><!--android:codes="20"--><!--android:keyLabel="2" />--><!--<Key--><!--android:codes="30"--><!--android:keyLabel="3" />--><!--</Row>-->
+
+    <!--<Row>--><!--<Key--><!--android:codes="40"--><!--android:keyEdgeFlags="left"--><!--android:keyLabel="4"--><!--android:keyWidth="50%p" />--><!--<Key--><!--android:codes="OK"--><!--android:keyEdgeFlags="right"--><!--android:keyLabel="OK"--><!--android:keyOutputText="@string/app_name"--><!--android:keyWidth="50%p" />--><!--</Row>-->
+
+    <!--</Keyboard>-->

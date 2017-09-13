@@ -63,6 +63,13 @@
           android:layout_height="wrap_content"
           android:text="Granzort" />
 
+      <Button
+          android:id="@+id/btn_keyboard"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="KeyBoard" />
+
+
     </LinearLayout>
 
 

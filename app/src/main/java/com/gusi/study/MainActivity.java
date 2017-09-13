@@ -12,6 +12,7 @@ import com.gusi.study.drawable.DrawableActivity;
 import com.gusi.study.flow.FlowActivity;
 import com.gusi.study.formlayout.FormActivity;
 import com.gusi.study.granzort.GranzortActivity;
+import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
 import com.gusi.study.piechart.PieChartActivity;
 
@@ -56,6 +57,9 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_granzort) public void granzort(View view) {
     startActivity(new Intent(this, GranzortActivity.class));
+  }
+  @OnClick(R.id.btn_keyboard) public void keyboard(View view) {
+    startActivity(new Intent(this, KeyBoardActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
