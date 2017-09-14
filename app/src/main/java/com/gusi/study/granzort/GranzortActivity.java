@@ -8,7 +8,7 @@ public class GranzortActivity extends BaseActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    initToolBar(mToolbar, true, "Form");
+    initToolBar(mToolbar, true, "Granzort");
   }
 
   @Override protected int getLayout() {
