@@ -1,12 +1,19 @@
 package com.gusi.study.granzort;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathMeasure;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import com.gusi.study.R;
 
@@ -14,12 +21,93 @@ import com.gusi.study.R;
  * 作者：${ylw} on 2017-09-12 14:07
  */
 public class GranzortView1 extends View {
-
+  private static final String TAG = "Study";
   private Paint mPaint;
+  private Path mPath;
+  private PathMeasure mPathMeasure;
+
+  private int mState = 0;
+  private Path mDrawPath;
 
   public GranzortView1(Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
+  }
+
+  private Handler mHandler = new Handler(Looper.getMainLooper()) {
+    @Override public void handleMessage(Message msg) {
+      if (mState == 0) {
+        mState = 2;
+        valueAnimator.start();
+      } else if (mState == 2) {
+        mState = 1;
+        valueAnimator.start();
+      }
+    }
+  };
+
+  @Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+    super.onSizeChanged(w, h, oldw, oldh);
+    Log.w(TAG, "--onSizeChanged--");
     initPaint();
+    initPath();
+    initAnimator();
+    valueAnimator.start();
+  }
+
+  private ValueAnimator.AnimatorUpdateListener animatorUpdateListener;
+  private Animator.AnimatorListener animatorListener;
+  private float distance;
+  private ValueAnimator valueAnimator;
+
+  private void initAnimator() {
+    animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() {
+      @Override public void onAnimationUpdate(ValueAnimator animation) {
+        distance = (float) animation.getAnimatedValue();
+        invalidate();
+      }
+    };
+
+    animatorListener = new Animator.AnimatorListener() {
+      @Override public void onAnimationStart(Animator animation) {
+      }
+
+      @Override public void onAnimationEnd(Animator animation) {
+        mHandler.sendEmptyMessage(0);
+        // TODO: 2017-09-14  奇怪 必须用handler
+        Log.w(TAG, Thread.currentThread().getName() + "--" + mState);
+      }
+
+      @Override public void onAnimationCancel(Animator animation) {
+
+      }
+
+      @Override public void onAnimationRepeat(Animator animation) {
+        Log.w(TAG, Thread.currentThread().getName() + "-onAnimationRepeat-" + mState);
+      }
+    };
+
+    valueAnimator = ValueAnimator.ofFloat(0, 1).setDuration(3000);
+
+    valueAnimator.addUpdateListener(animatorUpdateListener);
+
+    valueAnimator.addListener(animatorListener);
+  }
+
+  private void initPath() {
+    mPath = new Path();
+    mPathMeasure = new PathMeasure();
+    mDrawPath = new Path();
+
+    int width = getMeasuredWidth();
+    int height = getMeasuredHeight();
+
+    mPath.moveTo(0, height / 2);//1起点
+    //path.quadTo (float x1, float y1, float x2, float y2)，
+    // 其中，x1/y1 对应上图 P1 点，称做控制点，x2/y2 对应 P2 点，就叫他终点把，P0点么就是当前 path 所在的起点。
+    mPath.quadTo(width / 2, 0, width, height / 2);
+    mPath.quadTo(width / 2, height, 0, height / 2);
+
+    mPathMeasure.setPath(mPath, false);
   }
 
   @Override protected void onDraw(Canvas canvas) {
@@ -134,29 +222,45 @@ public class GranzortView1 extends View {
     ////画图片，就是贴图
     //Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
     //canvas.drawBitmap(bitmap, 250,360, p);
-    int width = getMeasuredWidth();
-    int height = getMeasuredHeight();
 
-    mPaint.setColor(getResources().getColor(R.color.other));
-    mPaint.setStrokeWidth(10);
-    canvas.drawPoint(width / 2, 5, mPaint);//P1
-    canvas.drawPoint(width - 5, height / 2, mPaint);//P2
+    //贝塞尔曲线
+    //http://blog.csdn.net/ccy0122/article/details/77427795
 
-    mPaint.setStrokeWidth(5);
-    mPaint.setColor(Color.YELLOW);
-    mPaint.setStyle(Paint.Style.STROKE);
-    Path path = new Path();
-    path.moveTo(0, height / 2);//1起点
-    //path.quadTo (float x1, float y1, float x2, float y2)，
-    // 其中，x1/y1 对应上图 P1 点，称做控制点，x2/y2 对应 P2 点，就叫他终点把，P0点么就是当前 path 所在的起点。
-    path.quadTo(width / 2, 0, width, height / 2);
-    canvas.drawPath(path, mPaint);
+    //mPaint.setColor(getResources().getColor(R.color.other));
+    //mPaint.setStrokeWidth(10);
+    //canvas.drawPoint(width / 2, 5, mPaint);//P1
+    //canvas.drawPoint(width - 5, height / 2, mPaint);//P2
+    //
+    //mPaint.setStrokeWidth(5);
+    //mPaint.setColor(Color.YELLOW);
+    //mPaint.setStyle(Paint.Style.STROKE);
+    //Path path = new Path();
+    //path.moveTo(0, height / 2);//1起点
+    ////path.quadTo (float x1, float y1, float x2, float y2)，
+    //// 其中，x1/y1 对应上图 P1 点，称做控制点，x2/y2 对应 P2 点，就叫他终点把，P0点么就是当前 path 所在的起点。
+    //path.quadTo(width / 2, 0, width, height / 2);
+    //path.quadTo(width / 2, height, 0, height / 2);
+    //canvas.drawPath(path, mPaint);
+    mDrawPath.reset();
+    if (mState == 0 || mState == 2) {
+      //mPathMeasure.setPath(mPath, false);
+      float stopD = distance * mPathMeasure.getLength();
+      float startD = stopD - (0.5f - Math.abs(0.5f - distance)) * 200;
+      mPathMeasure.getSegment(startD, stopD, mDrawPath, true);
+      canvas.drawPath(mDrawPath, mPaint);
+    } else if (mState == 1) {
+      //path 是否自动闭合
+      //mPathMeasure.setPath(mPath, false);
+      float stop = distance * mPathMeasure.getLength();
+      mPathMeasure.getSegment(0, stop, mDrawPath, true);
+      canvas.drawPath(mDrawPath, mPaint);
+    }
   }
 
   private void initPaint() {
     mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     mPaint.setColor(getResources().getColor(R.color.other));
-    mPaint.setStyle(Paint.Style.FILL); //画笔风格  填充、描边、描边或填充
+    mPaint.setStyle(Paint.Style.STROKE); //画笔风格  填充、描边、描边或填充
     mPaint.setStrokeWidth(5);
     mPaint.setStrokeCap(Paint.Cap.ROUND);
     mPaint.setStrokeJoin(Paint.Join.BEVEL);
