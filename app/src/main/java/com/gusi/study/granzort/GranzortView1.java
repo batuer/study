@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +75,6 @@ public class GranzortView1 extends View {
       @Override public void onAnimationEnd(Animator animation) {
         mHandler.sendEmptyMessage(0);
         // TODO: 2017-09-14  奇怪 必须用handler
-        Log.w(TAG, Thread.currentThread().getName() + "--" + mState);
       }
 
       @Override public void onAnimationCancel(Animator animation) {
@@ -82,7 +82,6 @@ public class GranzortView1 extends View {
       }
 
       @Override public void onAnimationRepeat(Animator animation) {
-        Log.w(TAG, Thread.currentThread().getName() + "-onAnimationRepeat-" + mState);
       }
     };
 
@@ -91,6 +90,9 @@ public class GranzortView1 extends View {
     valueAnimator.addUpdateListener(animatorUpdateListener);
 
     valueAnimator.addListener(animatorListener);
+
+    //valueAnimator.setInterpolator(new DecelerateInterpolator());
+    valueAnimator.setInterpolator(new LinearOutSlowInInterpolator());
   }
 
   private void initPath() {
