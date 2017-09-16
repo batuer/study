@@ -182,7 +182,8 @@ public class KeyBoardLayout extends ViewGroup {
     mPath.reset();
     for (int i = 0; i < childCount; i++) {
       View child = getChildAt(i);
-      int left = child.getLeft();
+      int left = child.getLeft();//mLeft
+      child.getX();//mLeft + getTranslationX()
       int top = child.getTop();
       int bottom = child.getBottom();
       int right = child.getRight();
