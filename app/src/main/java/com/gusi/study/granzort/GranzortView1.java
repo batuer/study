@@ -12,10 +12,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
 import com.gusi.study.R;
 
 /**
@@ -64,6 +64,7 @@ public class GranzortView1 extends View {
     animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         distance = (float) animation.getAnimatedValue();
+        Log.w("PSIFireUpdate", "onAnimationUpdate: " + distance);
         invalidate();
       }
     };
@@ -92,7 +93,10 @@ public class GranzortView1 extends View {
     valueAnimator.addListener(animatorListener);
 
     //valueAnimator.setInterpolator(new DecelerateInterpolator());
-    valueAnimator.setInterpolator(new LinearOutSlowInInterpolator());
+    //valueAnimator.setInterpolator(new LinearOutSlowInInterpolator());
+    //valueAnimator.setInterpolator(new AnticipateOvershootInterpolator());
+    // TODO: 2017-09-19 http://inloop.github.io/interpolator/
+    valueAnimator.setInterpolator(new BounceInterpolator());
   }
 
   private void initPath() {
