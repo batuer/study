@@ -1,5 +1,6 @@
 package com.gusi.study.granzort;
 
+import android.util.Log;
 import android.view.animation.Interpolator;
 
 /**
@@ -7,11 +8,25 @@ import android.view.animation.Interpolator;
  */
 public class SpringInterpolator implements Interpolator {
   @Override public float getInterpolation(float input) {
+
     //factor = 0.4
     //pow(2, -10 * x) * sin() + 1
     float factor = 0.4f;
-    int PI = 1;
-    return (float) (Math.pow(2, -10 * input) * Math.sin((input - factor / 4) * (2 * PI) / factor)
-        + 1);
+    float v =
+        (float) (Math.pow(2, -10 * input) * Math.sin((input - factor / 4) * (2 * Math.PI) / factor)
+            + 1);
+
+    mXListener.getX(input, v);
+    return v;
+  }
+
+  public SpringInterpolator(XListener XListener) {
+    mXListener = XListener;
+  }
+
+  private XListener mXListener;
+
+  public interface XListener {
+    void getX(float x, float y);
   }
 }

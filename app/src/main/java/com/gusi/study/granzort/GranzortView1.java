@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.BounceInterpolator;
 import com.gusi.study.R;
 
 /**
@@ -64,7 +63,10 @@ public class GranzortView1 extends View {
     animatorUpdateListener = new ValueAnimator.AnimatorUpdateListener() {
       @Override public void onAnimationUpdate(ValueAnimator animation) {
         distance = (float) animation.getAnimatedValue();
-        Log.w("PSIFireUpdate", "onAnimationUpdate: " + distance);
+        long currentPlayTime = valueAnimator.getCurrentPlayTime();
+        Log.w("StudyAnim",
+            "onAnimationUpdate: " + distance + ":getCurrentPlayTime:" + currentPlayTime
+                + ":--getAnimatedFraction:" + valueAnimator.getAnimatedFraction());
         invalidate();
       }
     };
@@ -96,7 +98,12 @@ public class GranzortView1 extends View {
     //valueAnimator.setInterpolator(new LinearOutSlowInInterpolator());
     //valueAnimator.setInterpolator(new AnticipateOvershootInterpolator());
     // TODO: 2017-09-19 http://inloop.github.io/interpolator/
-    valueAnimator.setInterpolator(new BounceInterpolator());
+    //valueAnimator.setInterpolator(new BounceInterpolator());
+    valueAnimator.setInterpolator(new SpringInterpolator(new SpringInterpolator.XListener() {
+      @Override public void getX(float x, float y) {
+
+      }
+    }));
   }
 
   private void initPath() {

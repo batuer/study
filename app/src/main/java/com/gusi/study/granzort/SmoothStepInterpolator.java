@@ -12,7 +12,17 @@ public class SmoothStepInterpolator implements Interpolator {
     //x * x * (3 - 2 * x)
     float v = input * input * (3 - 2 * input);
     Log.w("PSIFireSmooth", "getInterpolation: " + v);
-
+    mListener.coordinate(input, v);
     return v;
+  }
+
+  public SmoothStepInterpolator(CoordinateListener listener) {
+    mListener = listener;
+  }
+
+  private CoordinateListener mListener;
+
+  public interface CoordinateListener {
+    void coordinate(float x, float y);
   }
 }
