@@ -59,7 +59,6 @@
         android:name=".floating.FloatService"
         android:enabled="true"
         android:exported="true"></service>
-    <activity android:name=".keyboard.KeyBoardActivity" />
     <activity android:name=".flippertv.FlipperTvActivity"></activity>
   </application>
 
