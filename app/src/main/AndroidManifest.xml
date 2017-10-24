@@ -50,7 +50,8 @@
     <activity android:name=".ScrollTv.ScrollTvActivity" />
     <activity android:name=".loading.LoadingActivity" />
     <activity android:name=".granzort.GranzortActivity" />
-    <activity android:name=".keyboard.KeyBoardActivity"></activity>
+    <activity android:name=".keyboard.KeyBoardActivity" />
+    <activity android:name=".flippertv.FlipperTvActivity"></activity>
   </application>
 
 </manifest>

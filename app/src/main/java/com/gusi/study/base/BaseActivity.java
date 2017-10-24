@@ -37,7 +37,9 @@ public abstract class BaseActivity extends AppCompatActivity {
       mBind.unbind();
     }
   }
+  protected void initView(){
 
+  }
   /**
    * 初始化 Toolbar
    */
