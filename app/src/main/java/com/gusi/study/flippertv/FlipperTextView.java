@@ -3,15 +3,13 @@ package com.gusi.study.flippertv;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.Nullable;
-import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.animation.AnimationSet;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 import com.gusi.study.R;
 
@@ -22,8 +20,8 @@ import com.gusi.study.R;
  */
 public class FlipperTextView extends TextView {
 
-  private Animation mInAnim;
-  private Animation mOutAnim;
+  private AnimationSet mInAnim;
+  private AnimationSet mOutAnim;
   private CharSequence[] mTexts;
   private int mTimeOut;
   private boolean mIsShow = false;
@@ -50,26 +48,40 @@ public class FlipperTextView extends TextView {
   }
 
   private void init(Context context, AttributeSet attrs) {
-    mInAnim = AnimationUtils.loadAnimation(context, R.anim.flipper_in);
-    mOutAnim = AnimationUtils.loadAnimation(context, R.anim.flipper_out);
 
     TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.FlipperTextView);
     int standingTime = array.getInteger(R.styleable.FlipperTextView_standing_time, 3000);
     mTexts = array.getTextArray(R.styleable.FlipperTextView_texts);
+    int animTime = array.getInteger(R.styleable.FlipperTextView_anim_time, 1000);
     array.recycle();
 
-    mTimeOut = (int) Math.abs(standingTime + mInAnim.getDuration());
-  }
+    int relativeToSelf = Animation.RELATIVE_TO_SELF;
+    Animation inTranAnim =
+        new TranslateAnimation(relativeToSelf, 0, relativeToSelf, 0, relativeToSelf, 1.0f,
+            relativeToSelf, 0);
+    Animation outTranAnim =
+        new TranslateAnimation(relativeToSelf, 0, relativeToSelf, 0, relativeToSelf, 0,
+            relativeToSelf, -1.0f);
 
-  @Override public void draw(Canvas canvas) {
-    super.draw(canvas);
-    String text = getText().toString();
+    //AlphaAnimation inAlphaAnim = new AlphaAnimation(0.0f, 1.0f);
+    //AlphaAnimation outAlphaAnim = new AlphaAnimation(1.0f, 0.0f);
 
-    TextPaint paint = getPaint();
-    Rect rect = new Rect();
-    paint.getTextBounds(text, 0, text.length(), rect);
+    mInAnim = new AnimationSet(true);
+    mOutAnim = new AnimationSet(true);
 
-    Log.w("Fire", getHeight() + "--draw--" + text + ":--:" + rect.height());
+    //mInAnim.addAnimation(inAlphaAnim);
+    mInAnim.addAnimation(inTranAnim);
+    //mOutAnim.addAnimation(outAlphaAnim);
+    mOutAnim.addAnimation(outTranAnim);
+
+    mInAnim.setDuration(animTime);
+    mOutAnim.setDuration(animTime);
+    mInAnim.setInterpolator(new LinearInterpolator());
+    mOutAnim.setInterpolator(new LinearInterpolator());
+
+    //AnimationSet animationSet = new AnimationSet(true);
+
+    mTimeOut = Math.abs(standingTime + animTime);
   }
 
   @Override protected void onDetachedFromWindow() {
@@ -89,6 +101,7 @@ public class FlipperTextView extends TextView {
   }
 
   private void pause() {
+    stopAnimation();
   }
 
   @Override public void startAnimation(Animation animation) {

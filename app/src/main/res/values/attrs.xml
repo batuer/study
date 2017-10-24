@@ -52,6 +52,7 @@
   <declare-styleable name="FlipperTextView">
     <attr name="texts" format="string" />
     <attr name="standing_time" format="integer" />
+    <attr name="anim_time" format="integer" />
   </declare-styleable>
   <declare-styleable name="fading_text_view">
     <attr name="texts1" format="string" />
