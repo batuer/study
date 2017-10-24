@@ -10,6 +10,7 @@ import com.gusi.study.base.BaseActivity;
 import com.gusi.study.constraint.ConstraintActivity;
 import com.gusi.study.drawable.DrawableActivity;
 import com.gusi.study.flippertv.FlipperTvActivity;
+import com.gusi.study.floating.FloatingActivity;
 import com.gusi.study.flow.FlowActivity;
 import com.gusi.study.formlayout.FormActivity;
 import com.gusi.study.granzort.GranzortActivity;
@@ -62,6 +63,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_keyboard) public void keyboard(View view) {
     startActivity(new Intent(this, KeyBoardActivity.class));
+  }
+
+  @OnClick(R.id.btn_float_ball) public void floatBall(View view) {
+    startActivity(new Intent(this, FloatingActivity.class));
   }
 
   @OnClick(R.id.btn_flipper) public void flipperTv(View view) {
