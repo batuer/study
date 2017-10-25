@@ -1,1 +1,1 @@
-include ':app', ':FlipperTv'
+include ':app', ':FlipperTv', ':app1', ':app2'
