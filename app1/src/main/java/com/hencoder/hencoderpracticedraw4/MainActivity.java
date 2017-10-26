@@ -8,8 +8,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
-
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
 
     pager = (ViewPager) findViewById(R.id.pager);
-    pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
+    final FragmentPagerAdapter adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
 
       @Override public Fragment getItem(int position) {
         PageModel pageModel = pageModels.get(position);
@@ -69,10 +72,60 @@ public class MainActivity extends AppCompatActivity {
       @Override public CharSequence getPageTitle(int position) {
         return getString(pageModels.get(position).titleRes);
       }
-    });
-
+    };
+    pager.setAdapter(adapter);
     tabLayout = (TabLayout) findViewById(R.id.tabLayout);
     tabLayout.setupWithViewPager(pager);
+
+    setupTabCustomView(adapter);
+
+    pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      @Override
+      public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        //Log.w("Fire", position + ":--:" + positionOffset + ":--:" + positionOffsetPixels);
+        TabLayout.Tab tab = tabLayout.getTabAt(position);
+        //((Tv) tab.getCustomView()).change(positionOffset);
+        FrameLayout itemTab = (FrameLayout) tab.getCustomView();
+        TextView tvBg = (TextView) itemTab.findViewById(R.id.tv_bg);
+        Log.w("FireScrolled",
+            position + ":--:" + itemTab.isSelected() + ":--:" + tvBg.isSelected());
+      }
+
+      @Override public void onPageSelected(int position) {
+
+      }
+
+      @Override public void onPageScrollStateChanged(int state) {
+
+      }
+    });
+    //pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    //  @Override
+    //  public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    //    Log.w("Fire", position + ":--:" + positionOffset + ":--:" + positionOffsetPixels);
+    //  }
+    //
+    //  @Override public void onPageSelected(int position) {
+    //
+    //  }
+    //
+    //  @Override public void onPageScrollStateChanged(int state) {
+    //
+    //  }
+    //});
+  }
+
+  private void setupTabCustomView(FragmentPagerAdapter adapter) {
+    int count = adapter.getCount();
+    LayoutInflater inflater = getLayoutInflater();
+    for (int i = 0; i < count; i++) {
+      TabLayout.Tab tab = tabLayout.getTabAt(i);
+      FrameLayout itemTab = (FrameLayout) inflater.inflate(R.layout.item_tab, null);
+      TextView tvBg = (TextView) itemTab.findViewById(R.id.tv_bg);
+      tab.setCustomView(itemTab);
+      tvBg.setText(adapter.getPageTitle(i) + "Item-------Item-------Item-------");
+      //((TextView) tab.getCustomView()).setText(adapter.getPageTitle(i)+"Item-------Item-------Item-------");
+    }
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {

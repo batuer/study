@@ -10,11 +10,11 @@
   <com.hencoder.hencoderpracticedraw4.Tv
       android:id="@+id/tv"
       android:layout_width="100dp"
-      android:layout_height="60dp"
+      android:layout_height="wrap_content"
       android:layout_gravity="center_horizontal"
       android:background="#22000000"
       android:gravity="center"
-      android:text="热点" />
+      android:text="热点阿打算发的所发生的发的dasfdas" />
 
   <SeekBar
       android:id="@+id/seekbar"
@@ -32,4 +32,21 @@
       android:textColor="#0ff"
       app:standing_time="3000"
       app:texts="@array/texts" />
+
+  <com.hencoder.hencoderpracticedraw4.Fl
+      android:id="@+id/fl"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:layout_margin="10dp"
+      android:layout_marginTop="20dp"
+      android:background="#33000000">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="啊大法师打发说大发送到发送到"
+        android:textColor="#0ff" />
+
+  </com.hencoder.hencoderpracticedraw4.Fl>
 </LinearLayout>
