@@ -7,12 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 /**
  * 作者：${ylw} on 2017-10-26 17:34
  */
-public class Fl extends FrameLayout {
+public class Fl extends LinearLayout {
   private boolean isChange;
 
   public Fl(@NonNull Context context) {

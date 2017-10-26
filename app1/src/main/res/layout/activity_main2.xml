@@ -39,14 +39,27 @@
       android:layout_height="100dp"
       android:layout_margin="10dp"
       android:layout_marginTop="20dp"
-      android:background="#33000000">
+      android:background="#33000000"
+      android:orientation="horizontal">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:background="#133"
         android:text="啊大法师打发说大发送到发送到"
         android:textColor="#0ff" />
 
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:background="#672"
+        android:text="啊大法师打发说大发送到发送到"
+        android:textColor="#6a2" />
   </com.hencoder.hencoderpracticedraw4.Fl>
 </LinearLayout>
