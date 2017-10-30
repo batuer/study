@@ -21,12 +21,10 @@ public class TodayTabLayout extends TabLayout {
   private int mBgColor;
   private int mTabTextAppearance;
 
-  public TodayTabLayout(Context context) {
-    super(context);
-  }
 
   public TodayTabLayout(Context context, AttributeSet attrs) {
     super(context, attrs);
+    init(context, attrs, 0);
   }
 
   public TodayTabLayout(Context context, AttributeSet attrs, int defStyleAttr) {

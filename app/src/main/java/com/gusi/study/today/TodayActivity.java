@@ -1,6 +1,5 @@
 package com.gusi.study.today;
 
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodayActivity extends BaseActivity {
-  @BindView(R.id.tabLayout) TabLayout mTabLayout;
+  @BindView(R.id.tabLayout) TodayTabLayout mTabLayout;
   @BindView(R.id.pager) ViewPager mViewPager;
 
   @Override protected int getLayout() {
@@ -37,7 +36,6 @@ public class TodayActivity extends BaseActivity {
       }
     };
     mViewPager.setAdapter(adapter);
-
     mTabLayout.setupWithViewPager(mViewPager);
   }
 

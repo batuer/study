@@ -57,6 +57,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Loading" />
+
       <Button
           android:id="@+id/btn_granzort"
           android:layout_width="match_parent"
@@ -68,6 +69,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="KeyBoard" />
+
       <Button
           android:id="@+id/btn_float_ball"
           android:layout_width="match_parent"
@@ -80,6 +82,11 @@
           android:layout_height="wrap_content"
           android:text="FlipperTv" />
 
+      <Button
+          android:id="@+id/btn_today_tablayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="TodayTabLayout" />
     </LinearLayout>
 
 

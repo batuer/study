@@ -17,6 +17,7 @@ import com.gusi.study.granzort.GranzortActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
 import com.gusi.study.piechart.PieChartActivity;
+import com.gusi.study.today.TodayActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -71,6 +72,9 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_flipper) public void flipperTv(View view) {
     startActivity(new Intent(this, FlipperTvActivity.class));
+  }
+  @OnClick(R.id.btn_today_tablayout) public void todayTabLayout(View view) {
+    startActivity(new Intent(this, TodayActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {

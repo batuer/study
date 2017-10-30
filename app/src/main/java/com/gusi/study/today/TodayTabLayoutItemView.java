@@ -1,13 +1,14 @@
 package com.gusi.study.today;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.TextViewCompat;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.gusi.study.R;
+import java.util.Random;
 
 /**
  * 作者：${ylw} on 2017-10-30 18:10
@@ -25,7 +26,8 @@ public class TodayTabLayoutItemView extends FrameLayout {
     super(context, attrs);
   }
 
-  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs,
+      int defStyleAttr) {
     super(context, attrs, defStyleAttr);
   }
 
@@ -38,9 +40,16 @@ public class TodayTabLayoutItemView extends FrameLayout {
   public void setAttrs(CharSequence text, int bgColor, int selectedColor, int tabTextAppearance) {
     mTvBg.setText(text);
     mTvPre.setText(text);
-    mTvBg.setTextColor(bgColor);
-    mTvPre.setTextColor(selectedColor);
-    TextViewCompat.setTextAppearance(mTvBg, tabTextAppearance);
-    TextViewCompat.setTextAppearance(mTvPre, tabTextAppearance);
+    mTvBg.setTextColor(Color.BLACK);
+    //mTvPre.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+    //TextViewCompat.setTextAppearance(mTvBg, tabTextAppearance);
+    //TextViewCompat.setTextAppearance(mTvPre, tabTextAppearance);
+    Random random = new Random();
+    int i = random.nextInt(5);
+    if (i > 2) {
+      mTvPre.setVisibility(VISIBLE);
+    } else {
+      mTvPre.setVisibility(GONE);
+    }
   }
 }
