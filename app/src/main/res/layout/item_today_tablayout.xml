@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.gusi.study.today.TodayTabLayoutItemView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.gusi.study.today.TodayTabItemView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,4 +16,4 @@
       android:gravity="center"
       android:textColor="@color/colorPrimary"
       android:visibility="gone" />
-</com.gusi.study.today.TodayTabLayoutItemView>
+</com.gusi.study.today.TodayTabItemView>

@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.SeekBar;
 import com.gusi.study.R;
 import java.util.Random;
 
@@ -15,7 +15,8 @@ import java.util.Random;
  */
 public class PageFragment extends Fragment {
 
-  private TextView mTvContent;
+  private ClipTextView mClipTv;
+  private SeekBar mSeekBar;
 
   public static PageFragment newInstance(String content) {
     Bundle args = new Bundle();
@@ -26,11 +27,10 @@ public class PageFragment extends Fragment {
   }
 
   @Nullable @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_pager, container, false);
-    mTvContent = (TextView) view.findViewById(R.id.tv_content);
-    //view.setBackgroundColor(Color.parseColor(getRandColor()));
+    mClipTv = (ClipTextView) view.findViewById(R.id.tv_content);
+    mSeekBar = (SeekBar) view.findViewById(R.id.seek_bar);
     return view;
   }
 
@@ -50,6 +50,21 @@ public class PageFragment extends Fragment {
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     String content = getArguments().getString("Content", "Null Content");
-    mTvContent.setText(content);
+    mClipTv.setText(content);
+
+    mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+      @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        float f = progress * 1.0f / 100;
+        mClipTv.clipPercent(f, 1);
+      }
+
+      @Override public void onStartTrackingTouch(SeekBar seekBar) {
+
+      }
+
+      @Override public void onStopTrackingTouch(SeekBar seekBar) {
+
+      }
+    });
   }
 }

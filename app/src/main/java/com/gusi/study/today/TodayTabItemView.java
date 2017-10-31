@@ -8,25 +8,24 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.gusi.study.R;
-import java.util.Random;
 
 /**
  * 作者：${ylw} on 2017-10-30 18:10
  */
-public class TodayTabLayoutItemView extends FrameLayout {
+public class TodayTabItemView extends FrameLayout {
 
   private TextView mTvBg;
   private ClipTextView mTvPre;
 
-  public TodayTabLayoutItemView(@NonNull Context context) {
+  public TodayTabItemView(@NonNull Context context) {
     super(context);
   }
 
-  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs) {
+  public TodayTabItemView(@NonNull Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
   }
 
-  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+  public TodayTabItemView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
   }
 
@@ -39,20 +38,17 @@ public class TodayTabLayoutItemView extends FrameLayout {
   public void setAttrs(CharSequence text, int bgColor, int selectedColor, int tabTextAppearance) {
     mTvBg.setText(text);
     mTvPre.setText(text);
+    mTvPre.setTextColor(Color.RED);
     mTvBg.setTextColor(Color.BLACK);
     //mTvPre.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
     //TextViewCompat.setTextAppearance(mTvBg, tabTextAppearance);
     //TextViewCompat.setTextAppearance(mTvPre, tabTextAppearance);
-    Random random = new Random();
-    int i = random.nextInt(5);
-    if (i > 2) {
-      mTvPre.setVisibility(VISIBLE);
-    } else {
-      mTvPre.setVisibility(GONE);
-    }
   }
 
-  public void clipPercent(float clipPercent) {
-    mTvPre.clipPercent(clipPercent);
+  public void clipPercent(float clipPercent,int direction) {
+    mTvPre.clipPercent(clipPercent,direction);
+  }
+  public void setSelectedChange(boolean selected) {
+    mTvPre.setSelectedChange(selected);
   }
 }

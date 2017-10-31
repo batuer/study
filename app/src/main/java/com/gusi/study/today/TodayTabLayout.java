@@ -9,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import com.gusi.study.R;
 
@@ -17,6 +16,7 @@ import com.gusi.study.R;
  * 作者：${ylw} on 2017-10-30 17:47
  */
 public class TodayTabLayout extends TabLayout {
+  private static final double MIN_SCROLL = 0.05;
   private ViewPager mViewPager;
   private int mSelectedColor;
   private int mBgColor;
@@ -70,29 +70,88 @@ public class TodayTabLayout extends TabLayout {
       LayoutInflater inflater = LayoutInflater.from(getContext());
       for (int i = 0; i < count; i++) {
         TabLayout.Tab tab = getTabAt(i);
-        TodayTabLayoutItemView itemTab =
-            (TodayTabLayoutItemView) inflater.inflate(R.layout.item_today_tablayout, null);
+        TodayTabItemView itemTab =
+            (TodayTabItemView) inflater.inflate(R.layout.item_today_tablayout, null);
         tab.setCustomView(itemTab);
         //
         itemTab.setAttrs(adapter.getPageTitle(i), mBgColor, mSelectedColor, mTabTextAppearance);
       }
+
+      //切换Tab ViewPager 不滑动
+      clearOnTabSelectedListeners();
+      addOnTabSelectedListener(new OnTabSelectedListener() {
+        @Override public void onTabSelected(Tab tab) {
+          int position = tab.getPosition();
+          mViewPager.setCurrentItem(position, false);
+        }
+
+        @Override public void onTabUnselected(Tab tab) {
+        }
+
+        @Override public void onTabReselected(Tab tab) {
+
+        }
+      });
     }
   }
 
   /**
-   *
+   * @author LC
    */
   private class PagerListener implements ViewPager.OnPageChangeListener {
+
+    private float mLastOffset = 0;
+    private int mLaseSelected = 0;
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-      Log.w("Fire", position + ":-onPageScrolled-:" + positionOffset);
-      TabLayout.Tab tab = getTabAt(position);
-      TodayTabLayoutItemView itemTab = (TodayTabLayoutItemView) tab.getCustomView();
-      itemTab.clipPercent(positionOffset);
+      if (positionOffset == 0 || positionOffset == 1) {
+        //unSelected
+        Tab unSelectedTab = getTabAt(mLaseSelected);
+        TodayTabItemView unSelectedItemTab = (TodayTabItemView) unSelectedTab.getCustomView();
+        unSelectedItemTab.setSelectedChange(false);
+        //selected
+        int selectedTabPosition = getSelectedTabPosition();
+        Tab selectedTab = getTabAt(selectedTabPosition);
+        TodayTabItemView selectedItemTab = (TodayTabItemView) selectedTab.getCustomView();
+        selectedItemTab.setSelectedChange(true);
+
+        mLaseSelected = selectedTabPosition;
+      } else {
+        float diffOffset = mLastOffset - positionOffset;
+        //Log.w("Fire", position + ":-offset:" + positionOffset + ":-:" + diffOffset);
+        if (positionOffset < MIN_SCROLL || (1 - positionOffset) < MIN_SCROLL
+            || Math.abs(diffOffset) > MIN_SCROLL) {
+          //mDiffOffset > 0  ViewPager 向左滑动(和手势相反)
+          if (diffOffset > 0) {
+            //position 是目标position
+            //当前的
+            TabLayout.Tab currentTab = getTabAt(position + 1);
+            TodayTabItemView itemTabCurrent = (TodayTabItemView) currentTab.getCustomView();
+            itemTabCurrent.clipPercent(positionOffset, ClipTextView.LEFT);
+            //前面的
+            TabLayout.Tab tabPre = getTabAt(position);
+            TodayTabItemView itemTabPre = (TodayTabItemView) tabPre.getCustomView();
+
+            itemTabPre.clipPercent(positionOffset, ClipTextView.RIGHT);
+          } else {
+            //ViewPager 向右滑动  position 是当前position
+            TabLayout.Tab tab = getTabAt(position);
+            TodayTabItemView itemTab = (TodayTabItemView) tab.getCustomView();
+            itemTab.clipPercent(positionOffset, ClipTextView.RIGHT);
+            //后边的
+            TabLayout.Tab tabRight = getTabAt(position + 1);
+            TodayTabItemView itemTabRight = (TodayTabItemView) tabRight.getCustomView();
+            itemTabRight.clipPercent(positionOffset, ClipTextView.LEFT);
+          }
+
+          mLastOffset = positionOffset;
+        }
+      }
     }
 
     @Override public void onPageSelected(int position) {
-      Log.w("Fire", position + ":-onPageSelected-:");
+
     }
 
     @Override public void onPageScrollStateChanged(int state) {
