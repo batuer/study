@@ -2,7 +2,6 @@ package com.gusi.study.today;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class ClipTextView extends TextView {
       //在 裁剪出去的画布上绘制
       canvas.save();
       canvas.clipRect(left, 0, right, height);
-      canvas.drawColor(Color.parseColor("#33000000"));
+      //canvas.drawColor(Color.parseColor("#33000000"));
       super.onDraw(canvas);
       canvas.restore();
     }

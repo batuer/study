@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import com.gusi.study.R;
 
@@ -78,20 +79,21 @@ public class TodayTabLayout extends TabLayout {
       }
 
       //切换Tab ViewPager 不滑动
-      clearOnTabSelectedListeners();
-      addOnTabSelectedListener(new OnTabSelectedListener() {
-        @Override public void onTabSelected(Tab tab) {
-          int position = tab.getPosition();
-          mViewPager.setCurrentItem(position, false);
-        }
+      //clearOnTabSelectedListeners();
+      //addOnTabSelectedListener(new OnTabSelectedListener() {
+      //  @Override public void onTabSelected(Tab tab) {
+      //    int position = tab.getPosition();
+      //    mViewPager.setCurrentItem(position, false);
+      //  }
+      //
+      //  @Override public void onTabUnselected(Tab tab) {
+      //  }
+      //
+      //  @Override public void onTabReselected(Tab tab) {
+      //
+      //  }
+      //});
 
-        @Override public void onTabUnselected(Tab tab) {
-        }
-
-        @Override public void onTabReselected(Tab tab) {
-
-        }
-      });
     }
   }
 
@@ -102,10 +104,15 @@ public class TodayTabLayout extends TabLayout {
 
     private float mLastOffset = 0;
     private int mLaseSelected = 0;
+    private int mLastScrollState = ViewPager.SCROLL_STATE_IDLE;
+
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-      if (positionOffset == 0 || positionOffset == 1) {
+
+      Log.e("FireScroll", mLastScrollState + ":-mLastScrollState-:" );
+
+      if ((positionOffset == 0 || positionOffset == 1)) {
         //unSelected
         Tab unSelectedTab = getTabAt(mLaseSelected);
         TodayTabItemView unSelectedItemTab = (TodayTabItemView) unSelectedTab.getCustomView();
@@ -117,9 +124,10 @@ public class TodayTabLayout extends TabLayout {
         selectedItemTab.setSelectedChange(true);
 
         mLaseSelected = selectedTabPosition;
-      } else {
+
+        mLastScrollState = ViewPager.SCROLL_STATE_IDLE;
+      } else if (mLastScrollState == ViewPager.SCROLL_STATE_DRAGGING) {
         float diffOffset = mLastOffset - positionOffset;
-        //Log.w("Fire", position + ":-offset:" + positionOffset + ":-:" + diffOffset);
         if (positionOffset < MIN_SCROLL || (1 - positionOffset) < MIN_SCROLL
             || Math.abs(diffOffset) > MIN_SCROLL) {
           //mDiffOffset > 0  ViewPager 向左滑动(和手势相反)
@@ -155,7 +163,9 @@ public class TodayTabLayout extends TabLayout {
     }
 
     @Override public void onPageScrollStateChanged(int state) {
-
+      if (state == ViewPager.SCROLL_STATE_DRAGGING) {
+        this.mLastScrollState = state;
+      }
     }
   }
 }
