@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import com.gusi.study.R;
 
@@ -20,7 +21,6 @@ public class TodayTabLayout extends TabLayout {
   private int mSelectedColor;
   private int mBgColor;
   private int mTabTextAppearance;
-
 
   public TodayTabLayout(Context context, AttributeSet attrs) {
     super(context, attrs);
@@ -85,11 +85,14 @@ public class TodayTabLayout extends TabLayout {
   private class PagerListener implements ViewPager.OnPageChangeListener {
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+      Log.w("Fire", position + ":-onPageScrolled-:" + positionOffset);
+      TabLayout.Tab tab = getTabAt(position);
+      TodayTabLayoutItemView itemTab = (TodayTabLayoutItemView) tab.getCustomView();
+      itemTab.clipPercent(positionOffset);
     }
 
     @Override public void onPageSelected(int position) {
-
+      Log.w("Fire", position + ":-onPageSelected-:");
     }
 
     @Override public void onPageScrollStateChanged(int state) {

@@ -26,8 +26,7 @@ public class TodayTabLayoutItemView extends FrameLayout {
     super(context, attrs);
   }
 
-  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs,
-      int defStyleAttr) {
+  public TodayTabLayoutItemView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
   }
 
@@ -51,5 +50,9 @@ public class TodayTabLayoutItemView extends FrameLayout {
     } else {
       mTvPre.setVisibility(GONE);
     }
+  }
+
+  public void clipPercent(float clipPercent) {
+    mTvPre.clipPercent(clipPercent);
   }
 }
