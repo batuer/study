@@ -24,7 +24,14 @@ public class ClipTextView extends TextView {
   }
 
   @Override protected void onDraw(Canvas canvas) {
+    int width = getWidth();
+    int height = getHeight();
+    //在 裁剪出去的画布上绘制
+    canvas.save();
+    canvas.clipRect(0, 0, width / 2, height);
     super.onDraw(canvas);
+    canvas.restore();
+
   }
 
   public void clip(int percent) {
