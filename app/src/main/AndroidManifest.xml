@@ -14,9 +14,13 @@
       android:label="@string/app_name"
       android:supportsRtl="true"
       android:theme="@style/BaseTheme">
+
+    <!-- //android:resizeableActivity="true" 分屏' -->
+
     <activity
         android:name=".MainActivity"
-        android:label="Study">
+        android:label="Study"
+        android:resizeableActivity="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -60,7 +64,8 @@
 
     <activity android:name=".flippertv.FlipperTvActivity" />
     <activity android:name=".singlepixel.SinglePixelActivity" />
-    <activity android:name=".today.TodayActivity"></activity>
+    <activity android:name=".today.TodayActivity" />
+    <activity android:name=".eventbus.EventBusActivity"></activity>
   </application>
 
 </manifest>

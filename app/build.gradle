@@ -52,6 +52,8 @@ dependencies {
   //  compile 'com.android.support:percent:25.3.0'
   //  compile 'com.android.support:percent:22.2.0'
   compile project(':FlipperTv')
+  compile 'org.greenrobot:eventbus:3.0.0'
+  //  compile 'com.gusi:HeadLineTab:1.0.1'
 }
 repositories {
   mavenCentral()

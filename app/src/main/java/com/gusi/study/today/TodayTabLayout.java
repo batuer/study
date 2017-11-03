@@ -109,9 +109,7 @@ public class TodayTabLayout extends TabLayout {
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
       Log.e("FireScroll", mLastScrollState + ":-mLastScrollState-:" );
-
       if ((positionOffset == 0 || positionOffset == 1)) {
         //unSelected
         Tab unSelectedTab = getTabAt(mLaseSelected);
