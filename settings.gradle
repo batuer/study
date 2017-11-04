@@ -1,1 +1,2 @@
-include ':app', ':FlipperTv', ':app1', ':app2', ':app5'
+//include ':app', ':app1', ':app2', ':app5'
+include ':app', ':app6'

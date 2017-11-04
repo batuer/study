@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-  <declare-styleable name="FlipperTextView">
-    <attr name="texts" format="string" />
-    <attr name="standing_time" format="integer" />
-    <attr name="anim_time" format="integer" />
-  </declare-styleable>
-</resources>

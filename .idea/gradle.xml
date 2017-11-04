@@ -8,11 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/FlipperTv" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app1" />
-            <option value="$PROJECT_DIR$/app2" />
-            <option value="$PROJECT_DIR$/app5" />
+            <option value="$PROJECT_DIR$/app6" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
