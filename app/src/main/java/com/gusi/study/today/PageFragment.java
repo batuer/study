@@ -3,11 +3,16 @@ package com.gusi.study.today;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SeekBar;
+import android.widget.TextView;
 import com.gusi.study.R;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -15,8 +20,7 @@ import java.util.Random;
  */
 public class PageFragment extends Fragment {
 
-  private ClipTextView mClipTv;
-  private SeekBar mSeekBar;
+  private RecyclerView mRcv;
 
   public static PageFragment newInstance(String content) {
     Bundle args = new Bundle();
@@ -28,10 +32,8 @@ public class PageFragment extends Fragment {
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_pager, container, false);
-    mClipTv = (ClipTextView) view.findViewById(R.id.tv_content);
-    mSeekBar = (SeekBar) view.findViewById(R.id.seek_bar);
-    return view;
+    mRcv = (RecyclerView) inflater.inflate(R.layout.fragment_pager, container, false);
+    return mRcv;
   }
 
   private String getRandColor() {
@@ -50,21 +52,38 @@ public class PageFragment extends Fragment {
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
     String content = getArguments().getString("Content", "Null Content");
-    mClipTv.setText(content);
+    final List<String> list = new ArrayList<>(20);
+    for (int i = 0; i < 20; i++) {
+      list.add(content + " : " + i);
+    }
 
-    mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-      @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        float f = progress * 1.0f / 100;
-        mClipTv.clipPercent(f, 1);
+    mRcv.setLayoutManager(new LinearLayoutManager(getContext()));
+    mRcv.setHasFixedSize(true);
+    final LayoutInflater inflater = LayoutInflater.from(getContext());
+
+    mRcv.setAdapter(new RecyclerView.Adapter<VH>() {
+      @Override public VH onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = inflater.inflate(android.R.layout.simple_list_item_1, null);
+        return new VH(view);
       }
 
-      @Override public void onStartTrackingTouch(SeekBar seekBar) {
-
+      @Override public void onBindViewHolder(VH holder, int position) {
+        holder.mTv.setText(list.get(position));
+        holder.mTv.setGravity(Gravity.CENTER);
       }
 
-      @Override public void onStopTrackingTouch(SeekBar seekBar) {
-
+      @Override public int getItemCount() {
+        return list.size();
       }
     });
+  }
+
+  class VH extends RecyclerView.ViewHolder {
+    private TextView mTv;
+
+    public VH(View itemView) {
+      super(itemView);
+      this.mTv = (TextView) itemView;
+    }
   }
 }

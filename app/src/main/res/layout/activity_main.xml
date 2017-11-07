@@ -87,6 +87,18 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="TodayTabLayout" />
+
+      <Button
+          android:id="@+id/btn_nested_scroll"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="NestedScroll" />
+
+      <Button
+          android:id="@+id/btn_rainbow"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Rainbow" />
     </LinearLayout>
 
 

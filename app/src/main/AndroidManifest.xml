@@ -65,7 +65,10 @@
     <activity android:name=".flippertv.FlipperTvActivity" />
     <activity android:name=".singlepixel.SinglePixelActivity" />
     <activity android:name=".today.TodayActivity" />
-    <activity android:name=".eventbus.EventBusActivity"></activity>
+    <activity android:name=".eventbus.EventBusActivity" />
+    <activity android:name=".nestedscroll.NestedScrollActivity" />
+    <activity android:name=".nestedscroll.NestedScroll1Activity" />
+    <activity android:name=".rainbow.RainbowActivity"></activity>
   </application>
 
 </manifest>

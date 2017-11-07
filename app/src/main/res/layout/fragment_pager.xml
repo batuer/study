@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rcv"
+    android:background="#0fffff"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-  <com.gusi.study.today.ClipTextView
-      android:id="@+id/tv_content"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_centerInParent="true"
-      android:layout_margin="10dp"
-      android:padding="10dp"
-      android:background="#44000000"
-      android:gravity="center"
-      android:text="content"
-      android:textColor="#0ff"
-      android:textSize="20sp" />
-
-  <SeekBar
-      android:id="@+id/seek_bar"
-      android:layout_width="match_parent"
-      android:layout_height="30dp"
-      android:layout_alignParentBottom="true"
-      android:layout_margin="10dp" />
-</RelativeLayout>
+    android:layout_height="match_parent" />
