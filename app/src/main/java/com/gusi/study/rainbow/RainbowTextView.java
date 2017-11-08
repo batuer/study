@@ -36,13 +36,37 @@ public class RainbowTextView extends TextView {
     super(context, attrs, defStyleAttr);
   }
 
+  @Override protected void onFinishInflate() {
+    super.onFinishInflate();
+  }
+
   @Override protected void onDraw(Canvas canvas) {
     Layout layout = getLayout();
     int height = layout.getHeight();
-    mGradient = new LinearGradient(0, 0, 0, height, mGradientColors, null, Shader.TileMode.REPEAT);
+    mGradient = new LinearGradient(0, 0, layout.getWidth(), height, mGradientColors, null,
+        Shader.TileMode.REPEAT);
 
     TextPaint paint = getPaint();
     paint.setShader(mGradient);
     super.onDraw(canvas);
+
+    exchangeOrder();
+  }
+
+
+  private void exchangeOrder() {
+    if (isAttachedToWindow()) {
+      postDelayed(new Runnable() {
+        @Override public void run() {
+          invalidate();
+        }
+      }, 1000);
+
+      int[] exchangeColors = new int[mGradientColors.length];
+      for (int len = mGradientColors.length, i = 0; i < len; i++) {
+        exchangeColors[i] = mGradientColors[(i + 1) == len ? 0 : (i + 1)];
+      }
+      mGradientColors = exchangeColors;
+    }
   }
 }

@@ -9,10 +9,41 @@
 
   <include layout="@layout/layout_tool_bar" />
 
-  <com.gusi.study.rainbow.RainbowTextView
+  <RelativeLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:padding="10dp"
-      android:text="啊大说大发送到发送到"
-      android:textSize="16sp" />
+      android:layout_height="match_parent">
+
+    <com.gusi.study.rainbow.RainbowTextView
+        android:id="@+id/tv_rainbow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:text="啊大说大发送到发送到"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/tv_rainbow"
+        android:background="#22000000" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/tv_rainbow"
+        android:background="#22000000" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_rainbow"
+        android:layout_toLeftOf="@+id/view2"
+        android:layout_toRightOf="@+id/view1"
+        android:background="#22000000" />
+  </RelativeLayout>
 </LinearLayout>
