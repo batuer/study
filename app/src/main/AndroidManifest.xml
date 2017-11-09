@@ -68,7 +68,8 @@
     <activity android:name=".eventbus.EventBusActivity" />
     <activity android:name=".nestedscroll.NestedScrollActivity" />
     <activity android:name=".nestedscroll.NestedScroll1Activity" />
-    <activity android:name=".rainbow.RainbowActivity"></activity>
+    <activity android:name=".rainbow.RainbowActivity" />
+    <activity android:name=".vlayout.VLayoutActivity"></activity>
   </application>
 
 </manifest>

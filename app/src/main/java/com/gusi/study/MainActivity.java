@@ -20,6 +20,7 @@ import com.gusi.study.nestedscroll.NestedScrollActivity;
 import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.today.TodayActivity;
+import com.gusi.study.vlayout.VLayoutActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -86,6 +87,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_rainbow) public void rainbow(View view) {
     startActivity(new Intent(this, RainbowActivity.class));
+  }
+
+  @OnClick(R.id.btn_vlayout) public void vlayout(View view) {
+    startActivity(new Intent(this, VLayoutActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {

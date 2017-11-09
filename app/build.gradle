@@ -55,7 +55,10 @@ dependencies {
   compile 'org.greenrobot:eventbus:3.0.0'
   compile 'com.gusi:HeadLineTab:1.0.1'
   compile 'com.gusi:CircleShowTv:1.0.3'
-//  compile 'com.gusi.neontv:NeonTv:1.0.0'
+  //  compile 'com.gusi.neontv:NeonTv:1.0.0'
+  compile('com.alibaba.android:vlayout:1.2.2@aar') {
+    transitive = true
+  }
 }
 repositories {
   mavenCentral()
