@@ -25,6 +25,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Outline;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
@@ -460,6 +461,28 @@ public class CircleImageView extends ImageView {
       Rect bounds = new Rect();
       mBorderRect.roundOut(bounds);
       outline.setRoundRect(bounds, bounds.width() / 2.0f);
+    }
+  }
+
+  /**
+   * 为音乐图标设置三角形的 Outline。
+   */
+  @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP) class MusicOutlineProvider
+      extends ViewOutlineProvider {
+    Path path = new Path();
+
+    //{
+    //  path.moveTo(0, dpToPixel(10));
+    //  path.lineTo(dpToPixel(7), dpToPixel(2));
+    //  path.lineTo(dpToPixel(116), dpToPixel(58));
+    //  path.lineTo(dpToPixel(116), dpToPixel(70));
+    //  path.lineTo(dpToPixel(7), dpToPixel(128));
+    //  path.lineTo(0, dpToPixel(120));
+    //  path.close();
+    //}
+
+    @Override public void getOutline(View view, Outline outline) {
+      outline.setConvexPath(path);
     }
   }
 }
