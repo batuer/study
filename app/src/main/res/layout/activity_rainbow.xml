@@ -4,46 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#22000000"
     android:orientation="vertical"
     tools:context="com.gusi.study.rainbow.RainbowActivity">
 
   <include layout="@layout/layout_tool_bar" />
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
 
-    <com.gusi.study.rainbow.RainbowTextView
-        android:id="@+id/tv_rainbow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:padding="10dp"
-        android:gravity="center_horizontal"
-        android:text="啊大说大发送到发送到"
-        android:textSize="20sp" />
+  <com.gusi.study.rainbow.RainbowTextView
+      android:id="@+id/tv_rainbow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_margin="10dp"
+      android:padding="10dp"
+      android:gravity="center_horizontal"
+      android:text="啊大说大发送到发送到"
+      android:textSize="20sp" />
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toLeftOf="@+id/tv_rainbow"
-        android:background="#22000000" />
+  <com.gusi.study.widget.CircleImageView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginTop="10dp"
+      android:background="@color/white"
+      android:src="@mipmap/ic_img"
+      />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/tv_rainbow"
-        android:background="#22000000" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tv_rainbow"
-        android:layout_toLeftOf="@+id/view2"
-        android:layout_toRightOf="@+id/view1"
-        android:background="#22000000" />
-  </RelativeLayout>
+  <ImageView
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginTop="10dp"
+      android:background="@color/white"
+      android:src="@mipmap/ic_img" />
 </LinearLayout>
