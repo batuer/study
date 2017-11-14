@@ -22,9 +22,14 @@
         android:src="@mipmap/ic_img" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#0ff" />
+    android:id="@+id/rcv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0ff" />
+    <!--<ListView-->
+    <!--android:id="@+id/lv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:dividerHeight="2dp" />-->
   </com.gusi.study.nestedscroll.ScrollParent>
 </LinearLayout>

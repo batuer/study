@@ -19,6 +19,7 @@ public class NestedScroll1Activity extends BaseActivity {
   @BindView(R.id.rcv) RecyclerView mRcv;
   private List<String> mList;
   private LayoutInflater mInflater;
+  //@BindView(R.id.lv) ListView mLv;
 
   @Override protected int getLayout() {
     return R.layout.activity_nested_scroll1;
@@ -34,6 +35,28 @@ public class NestedScroll1Activity extends BaseActivity {
     for (int i = 0; i < 20; i++) {
       mList.add("Item : " + i);
     }
+    //mLv.setAdapter(new BaseAdapter() {
+    //  @Override public int getCount() {
+    //    return mList.size();
+    //  }
+    //
+    //  @Override public Object getItem(int position) {
+    //    return mList.get(position);
+    //  }
+    //
+    //  @Override public long getItemId(int position) {
+    //    return position;
+    //  }
+    //
+    //  @Override public View getView(int position, View convertView, ViewGroup parent) {
+    //    if (convertView == null) {
+    //      convertView = mInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+    //    }
+    //    TextView tv = (TextView) convertView;
+    //    tv.setText(mList.get(position));
+    //    return convertView;
+    //  }
+    //});
 
     mRcv.setLayoutManager(new LinearLayoutManager(this));
     mRcv.setAdapter(new Adapter());
