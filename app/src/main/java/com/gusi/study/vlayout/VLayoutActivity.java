@@ -192,7 +192,7 @@ public class VLayoutActivity extends BaseActivity {
     onePlusNLayoutHelper.setMargin(20, 20, 20, 20);// 设置LayoutHelper边缘相对父控件（即RecyclerView）的距离
     onePlusNLayoutHelper.setBgColor(Color.GRAY);// 设置背景颜色
     onePlusNLayoutHelper.setAspectRatio(3);// 设置设置布局内每行布局的宽与高的比
-
+    //onePlusNLayoutHelper.setColWeights(new float[] { 20f, 80f, 0f, 60f, 20f });
     return onePlusNLayoutHelper;
   }
 

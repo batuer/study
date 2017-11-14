@@ -16,12 +16,15 @@ import com.gusi.study.formlayout.FormActivity;
 import com.gusi.study.granzort.GranzortActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
-import com.gusi.study.nestedscroll.NestedScrollActivity;
+import com.gusi.study.nestedscroll.NestedScroll1Activity;
 import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.today.TodayActivity;
 import com.gusi.study.vlayout.VLayoutActivity;
 
+/**
+ * @author ylw   2017-11-14 16:03
+ */
 public class MainActivity extends BaseActivity {
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +85,7 @@ public class MainActivity extends BaseActivity {
   }
 
   @OnClick(R.id.btn_nested_scroll) public void nestedScroll(View view) {
-    startActivity(new Intent(this, NestedScrollActivity.class));
+    startActivity(new Intent(this, NestedScroll1Activity.class));
   }
 
   @OnClick(R.id.btn_rainbow) public void rainbow(View view) {
