@@ -1,49 +1,48 @@
-package com.gusi.study.today;
+package com.gusi.study.nestedscroll;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import butterknife.BindView;
+import com.gusi.headline.HeadLineTabLayout;
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
-import java.util.ArrayList;
-import java.util.List;
+import com.gusi.study.today.PageFragment;
 
-public class TodayActivity extends BaseActivity {
-  @BindView(R.id.tabLayout) TodayTabLayout mTabLayout;
-  @BindView(R.id.pager) ViewPager mViewPager;
+/**
+ * @author
+ * @Date
+ */
+public class NestedScrollActivity extends BaseActivity {
+  @BindView(R.id.tabLayout1) HeadLineTabLayout mTabLayout;
+  @BindView(R.id.view_pager) ViewPager mViewPager;
+  String[] titles = { "保障", "家人", "首页", "我的", "药丸", "简介" };
 
   @Override protected int getLayout() {
-    return R.layout.activity_today;
+    return R.layout.activity_nested_scroll;
   }
 
   @Override protected void initView() {
-    initToolBar(mToolbar, true, "Today");
-    final List<String> data = initData();
+    super.initView();
+    initToolBar(mToolbar, true, "NestedScroll");
+
     final FragmentPagerAdapter adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
 
       @Override public Fragment getItem(int position) {
 
-        return PageFragment.newInstance(data.get(position));
+        return PageFragment.newInstance(titles[position]);
       }
 
       @Override public int getCount() {
-        return 1;
+        return titles.length;
       }
 
       @Override public CharSequence getPageTitle(int position) {
-        return data.get(position);
+        return titles[position];
       }
     };
+
     mViewPager.setAdapter(adapter);
     mTabLayout.setupWithViewPager(mViewPager);
-  }
-
-  private List<String> initData() {
-    ArrayList<String> list = new ArrayList<>(15);
-    for (int i = 0; i < 15; i++) {
-      list.add("Item: " + i);
-    }
-    return list;
   }
 }

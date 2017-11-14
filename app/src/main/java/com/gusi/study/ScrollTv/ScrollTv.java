@@ -1,7 +1,6 @@
 package com.gusi.study.ScrollTv;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -9,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
 import android.widget.TextView;
-import com.gusi.study.R;
 import com.orhanobut.logger.Logger;
 
 /**
@@ -20,15 +18,11 @@ public class ScrollTv extends TextView {
   private int mScaledTouchSlop;
   private static final String DISPATCH = "Dispatch";
   private static final String TOUCH = "DispatchTouch";
-  private final boolean mReceiveMoveEvent;
 
   public ScrollTv(Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
     mScroller = new Scroller(context);
     mScaledTouchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-    TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ScrollTv);
-    mReceiveMoveEvent = array.getBoolean(R.styleable.ScrollTv_receive_move_event, false);
-    array.recycle();
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -81,8 +75,10 @@ public class ScrollTv extends TextView {
       case MotionEvent.ACTION_UP:
       case MotionEvent.ACTION_CANCEL:
         break;
+      default:
+        break;
     }
     boolean b = super.onTouchEvent(event);
-    return mReceiveMoveEvent ? true : b;
+    return true;
   }
 }
