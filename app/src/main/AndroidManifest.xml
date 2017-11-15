@@ -69,7 +69,11 @@
     <activity android:name=".nestedscroll.NestedScrollActivity" />
     <activity android:name=".nestedscroll.NestedScroll1Activity" />
     <activity android:name=".rainbow.RainbowActivity" />
-    <activity android:name=".vlayout.VLayoutActivity"></activity>
+    <activity android:name=".vlayout.VLayoutActivity" />
+    <activity
+        android:name=".nestedscroll.ScrollingActivity"
+        android:label="@string/title_activity_scrolling"
+        android:theme="@style/BaseTheme"></activity>
   </application>
 
 </manifest>

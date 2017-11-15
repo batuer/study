@@ -17,6 +17,7 @@ import com.gusi.study.granzort.GranzortActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
 import com.gusi.study.nestedscroll.NestedScroll1Activity;
+import com.gusi.study.nestedscroll.ScrollingActivity;
 import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.today.TodayActivity;
@@ -86,6 +87,9 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_nested_scroll) public void nestedScroll(View view) {
     startActivity(new Intent(this, NestedScroll1Activity.class));
+  }
+  @OnClick(R.id.btn_scroll) public void scroll(View view) {
+    startActivity(new Intent(this, ScrollingActivity.class));
   }
 
   @OnClick(R.id.btn_rainbow) public void rainbow(View view) {
