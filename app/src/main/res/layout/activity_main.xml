@@ -109,6 +109,11 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="VLayout" />
+      <Button
+          android:id="@+id/btn_span"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Span" />
     </LinearLayout>
 
 
