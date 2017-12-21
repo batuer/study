@@ -7,6 +7,7 @@ import android.view.View;
 import butterknife.OnClick;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
+import com.gusi.study.constraint.Constraint1Activity;
 import com.gusi.study.constraint.ConstraintActivity;
 import com.gusi.study.drawable.DrawableActivity;
 import com.gusi.study.flippertv.FlipperTvActivity;
@@ -52,6 +53,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_constraint) public void constraint(View view) {
     startActivity(new Intent(this, ConstraintActivity.class));
+  }
+
+  @OnClick(R.id.btn_constraint1) public void constraint1(View view) {
+    startActivity(new Intent(this, Constraint1Activity.class));
   }
 
   @OnClick(R.id.btn_form) public void formLayout(View view) {

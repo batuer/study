@@ -7,7 +7,7 @@ import com.gusi.study.base.BaseActivity;
 
 /**
  * @author ylw
- * @Date 
+ * @Date
  */
 public class ConstraintActivity extends BaseActivity {
 

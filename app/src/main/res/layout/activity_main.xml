@@ -39,6 +39,11 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Constraint" />
+      <Button
+          android:id="@+id/btn_constraint1"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Constraint1" />
 
       <Button
           android:id="@+id/btn_form"

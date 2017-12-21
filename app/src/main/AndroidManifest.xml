@@ -74,7 +74,8 @@
         android:name=".nestedscroll.ScrollingActivity"
         android:label="@string/title_activity_scrolling"
         android:theme="@style/BaseTheme" />
-    <activity android:name=".span.SpanActivity"></activity>
+    <activity android:name=".span.SpanActivity" />
+    <activity android:name=".constraint.Constraint1Activity"></activity>
   </application>
 
 </manifest>
