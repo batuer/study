@@ -75,7 +75,8 @@
         android:label="@string/title_activity_scrolling"
         android:theme="@style/BaseTheme" />
     <activity android:name=".span.SpanActivity" />
-    <activity android:name=".constraint.Constraint1Activity"></activity>
+    <activity android:name=".constraint.Constraint1Activity" />
+    <activity android:name=".threadlocal.ThreadLocalActivity"></activity>
   </application>
 
 </manifest>

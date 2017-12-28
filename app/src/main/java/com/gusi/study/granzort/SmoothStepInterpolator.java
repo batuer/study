@@ -11,7 +11,6 @@ public class SmoothStepInterpolator implements Interpolator {
   @Override public float getInterpolation(float input) {
     //x * x * (3 - 2 * x)
     float v = input * input * (3 - 2 * input);
-    Log.w("PSIFireSmooth", "getInterpolation: " + v);
     mListener.coordinate(input, v);
     return v;
   }

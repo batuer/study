@@ -22,6 +22,7 @@ import com.gusi.study.nestedscroll.ScrollingActivity;
 import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.span.SpanActivity;
+import com.gusi.study.threadlocal.ThreadLocalActivity;
 import com.gusi.study.today.TodayActivity;
 import com.gusi.study.vlayout.VLayoutActivity;
 
@@ -109,6 +110,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_span) public void span(View view) {
     startActivity(new Intent(this, SpanActivity.class));
+  }
+
+  @OnClick(R.id.btn_threadlocal) public void threadLocal(View view) {
+    startActivity(new Intent(this, ThreadLocalActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {

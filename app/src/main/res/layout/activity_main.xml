@@ -39,6 +39,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Constraint" />
+
       <Button
           android:id="@+id/btn_constraint1"
           android:layout_width="match_parent"
@@ -98,6 +99,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="NestedScroll" />
+
       <Button
           android:id="@+id/btn_scroll"
           android:layout_width="match_parent"
@@ -109,16 +111,24 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Rainbow" />
+
       <Button
           android:id="@+id/btn_vlayout"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="VLayout" />
+
       <Button
           android:id="@+id/btn_span"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Span" />
+
+      <Button
+          android:id="@+id/btn_threadlocal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="ThreadLocal" />
     </LinearLayout>
 
 
