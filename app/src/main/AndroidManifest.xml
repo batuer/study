@@ -76,7 +76,8 @@
         android:theme="@style/BaseTheme" />
     <activity android:name=".span.SpanActivity" />
     <activity android:name=".constraint.Constraint1Activity" />
-    <activity android:name=".threadlocal.ThreadLocalActivity"></activity>
+    <activity android:name=".threadlocal.ThreadLocalActivity" />
+    <activity android:name=".swipe.SwipeActivity"></activity>
   </application>
 
 </manifest>

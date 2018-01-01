@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2">
+
+  <com.gusi.study.swipe.SwipeView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="#41caec"
+      tools:context="com.gusi.study.swipe.SwipeActivity">
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_resume"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_resume"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="resume"
+        app:layout_constraintLeft_toRightOf="@+id/btn_stop"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_finger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_fingerprint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_swipe"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_finger"
+        app:layout_constraintRight_toRightOf="@+id/iv_finger"
+        app:layout_constraintTop_toTopOf="@+id/iv_finger" />
+
+
+  </com.gusi.study.swipe.SwipeView>
+
+
+  <com.gusi.study.swipe.SwipeView1
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:background="#82a3ac">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+      <Button
+          android:id="@+id/btn_stop1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="stop" />
+
+      <Button
+          android:id="@+id/btn_resume1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="resume" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_finger1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_fingerprint" />
+
+    <View
+        android:id="@+id/view_swipe_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@+id/iv_finger1"
+        android:layout_alignRight="@+id/iv_finger1"
+        android:layout_alignTop="@+id/iv_finger1"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/white" />
+  </com.gusi.study.swipe.SwipeView1>
+</LinearLayout>
