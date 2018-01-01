@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.LinearInterpolator;
@@ -28,6 +29,7 @@ public class SwipeView1 extends RelativeLayout implements View.OnClickListener {
       @Override public void onGlobalLayout() {
 
         times++;
+        Log.w("FireSwipeView1", "onGlobalLayout(): 33:");
         if (times == 2) {
           initAnimation();
           mAnimator.start();
@@ -70,6 +72,12 @@ public class SwipeView1 extends RelativeLayout implements View.OnClickListener {
 
   @Override protected void onAttachedToWindow() {
     super.onAttachedToWindow();
+    Log.w("FireSwipeView1", "onAttachedToWindow(): 73:");
+  }
+
+  @Override protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    Log.w("FireSwipeView1", "onDetachedFromWindow(): 79:");
   }
 
   @Override public void onClick(View v) {
@@ -82,4 +90,7 @@ public class SwipeView1 extends RelativeLayout implements View.OnClickListener {
         break;
     }
   }
+  //01-02 00:15:01.379 6472-6472/com.gusi.study W/FireSwipeView1: onAttachedToWindow(): 73:
+  //01-02 00:15:01.400 6472-6472/com.gusi.study W/FireSwipeView1: onGlobalLayout(): 33:
+  //01-02 00:15:01.425 6472-6472/com.gusi.study W/FireSwipeView1: onGlobalLayout(): 33:
 }
