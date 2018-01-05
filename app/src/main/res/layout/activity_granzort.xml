@@ -27,7 +27,8 @@
   <com.gusi.study.granzort.LineFrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_margin="10dp">
+      android:layout_margin="10dp"
+      android:background="@drawable/shape_out_line">
 
     <LinearLayout
         android:layout_width="match_parent"
