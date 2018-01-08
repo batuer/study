@@ -25,6 +25,7 @@ import com.gusi.study.span.SpanActivity;
 import com.gusi.study.swipe.SwipeActivity;
 import com.gusi.study.threadlocal.ThreadLocalActivity;
 import com.gusi.study.today.TodayActivity;
+import com.gusi.study.transparent.TransparentActivity;
 import com.gusi.study.vlayout.VLayoutActivity;
 
 /**
@@ -119,6 +120,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_swipe) public void Swipe(View view) {
     startActivity(new Intent(this, SwipeActivity.class));
+  }
+
+  @OnClick(R.id.btn_transparent) public void Transparent(View view) {
+    startActivity(new Intent(this, TransparentActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {

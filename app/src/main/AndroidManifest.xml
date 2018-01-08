@@ -78,7 +78,10 @@
     <activity android:name=".constraint.Constraint1Activity" />
     <activity android:name=".threadlocal.ThreadLocalActivity" />
     <activity android:name=".swipe.SwipeActivity" />
-    <activity android:name=".floating.Float1Activity"></activity>
+    <activity android:name=".floating.Float1Activity" />
+    <activity
+        android:name=".transparent.TransparentActivity"
+        ></activity>
   </application>
 
 </manifest>
