@@ -53,7 +53,9 @@
     <activity android:name=".formlayout.FormActivity" />
     <activity android:name=".ScrollTv.ScrollTvActivity" />
     <activity android:name=".loading.LoadingActivity" />
-    <activity android:name=".granzort.GranzortActivity" />
+    <activity
+        android:name=".granzort.GranzortActivity"
+        android:screenOrientation="portrait" />
     <activity android:name=".keyboard.KeyBoardActivity" />
     <activity android:name=".floating.FloatingActivity" />
 
@@ -79,9 +81,7 @@
     <activity android:name=".threadlocal.ThreadLocalActivity" />
     <activity android:name=".swipe.SwipeActivity" />
     <activity android:name=".floating.Float1Activity" />
-    <activity
-        android:name=".transparent.TransparentActivity"
-        ></activity>
+    <activity android:name=".transparent.TransparentActivity"></activity>
   </application>
 
 </manifest>
