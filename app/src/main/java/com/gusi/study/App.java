@@ -1,7 +1,7 @@
 package com.gusi.study;
 
 import android.app.Application;
-import com.gusi.study.utils.Utils;
+import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;

@@ -140,6 +140,11 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Transparent" />
+      <Button
+          android:id="@+id/btn_big_rcv"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="BigRcv" />
     </LinearLayout>
 
 

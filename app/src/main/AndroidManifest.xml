@@ -81,7 +81,10 @@
     <activity android:name=".threadlocal.ThreadLocalActivity" />
     <activity android:name=".swipe.SwipeActivity" />
     <activity android:name=".floating.Float1Activity" />
-    <activity android:name=".transparent.TransparentActivity"></activity>
+    <activity android:name=".transparent.TransparentActivity" />
+    <activity
+        android:name=".bigrcv.BigRcvActivity"
+        android:screenOrientation="portrait"></activity>
   </application>
 
 </manifest>

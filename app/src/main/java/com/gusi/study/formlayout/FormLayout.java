@@ -10,8 +10,8 @@ import android.support.annotation.Px;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import com.blankj.utilcode.util.ScreenUtils;
 import com.gusi.study.R;
-import com.gusi.study.utils.ScreenUtils;
 import com.orhanobut.logger.Logger;
 
 /**

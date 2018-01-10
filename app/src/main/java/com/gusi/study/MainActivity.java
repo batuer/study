@@ -7,6 +7,7 @@ import android.view.View;
 import butterknife.OnClick;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
+import com.gusi.study.bigrcv.BigRcvActivity;
 import com.gusi.study.constraint.Constraint1Activity;
 import com.gusi.study.constraint.ConstraintActivity;
 import com.gusi.study.drawable.DrawableActivity;
@@ -124,6 +125,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_transparent) public void Transparent(View view) {
     startActivity(new Intent(this, TransparentActivity.class));
+  }
+
+  @OnClick(R.id.btn_big_rcv) public void bigRcvClick() {
+    startActivity(new Intent(this, BigRcvActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
