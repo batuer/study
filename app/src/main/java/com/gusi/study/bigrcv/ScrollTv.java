@@ -53,7 +53,7 @@ public class ScrollTv extends TextView {
   }
 
   @Override public void layout(int l, int t, int r, int b) {
-    super.layout(l, t, SizeUtils.dp2px(300), b);
+    super.layout(l, t, SizeUtils.dp2px(200), b);
     mMaxScroll = getLayout().getWidth() - getWidth() + getPaddingRight();
   }
 }

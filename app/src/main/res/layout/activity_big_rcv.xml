@@ -22,13 +22,16 @@
 
   <com.gusi.study.bigrcv.BigRcvVg
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:paddingLeft="10dp"
+      android:paddingRight="10dp"
+      android:background="#22000000">
 
     <com.gusi.study.bigrcv.BigRcv
         android:id="@+id/rcv_big"
         android:layout_width="602dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="#22000000" />
+        android:layout_margin="20dp" />
   </com.gusi.study.bigrcv.BigRcvVg>
 </LinearLayout>
