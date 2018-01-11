@@ -64,7 +64,7 @@ public class BigRcvVg extends FrameLayout {
           int realScroll = 0;
           int scrollX = getScrollX();
           if (diffX > 0) { //View ← 移动
-            realScroll = Math.min(diffX, (mMaxScroll - scrollX + mMaxLeftMargin));
+            realScroll = Math.min(diffX, (mMaxScroll - scrollX));
           } else {
             realScroll = Math.max(diffX, -scrollX);
           }

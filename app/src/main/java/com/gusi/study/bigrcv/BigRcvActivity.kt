@@ -21,6 +21,10 @@ class BigRcvActivity : BaseActivity() {
         rcv_big.layoutManager = LinearLayoutManager(this@BigRcvActivity)
         rcv_big.setHasFixedSize(true)
         rcv_big.adapter = BigAdapter(initData())
+
+        rcv_big1.layoutManager = LinearLayoutManager(this@BigRcvActivity)
+        rcv_big1.setHasFixedSize(true)
+        rcv_big1.adapter = BigAdapter(initData())
     }
 
     private fun initData(): List<BigItem> {
