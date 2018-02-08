@@ -7,6 +7,7 @@ import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
 import butterknife.OnClick;
+import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
 import com.gusi.study.bigrcv.BigRcvActivity;
@@ -156,6 +157,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_canvas) public void canvasClick() {
     startActivity(new Intent(this, CanvasActivity.class));
+  }
+
+  @OnClick(R.id.btn_lottie) public void lottie() {
+    startActivity(new Intent(this, LottieActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
