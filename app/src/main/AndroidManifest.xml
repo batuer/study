@@ -84,7 +84,8 @@
     <activity android:name=".transparent.TransparentActivity" />
     <activity
         android:name=".bigrcv.BigRcvActivity"
-        android:screenOrientation="portrait"></activity>
+        android:screenOrientation="portrait" />
+    <activity android:name=".canvas.CanvasActivity"></activity>
   </application>
 
 </manifest>
