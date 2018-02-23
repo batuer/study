@@ -85,9 +85,10 @@
     <activity
         android:name=".bigrcv.BigRcvActivity"
         android:screenOrientation="portrait" />
-    <activity android:name=".canvas.CanvasActivity"></activity>
-        android:screenOrientation="portrait" />
-    <activity android:name=".Lottie.LottieActivity"></activity>
+    <activity android:name=".canvas.CanvasActivity" />
+    android:screenOrientation="portrait" />
+    <activity android:name=".Lottie.LottieActivity" />
+    <activity android:name=".dragshadow.DragShadowActivity"></activity>
   </application>
 
 </manifest>

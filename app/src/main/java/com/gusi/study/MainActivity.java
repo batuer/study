@@ -14,6 +14,7 @@ import com.gusi.study.bigrcv.BigRcvActivity;
 import com.gusi.study.canvas.CanvasActivity;
 import com.gusi.study.constraint.Constraint1Activity;
 import com.gusi.study.constraint.ConstraintActivity;
+import com.gusi.study.dragshadow.DragShadowActivity;
 import com.gusi.study.drawable.DrawableActivity;
 import com.gusi.study.flippertv.FlipperTvActivity;
 import com.gusi.study.floating.FloatingActivity;
@@ -161,6 +162,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_lottie) public void lottie() {
     startActivity(new Intent(this, LottieActivity.class));
+  }
+
+  @OnClick(R.id.btn_drag_shadow) public void dragShadow() {
+    startActivity(new Intent(this, DragShadowActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
