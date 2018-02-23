@@ -9,8 +9,10 @@ import android.util.Log;
 import android.view.DragEvent;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import com.gusi.study.R;
+import java.lang.reflect.Field;
 
 /**
  * @Author ylw  2018-02-23 10:56
@@ -23,6 +25,15 @@ public class DragShadowView extends ConstraintLayout {
   public DragShadowView(Context context, AttributeSet attrs) {
     super(context, attrs);
     setOnDragListener(new DragListener());
+    try {
+      Class<?> aClass = Class.forName(ViewDebug.class.getName());
+      Field field = aClass.getDeclaredField("DEBUG_DRAG");
+      field.setAccessible(true);
+      field.setBoolean(field, true);
+      //field.set(ViewDebug., true);
+    } catch (Exception e) {
+      Log.e("Fire", "DragShadowView:52行:" + e.toString());
+    }
   }
 
   @Override protected void onFinishInflate() {
