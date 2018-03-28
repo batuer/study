@@ -20,6 +20,7 @@ import com.gusi.study.flippertv.FlipperTvActivity;
 import com.gusi.study.floating.FloatingActivity;
 import com.gusi.study.flow.FlowActivity;
 import com.gusi.study.formlayout.FormActivity;
+import com.gusi.study.formlayout.horizontalweight.HorizontalWeightActivity;
 import com.gusi.study.granzort.GranzortActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
@@ -27,6 +28,7 @@ import com.gusi.study.nestedscroll.NestedScroll1Activity;
 import com.gusi.study.nestedscroll.ScrollingActivity;
 import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.rainbow.RainbowActivity;
+import com.gusi.study.screenshot.ScreenShotActivity;
 import com.gusi.study.span.SpanActivity;
 import com.gusi.study.swipe.SwipeActivity;
 import com.gusi.study.threadlocal.ThreadLocalActivity;
@@ -168,6 +170,14 @@ public class MainActivity extends BaseActivity {
     startActivity(new Intent(this, DragShadowActivity.class));
   }
 
+  @OnClick(R.id.btn_screen_shot) public void screenShot() {
+    startActivity(new Intent(this, ScreenShotActivity.class));
+  }
+
+  @OnClick(R.id.btn_horizontal_weight) public void horizontalWeight() {
+    startActivity(new Intent(this, HorizontalWeightActivity.class));
+  }
+
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_BACK) {
       moveTaskToBack(false);
@@ -175,14 +185,4 @@ public class MainActivity extends BaseActivity {
     }
     return super.onKeyDown(keyCode, event);
   }
-
-  /**
-   *
-   * @param content
-   * @param charUnit
-   * @param hanziUnit
-   * @param limit
-   * @return
-   */
-
 }

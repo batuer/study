@@ -160,6 +160,16 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="DragShadow" />
+      <Button
+          android:id="@+id/btn_screen_shot"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="ScreenShot" />
+      <Button
+          android:id="@+id/btn_horizontal_weight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="HorizontalWeight" />
     </LinearLayout>
 
 
