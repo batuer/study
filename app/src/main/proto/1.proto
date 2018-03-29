@@ -1,0 +1,9 @@
+syntax = "proto3";
+package tutorial;
+
+option java_package = "com.gusi.study.bean";
+option java_outer_classname = "LoginInfo";
+message Login {
+    string account = 1;
+    string password = 2;
+}
