@@ -45,6 +45,9 @@ android {
         srcDir 'src/main/proto'
         include '**/*.proto'
       }
+      java {
+        srcDir 'src/main/java'
+      }
     }
   }
 }
@@ -73,14 +76,12 @@ dependencies {
   //
   compile 'com.blankj:utilcode:1.11.0'
   compile 'com.airbnb.android:lottie:2.1.2'
-
   // 定义protobuf依赖，使用精简版
   compile "com.google.protobuf:protobuf-lite:3.0.0"
   compile('com.squareup.retrofit2:converter-protobuf:2.2.0') {
     exclude group: 'com.google.protobuf', module: 'protobuf-java'
   }
 }
-
 protobuf {
   protoc {
     artifact = 'com.google.protobuf:protoc:3.0.0'

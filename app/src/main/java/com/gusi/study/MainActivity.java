@@ -62,7 +62,8 @@ public class MainActivity extends BaseActivity {
     "".substring(0, 0);
   }
 
-  private Pair<Integer, Integer> getSubIndex(String content, int charUnit, int hanziUnit, int limit) {
+  private Pair<Integer, Integer> getSubIndex(String content, int charUnit, int hanziUnit,
+      int limit) {
     char[] chars = content.toCharArray();
     int allLength = 0;
     for (int len = chars.length, i = 0; i < len; i++) {
