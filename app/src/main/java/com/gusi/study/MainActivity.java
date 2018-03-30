@@ -27,6 +27,7 @@ import com.gusi.study.loading.LoadingActivity;
 import com.gusi.study.nestedscroll.NestedScroll1Activity;
 import com.gusi.study.nestedscroll.ScrollingActivity;
 import com.gusi.study.piechart.PieChartActivity;
+import com.gusi.study.protobuf.ProtobufActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.screenshot.ScreenShotActivity;
 import com.gusi.study.span.SpanActivity;
@@ -176,6 +177,10 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_horizontal_weight) public void horizontalWeight() {
     startActivity(new Intent(this, HorizontalWeightActivity.class));
+  }
+
+  @OnClick(R.id.btn_protobuf) public void protobuf() {
+    startActivity(new Intent(this, ProtobufActivity.class));
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
