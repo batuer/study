@@ -18,6 +18,7 @@
     <!-- //android:resizeableActivity="true" 分屏' -->
 
     <activity
+        android:persistableMode="persistAcrossReboots"
         android:name=".MainActivity"
         android:label="Study"
         android:resizeableActivity="true">
