@@ -71,8 +71,14 @@ public class HorizontalWeightBorderView extends ViewGroup {
         LayoutParams params = (LayoutParams) child.getLayoutParams();
         int childWidth = (int) (usableWidth * (float) params.weight / mWeightTotal);
         int widthSpec = MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY);
-        int heightSpec = heightMeasureSpec;
-        if (params.height != -1 &&  params.height != -2) {
+
+        int heightSpec = 0;
+        if (params.height == -2) {
+          //heightSpec = MeasureSpec.makeMeasureSpec((1 << 30 - 1), MeasureSpec.AT_MOST);
+          heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+        } else if (params.height == -1) {
+          heightSpec = heightMeasureSpec;
+        } else {
           heightSpec = MeasureSpec.makeMeasureSpec(params.height, MeasureSpec.EXACTLY);
         }
         child.measure(widthSpec, heightSpec);
