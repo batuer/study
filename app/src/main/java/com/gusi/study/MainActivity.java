@@ -2,8 +2,6 @@ package com.gusi.study;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
 import butterknife.OnClick;
@@ -35,7 +33,6 @@ import com.gusi.study.swipe.SwipeActivity;
 import com.gusi.study.threadlocal.ThreadLocalActivity;
 import com.gusi.study.today.TodayActivity;
 import com.gusi.study.transparent.TransparentActivity;
-import com.gusi.study.utils.HanziUtils;
 import com.gusi.study.vlayout.VLayoutActivity;
 
 /**
@@ -54,26 +51,6 @@ public class MainActivity extends BaseActivity {
 
   @OnClick(R.id.btn_pie_chart) public void pieChart(View view) {
     startActivity(new Intent(this, PieChartActivity.class));
-    String substring = "12".substring(0, 1);
-    Log.w("Fire", "MainActivity:51行:" + substring);
-    getSubIndex("12啊啊方", 12, 24, 10 * 12);
-    getSubIndex("1大方", 12, 24, 10 * 12);
-    Pair<Integer, Integer> pair = getSubIndex("11212啊啊大方", 12, 24, 10 * 12);
-    "".substring(0, 0);
-  }
-
-  private Pair<Integer, Integer> getSubIndex(String content, int charUnit, int hanziUnit,
-      int limit) {
-    char[] chars = content.toCharArray();
-    int allLength = 0;
-    for (int len = chars.length, i = 0; i < len; i++) {
-      char c = chars[i];
-      allLength += HanziUtils.isChinese(c) ? hanziUnit : charUnit;
-      if (allLength >= limit) {
-        return new Pair<>(allLength, i);
-      }
-    }
-    return new Pair<>(allLength, content.length());
   }
 
   @OnClick(R.id.btn_drawable) public void drawable(View view) {
