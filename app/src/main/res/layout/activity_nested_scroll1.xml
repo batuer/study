@@ -17,18 +17,18 @@
     <ImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_img" />
 
-    <!--<android.support.v7.widget.RecyclerView-->
-    <!--android:id="@+id/rcv"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:background="#0ff" />-->
-    <com.gusi.study.nestedscroll.ScrollLv
-        android:id="@+id/lv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rcv"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#0ff" />
+    <!--<com.gusi.study.nestedscroll.ScrollLv-->
+        <!--android:id="@+id/lv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
   </com.gusi.study.nestedscroll.ScrollParent>
 </LinearLayout>

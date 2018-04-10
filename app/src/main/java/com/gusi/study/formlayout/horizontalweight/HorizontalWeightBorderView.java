@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.blankj.utilcode.util.SizeUtils;
@@ -72,18 +71,18 @@ public class HorizontalWeightBorderView extends ViewGroup {
         LayoutParams params = (LayoutParams) child.getLayoutParams();
         int childWidth = (int) (usableWidth * (float) params.weight / mWeightTotal);
         int widthSpec = MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY);
+
         int heightSpec = 0;
-        // -2 wrap_content
-        // -1 match_parent
-        if (params.height == -1 || params.height == -2) {
+        if (params.height == -2) {
+          //heightSpec = MeasureSpec.makeMeasureSpec((1 << 30 - 1), MeasureSpec.AT_MOST);
+          heightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+        } else if (params.height == -1) {
           heightSpec = heightMeasureSpec;
         } else {
           heightSpec = MeasureSpec.makeMeasureSpec(params.height, MeasureSpec.EXACTLY);
         }
         child.measure(widthSpec, heightSpec);
-        int height = child.getMeasuredHeight();
-        Log.w("Fire", "HorizontalWeightBorderView:78行:" + height);
-        maxChildHeight = Math.max(maxChildHeight, height);
+        maxChildHeight = Math.max(maxChildHeight, child.getMeasuredHeight());
       }
       setMeasuredDimension(widthSize, maxChildHeight + mTopBorder + mBottomBorder);
     } else {
@@ -93,17 +92,6 @@ public class HorizontalWeightBorderView extends ViewGroup {
 
   @Override protected void onLayout(boolean changed, int l, int t, int r, int b) {
     int measuredHeight = getMeasuredHeight();
-    //float temp = (float) mBorder / 2;
-    //if (!mHideTopBorder) {
-    //  mBorderPath.moveTo(temp, temp);
-    //  mBorderPath.lineTo(measuredWidth - temp, temp);
-    //} else {
-    //  mBorderPath.moveTo(measuredWidth - temp, 0);
-    //}
-    //mBorderPath.lineTo(measuredWidth - temp, measuredHeight - temp);
-    //mBorderPath.lineTo(temp, measuredHeight - temp);
-    //mBorderPath.lineTo(temp, 0);
-
     //layout
     int count = getChildCount();
 
@@ -133,11 +121,6 @@ public class HorizontalWeightBorderView extends ViewGroup {
       }
       child.layout(startLeft, top, startLeft + childMeasuredWidth, bottom);
       startLeft = startLeft + childMeasuredWidth + mChildGap;
-
-      //if (i != count - 1) {
-      //  mBorderPath.moveTo(startLeft + temp, 0);
-      //  mBorderPath.lineTo(startLeft + temp, measuredHeight);
-      //}
     }
   }
 
@@ -145,7 +128,6 @@ public class HorizontalWeightBorderView extends ViewGroup {
     super.onDraw(canvas);
     int measuredWidth = getMeasuredWidth();
     int measuredHeight = getMeasuredHeight();
-
     if (mTopBorder > 0) {
       mBorderPath.reset();
       mBorderPath.moveTo(0, (float) mTopBorder / 2);

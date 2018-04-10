@@ -1,6 +1,5 @@
 package com.gusi.study.formlayout.horizontalweight;
 
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,9 @@ public class HorizontalWeightActivity extends BaseActivity {
   @Override protected void initView() {
     super.initView();
     initToolBar(mToolbar, true, "HorizontalWeight");
-    RecyclerView rcv = (RecyclerView) findViewById(R.id.rcv);
-    rcv.setLayoutManager(new LinearLayoutManager(this));
-    rcv.setAdapter(new Adapter());
+    //RecyclerView rcv = (RecyclerView) findViewById(R.id.rcv);
+    //rcv.setLayoutManager(new LinearLayoutManager(this));
+    //rcv.setAdapter(new Adapter());
   }
 
   class Adapter extends RecyclerView.Adapter<ViewHolder> {

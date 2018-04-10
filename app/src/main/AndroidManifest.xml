@@ -91,7 +91,8 @@
     <activity android:name=".Lottie.LottieActivity" />
     <activity android:name=".dragshadow.DragShadowActivity" />
     <activity android:name=".screenshot.ScreenShotActivity" />
-    <activity android:name=".formlayout.horizontalweight.HorizontalWeightActivity"></activity>
+    <activity android:name=".formlayout.horizontalweight.HorizontalWeightActivity" />
+    <activity android:name=".protobuf.ProtobufActivity"></activity>
   </application>
 
 </manifest>

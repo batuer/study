@@ -28,6 +28,7 @@ public class ScrollParent extends LinearLayout implements NestedScrollingParent 
   private int mMinimumVelocity;
   private int mMaximumVelocity;
   private View mView;
+  private int mTopIvH;
 
   public ScrollParent(Context context, @Nullable AttributeSet attrs) {
     super(context, attrs);
@@ -44,21 +45,8 @@ public class ScrollParent extends LinearLayout implements NestedScrollingParent 
   @Override protected void onFinishInflate() {
     super.onFinishInflate();
     mIv = (ImageView) findViewById(R.id.iv);
-    mView = findViewById(R.id.lv);
+    mView = findViewById(R.id.rcv);
     //mRcv = (RecyclerView) findViewById(R.id.rcv);
-  }
-
-  //定要按照自己的需求返回true，该方法决定了当前控件是否能接收到其内部View(非并非是直接子View)滑动时的参数；
-  // 假设你只涉及到纵向滑动，这里可以根据nestedScrollAxes这个参数，进行纵向判断。
-  @Override public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-    boolean b = (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
-    Log.e("FireScrollParent",
-        b + ":onStartNestedScroll():46行:" + child.getClass().getSimpleName() + ":"
-            + target.getClass().getSimpleName() + ":" + nestedScrollAxes);
-    if (nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL) {
-      return true;
-    }
-    return false;
   }
 
   @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -70,12 +58,20 @@ public class ScrollParent extends LinearLayout implements NestedScrollingParent 
     setMeasuredDimension(getMeasuredWidth(), mTopIvH + mView.getMeasuredHeight());
   }
 
-  private int mTopIvH;
+  //按照自己的需求返回true，该方法决定了当前控件是否能接收到其内部View(非并非是直接子View)滑动时的参数；
+  // 假设你只涉及到纵向滑动，这里可以根据nestedScrollAxes这个参数，进行纵向判断。
+  @Override public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
+    Log.e("FireScrollParent",
+        ":65行:" + child.getClass().getSimpleName() + ":" + target.getClass().getSimpleName() + ":"
+            + nestedScrollAxes);
+    return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL;
+  }
 
+  //onStartNestedScroll 返回true以后  接受处理
   @Override public void onNestedScrollAccepted(View child, View target, int nestedScrollAxes) {
     Log.e("FireScrollParent",
-        "onNestedScrollAccepted():64行:" + child.getClass().getSimpleName() + ":" + target.getClass()
-            .getSimpleName() + ":" + nestedScrollAxes);
+        "71行:" + child.getClass().getSimpleName() + ":" + target.getClass().getSimpleName() + ":"
+            + nestedScrollAxes);
     mParentHelper.onNestedScrollAccepted(child, target, nestedScrollAxes);
     //startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
   }
@@ -83,10 +79,14 @@ public class ScrollParent extends LinearLayout implements NestedScrollingParent 
   @Override public void onStopNestedScroll(View target) {
     Log.e("FireScrollParent", "onStopNestedScroll():69行:" + target.getClass().getSimpleName());
     //stopNestedScroll();
+    mParentHelper.onStopNestedScroll(target);
   }
 
+  //
   @Override
   public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
+    Log.w("Fire", "ScrollParent:87行:" + target.getClass().getSimpleName() + ':' + dyConsumed + ":"
+        + dyUnconsumed);
     //final int myConsumed = moveBy(dyUnconsumed);
     //final int myUnconsumed = dyUnconsumed - myConsumed;
     //dispatchNestedScroll(0, myConsumed, 0, myUnconsumed, null);
@@ -101,7 +101,7 @@ public class ScrollParent extends LinearLayout implements NestedScrollingParent 
       sb.append(consumed[i]);
     }
     sb.append("]");
-    Log.e("FireScrollParent", "onNestedPreScroll():86行:" + target + ":" + dy + ":" + sb.toString());
+    Log.e("FireScrollParent", "onNestedPreScroll():86行:" + target.getClass().getSimpleName() + ":" + dy + ":" + sb.toString());
 
     int scrollY = getScrollY();
     boolean hiddenTop = dy > 0 && scrollY < mTopIvH;

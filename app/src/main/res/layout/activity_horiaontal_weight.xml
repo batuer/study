@@ -22,10 +22,13 @@
         android:background="#8e234e"
         app:weight="3" />
 
-    <View
+    <TextView
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:background="#6969f5"
+        android:text="aaaa"
         app:weight="2" />
 
     <View
@@ -44,10 +47,10 @@
       android:layout_marginTop="10dp"
       android:background="@android:color/black" />
 
-  <android.support.v7.widget.RecyclerView
-      android:id="@+id/rcv"
-      android:layout_width="match_parent"
-      android:layout_height="200dp"
-      android:layout_marginLeft="10dp"
-      android:layout_marginRight="10dp" />
+  <!--<android.support.v7.widget.RecyclerView-->
+  <!--android:id="@+id/rcv"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="200dp"-->
+  <!--android:layout_marginLeft="10dp"-->
+  <!--android:layout_marginRight="10dp" />-->
 </LinearLayout>
