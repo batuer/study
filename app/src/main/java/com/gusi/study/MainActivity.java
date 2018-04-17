@@ -3,13 +3,11 @@ package com.gusi.study;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import butterknife.BindView;
-import com.blankj.utilcode.util.ScreenUtils;
 import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
@@ -60,8 +58,6 @@ public class MainActivity extends BaseActivity {
     mRcv.setLayoutManager(new LinearLayoutManager(this));
     mRcv.setHasFixedSize(true);
     mRcv.setAdapter(new Adapter());
-
-    Log.w("Fire", "MainActivity:62行:" + ScreenUtils.getScreenWidth());
   }
 
   private void initData() {
