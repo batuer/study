@@ -7,6 +7,9 @@
   <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
   <application
       android:name=".App"
       android:allowBackup="true"
@@ -20,6 +23,7 @@
     <activity
         android:name=".MainActivity"
         android:label="Study"
+        android:persistableMode="persistAcrossReboots"
         android:resizeableActivity="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -91,7 +95,8 @@
     <activity android:name=".dragshadow.DragShadowActivity" />
     <activity android:name=".screenshot.ScreenShotActivity" />
     <activity android:name=".formlayout.horizontalweight.HorizontalWeightActivity" />
-    <activity android:name=".protobuf.ProtobufActivity"></activity>
+    <activity android:name=".protobuf.ProtobufActivity" />
+    <activity android:name=".excel.ExcelActivity"></activity>
   </application>
 
 </manifest>

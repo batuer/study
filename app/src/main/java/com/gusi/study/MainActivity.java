@@ -1,10 +1,15 @@
 package com.gusi.study;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import butterknife.OnClick;
+import android.view.ViewGroup;
+import android.widget.Button;
+import butterknife.BindView;
+import com.blankj.utilcode.util.ScreenUtils;
 import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.base.BaseActivity;
@@ -14,6 +19,7 @@ import com.gusi.study.constraint.Constraint1Activity;
 import com.gusi.study.constraint.ConstraintActivity;
 import com.gusi.study.dragshadow.DragShadowActivity;
 import com.gusi.study.drawable.DrawableActivity;
+import com.gusi.study.excel.ExcelActivity;
 import com.gusi.study.flippertv.FlipperTvActivity;
 import com.gusi.study.floating.FloatingActivity;
 import com.gusi.study.flow.FlowActivity;
@@ -34,131 +40,190 @@ import com.gusi.study.threadlocal.ThreadLocalActivity;
 import com.gusi.study.today.TodayActivity;
 import com.gusi.study.transparent.TransparentActivity;
 import com.gusi.study.vlayout.VLayoutActivity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ylw   2017-11-14 16:03
  */
 public class MainActivity extends BaseActivity {
-
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    initToolBar(mToolbar, true, "Study");
-  }
+  @BindView(R.id.rcv) RecyclerView mRcv;
+  List<String> list = new ArrayList<>();
 
   @Override protected int getLayout() {
     return R.layout.activity_main;
   }
 
-  @OnClick(R.id.btn_pie_chart) public void pieChart(View view) {
-    startActivity(new Intent(this, PieChartActivity.class));
+  @Override protected void initView() {
+    initToolBar(mToolbar, true, "Study");
+    initData();
+    mRcv.setLayoutManager(new LinearLayoutManager(this));
+    mRcv.setHasFixedSize(true);
+    mRcv.setAdapter(new Adapter());
+
+    Log.w("Fire", "MainActivity:62行:" + ScreenUtils.getScreenWidth());
   }
 
-  @OnClick(R.id.btn_drawable) public void drawable(View view) {
-    startActivity(new Intent(this, DrawableActivity.class));
+  private void initData() {
+    list.add("PieChartView");
+    list.add("Drawable");
+    list.add("FlowLayout");
+    list.add("Constraint");
+    list.add("Constraint1");
+    list.add("FormLayout");
+    list.add("ScrollTv");
+    list.add("Loading");
+    list.add("Granzort");
+    list.add("KeyBoard");
+    list.add("FloatBall");
+    list.add("FlipperTv");
+    list.add("TodayTabLayout");
+    list.add("NestedScroll");
+    list.add("Scroll");
+    list.add("Rainbow");
+    list.add("VLayout");
+    list.add("Span");
+
+    list.add("ThreadLocal");
+    list.add("Swipe");
+    list.add("Transparent");
+    list.add("BigRcv");
+    list.add("Canvas");
+    list.add("Lottie");
+    list.add("DragShadow");
+    list.add("ScreenShot");
+    list.add("HorizontalWeight");
+    list.add("Protobuf");
+    list.add("Excel");
   }
 
-  @OnClick(R.id.btn_flow) public void flowLayout(View view) {
-    startActivity(new Intent(this, FlowActivity.class));
+  private void itemClick(String txt) {
+    Intent intent = new Intent();
+    switch (txt) {
+      case "PieChartView":
+        intent.setClass(this, PieChartActivity.class);
+        break;
+      case "Drawable":
+        intent.setClass(this, DrawableActivity.class);
+        break;
+      case "FlowLayout":
+        intent.setClass(this, FlowActivity.class);
+        break;
+      case "Constraint":
+        intent.setClass(this, ConstraintActivity.class);
+        break;
+      case "Constraint1":
+        intent.setClass(this, Constraint1Activity.class);
+        break;
+      case "FormLayout":
+        intent.setClass(this, FormActivity.class);
+        break;
+      case "ScrollTv":
+        intent.setClass(this, ScrollTvActivity.class);
+        break;
+      case "Loading":
+        intent.setClass(this, LoadingActivity.class);
+        break;
+      case "Granzort":
+        intent.setClass(this, GranzortActivity.class);
+        break;
+      case "KeyBoard":
+        intent.setClass(this, KeyBoardActivity.class);
+        break;
+
+      case "FloatBall":
+        intent.setClass(this, FloatingActivity.class);
+        break;
+      case "FlipperTv":
+        intent.setClass(this, FlipperTvActivity.class);
+        break;
+      case "TodayTabLayout":
+        intent.setClass(this, TodayActivity.class);
+        break;
+      case "NestedScroll":
+        intent.setClass(this, NestedScroll1Activity.class);
+        break;
+
+      case "Scroll":
+        intent.setClass(this, ScrollingActivity.class);
+        break;
+      case "Rainbow":
+        intent.setClass(this, RainbowActivity.class);
+        break;
+      case "VLayout":
+        intent.setClass(this, VLayoutActivity.class);
+        break;
+      case "Span":
+        intent.setClass(this, SpanActivity.class);
+        break;
+
+      case "ThreadLocal":
+        intent.setClass(this, ThreadLocalActivity.class);
+        break;
+      case "Swipe":
+        intent.setClass(this, SwipeActivity.class);
+        break;
+      case "Transparent":
+        intent.setClass(this, TransparentActivity.class);
+        break;
+      case "BigRcv":
+        intent.setClass(this, BigRcvActivity.class);
+        break;
+
+      case "Canvas":
+        intent.setClass(this, CanvasActivity.class);
+        break;
+      case "Lottie":
+        intent.setClass(this, LottieActivity.class);
+        break;
+      case "DragShadow":
+        intent.setClass(this, DragShadowActivity.class);
+        break;
+      case "ScreenShot":
+        intent.setClass(this, ScreenShotActivity.class);
+        break;
+      case "HorizontalWeight":
+        intent.setClass(this, HorizontalWeightActivity.class);
+        break;
+      case "Protobuf":
+        intent.setClass(this, ProtobufActivity.class);
+        break;
+      case "Excel":
+        intent.setClass(this, ExcelActivity.class);
+        break;
+    }
+    startActivity(intent);
   }
 
-  @OnClick(R.id.btn_constraint) public void constraint(View view) {
-    startActivity(new Intent(this, ConstraintActivity.class));
-  }
+  class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-  @OnClick(R.id.btn_constraint1) public void constraint1(View view) {
-    startActivity(new Intent(this, Constraint1Activity.class));
-  }
+    @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+      Button btn = new Button(MainActivity.this);
+      ViewGroup.LayoutParams params =
+          new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+              ViewGroup.LayoutParams.WRAP_CONTENT);
+      btn.setLayoutParams(params);
+      btn.setPadding(0, 10, 0, 10);
 
-  @OnClick(R.id.btn_form) public void formLayout(View view) {
-    startActivity(new Intent(this, FormActivity.class));
-  }
+      return new RecyclerView.ViewHolder(btn) {
 
-  @OnClick(R.id.btn_scroll_tv) public void scrollTv(View view) {
-    startActivity(new Intent(this, ScrollTvActivity.class));
-  }
+      };
+    }
 
-  @OnClick(R.id.btn_show_loading) public void loading(View view) {
-    startActivity(new Intent(this, LoadingActivity.class));
-  }
+    @Override
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+      final Button btn = (Button) holder.itemView;
+      btn.setText(list.get(position));
+      btn.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View v) {
+          itemClick(btn.getText().toString());
+        }
+      });
+    }
 
-  @OnClick(R.id.btn_granzort) public void granzort(View view) {
-    startActivity(new Intent(this, GranzortActivity.class));
-  }
-
-  @OnClick(R.id.btn_keyboard) public void keyboard(View view) {
-    startActivity(new Intent(this, KeyBoardActivity.class));
-  }
-
-  @OnClick(R.id.btn_float_ball) public void floatBall(View view) {
-    startActivity(new Intent(this, FloatingActivity.class));
-  }
-
-  @OnClick(R.id.btn_flipper) public void flipperTv(View view) {
-    startActivity(new Intent(this, FlipperTvActivity.class));
-  }
-
-  @OnClick(R.id.btn_today_tablayout) public void todayTabLayout(View view) {
-    startActivity(new Intent(this, TodayActivity.class));
-  }
-
-  @OnClick(R.id.btn_nested_scroll) public void nestedScroll(View view) {
-    startActivity(new Intent(this, NestedScroll1Activity.class));
-  }
-
-  @OnClick(R.id.btn_scroll) public void scroll(View view) {
-    startActivity(new Intent(this, ScrollingActivity.class));
-  }
-
-  @OnClick(R.id.btn_rainbow) public void rainbow(View view) {
-    startActivity(new Intent(this, RainbowActivity.class));
-  }
-
-  @OnClick(R.id.btn_vlayout) public void vlayout(View view) {
-    startActivity(new Intent(this, VLayoutActivity.class));
-  }
-
-  @OnClick(R.id.btn_span) public void span(View view) {
-    startActivity(new Intent(this, SpanActivity.class));
-  }
-
-  @OnClick(R.id.btn_threadlocal) public void threadLocal(View view) {
-    startActivity(new Intent(this, ThreadLocalActivity.class));
-  }
-
-  @OnClick(R.id.btn_swipe) public void Swipe(View view) {
-    startActivity(new Intent(this, SwipeActivity.class));
-  }
-
-  @OnClick(R.id.btn_transparent) public void Transparent(View view) {
-    startActivity(new Intent(this, TransparentActivity.class));
-  }
-
-  @OnClick(R.id.btn_big_rcv) public void bigRcvClick() {
-    startActivity(new Intent(this, BigRcvActivity.class));
-  }
-
-  @OnClick(R.id.btn_canvas) public void canvasClick() {
-    startActivity(new Intent(this, CanvasActivity.class));
-  }
-
-  @OnClick(R.id.btn_lottie) public void lottie() {
-    startActivity(new Intent(this, LottieActivity.class));
-  }
-
-  @OnClick(R.id.btn_drag_shadow) public void dragShadow() {
-    startActivity(new Intent(this, DragShadowActivity.class));
-  }
-
-  @OnClick(R.id.btn_screen_shot) public void screenShot() {
-    startActivity(new Intent(this, ScreenShotActivity.class));
-  }
-
-  @OnClick(R.id.btn_horizontal_weight) public void horizontalWeight() {
-    startActivity(new Intent(this, HorizontalWeightActivity.class));
-  }
-
-  @OnClick(R.id.btn_protobuf) public void protobuf() {
-    startActivity(new Intent(this, ProtobufActivity.class));
+    @Override public int getItemCount() {
+      return list.size();
+    }
   }
 
   @Override public boolean onKeyDown(int keyCode, KeyEvent event) {

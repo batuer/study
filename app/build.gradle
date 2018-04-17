@@ -57,7 +57,7 @@ dependencies {
   //noinspection GradleCompatible
   compile 'com.android.support:appcompat-v7:25.3.1'
   compile 'com.android.support.constraint:constraint-layout:1.0.2'
-  //  compile 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
+  //  compile 'com.android.support.constraint:constraint-layout:1.1.0-beta6'
   compile 'com.jakewharton:butterknife:8.6.0'
   compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
   compile 'com.orhanobut:logger:2.1.1'
@@ -77,10 +77,11 @@ dependencies {
   compile 'com.blankj:utilcode:1.11.0'
   compile 'com.airbnb.android:lottie:2.1.2'
   // 定义protobuf依赖，使用精简版
-  compile "com.google.protobuf:protobuf-lite:3.0.0"
+  compile 'com.google.protobuf:protobuf-lite:3.0.0'
   compile('com.squareup.retrofit2:converter-protobuf:2.2.0') {
     exclude group: 'com.google.protobuf', module: 'protobuf-java'
   }
+  compile files('libs/jxl.jar')
 }
 protobuf {
   protoc {
