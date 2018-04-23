@@ -1,9 +1,7 @@
 package com.gusi.study.excel;
 
-import android.Manifest;
 import android.util.Log;
 import android.view.View;
-import com.blankj.utilcode.util.PermissionUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
@@ -53,9 +51,6 @@ public class ExcelActivity extends BaseActivity {
         });
       }
     });
-
-    PermissionUtils.permission(Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE).request();
   }
 
   private void initData() {
