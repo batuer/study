@@ -11,9 +11,10 @@
   <include layout="@layout/layout_tool_bar" />
 
   <com.gusi.study.canvas.CanvasView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_width="150dp"
+      android:layout_height="150dp"
+      android:layout_gravity="center_horizontal"
       android:layout_margin="20dp"
-      android:background="@color/white" />
+      android:background="#0ff" />
 
 </LinearLayout>
