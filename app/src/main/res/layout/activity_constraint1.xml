@@ -9,133 +9,60 @@
 
   <include layout="@layout/layout_tool_bar" />
 
-  <!--<android.support.constraint.ConstraintLayout-->
-      <!--android:layout_width="match_parent"-->
-      <!--android:layout_height="match_parent">-->
-
-    <!--<android.support.constraint.Guideline-->
-        <!--android:id="@+id/gl_horizontal_1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:orientation="horizontal"-->
-        <!--app:layout_constraintGuide_percent="0.1" />-->
-
-
-    <!--&lt;!&ndash;第一行&ndash;&gt;-->
-    <!--<View-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:background="#0ff"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/gl_horizontal_1"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:layout_constraintWidth_default="percent"-->
-        <!--app:layout_constraintWidth_percent="0.7" />-->
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
     <!--<View-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:background="#033"-->
-        <!--app:layout_constraintBottom_toTopOf="@+id/gl_horizontal_1"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:layout_constraintWidth_default="percent"-->
-        <!--app:layout_constraintWidth_percent="0.2" />-->
-    <!--&lt;!&ndash;第二行&ndash;&gt;-->
-    <!--<TextView-->
-        <!--android:id="@+id/tv_1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="textview1"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/gl_horizontal_1" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/tv_2"-->
-        <!--android:layout_width="40dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="textview222"-->
-        <!--android:textColor="#0ff"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/tv_1" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/tv_3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="爱的发的所发生的发送到发送大发生的阿迪发动沙大发送到发送到发大法师打发说大发送到发送到发多少发啊大法师打发说大发送到发送到发送到垫发斯蒂芬"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/barrier_1"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/gl_horizontal_1" />-->
-
-    <!--<android.support.constraint.Barrier-->
-        <!--android:id="@+id/barrier_1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:barrierDirection="end"-->
-        <!--app:constraint_referenced_ids="tv_1,tv_2" />-->
-
-    <!--<android.support.constraint.Barrier-->
-        <!--android:id="@+id/barrier_2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:barrierDirection="bottom"-->
-        <!--app:constraint_referenced_ids="tv_2,tv_3" />-->
+    <!--android:id="@+id/btn1"-->
+    <!--android:layout_width="10dp"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:background="#123"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!--&lt;!&ndash;//引用的控件ID&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircle="@+id/buttonA"&ndash;&gt;-->
+    <!--&lt;!&ndash;//圆半径&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircleRadius="100dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;//偏移圆角度  水平右方向为0逆时针方向旋转&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircleAngle="45"&ndash;&gt;-->
+    <!--<Button-->
+    <!--android:id="@+id/btn2"-->
+    <!--android:layout_width="10dp"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:background="#0ff"-->
+    <!--app:layout_constraintCircle="@id/btn1"-->
+    <!--app:layout_constraintCircleAngle="45"-->
+    <!--app:layout_constraintCircleRadius="20dp" />-->
 
     <!--<View-->
-        <!--android:id="@+id/view_horizontal_1"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="5dp"-->
-        <!--android:background="#099"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/barrier_2" />-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:background="#a23"-->
+    <!--app:layout_constraintCircle="@id/btn1"-->
+    <!--app:layout_constraintCircleAngle="90"-->
+    <!--app:layout_constraintCircleRadius="20dp" />-->
 
-    <!--<TextView-->
-        <!--android:id="@+id/tv_4"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="填充Iv444"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/view_horizontal_1" />-->
 
-    <!--<TextView-->
-        <!--android:id="@+id/tv_5"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="填充Iv1155555555"-->
-        <!--app:layout_constraintLeft_toRightOf="@+id/tv_4"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/view_horizontal_1" />-->
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="#22000000" />
 
-    <!--<android.support.constraint.Group-->
-        <!--android:id="@+id/group_1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:constraint_referenced_ids="tv_4,tv_5" />-->
 
-    <!--<android.support.constraint.Barrier-->
-        <!--android:id="@+id/barrier_3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:barrierDirection="bottom"-->
-        <!--app:constraint_referenced_ids="tv_4,tv_5" />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#a23"
+        app:layout_constrainedWidth="true"
+        android:text="爱对方感受到各回各家划分工会经费和高科技123徐1才2不3是对方感受到"
+        app:layout_constraintLeft_toRightOf="@+id/btn1"
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <!--<android.support.constraint.Placeholder-->
-        <!--android:id="@+id/place_holder"-->
-        <!--android:layout_width="60dp"-->
-        <!--android:layout_height="60dp"-->
-        <!--android:layout_marginTop="10dp"-->
-        <!--android:background="#22000000"-->
-        <!--app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--app:layout_constraintRight_toRightOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/barrier_3" />-->
+  </android.support.constraint.ConstraintLayout>
 
-    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
-        <!--&lt;!&ndash;android:id="@+id/iv"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="120dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="120dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:src="@mipmap/ic_img" />&ndash;&gt;-->
 
-    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="60dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="60dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:src="@mipmap/ic_launcher_round" />&ndash;&gt;-->
-  <!--</android.support.constraint.ConstraintLayout>-->
 </LinearLayout>
