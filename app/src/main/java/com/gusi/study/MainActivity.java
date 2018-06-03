@@ -10,6 +10,7 @@ import android.widget.Button;
 import butterknife.BindView;
 import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
+import com.gusi.study.anim.AnimActivity;
 import com.gusi.study.base.BaseActivity;
 import com.gusi.study.bigrcv.BigRcvActivity;
 import com.gusi.study.canvas.CanvasActivity;
@@ -32,6 +33,7 @@ import com.gusi.study.piechart.PieChartActivity;
 import com.gusi.study.protobuf.ProtobufActivity;
 import com.gusi.study.rainbow.RainbowActivity;
 import com.gusi.study.screenshot.ScreenShotActivity;
+import com.gusi.study.sheet.BottomSheetActivity;
 import com.gusi.study.span.SpanActivity;
 import com.gusi.study.swipe.SwipeActivity;
 import com.gusi.study.threadlocal.ThreadLocalActivity;
@@ -91,6 +93,8 @@ public class MainActivity extends BaseActivity {
     list.add("HorizontalWeight");
     list.add("Protobuf");
     list.add("Excel");
+    list.add("BottomSheet");
+    list.add("Anim");
   }
 
   private void itemClick(String txt) {
@@ -186,6 +190,12 @@ public class MainActivity extends BaseActivity {
         break;
       case "Excel":
         intent.setClass(this, ExcelActivity.class);
+        break;
+      case "BottomSheet":
+        intent.setClass(this, BottomSheetActivity.class);
+        break;
+      case "Anim":
+        intent.setClass(this, AnimActivity.class);
         break;
     }
     startActivity(intent);

@@ -60,7 +60,7 @@ public class FloatingActivity extends BaseActivity {
     super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
       if (Settings.canDrawOverlays(this)) {
-        //Toast.makeText(FloatingActivity.this, "权限授予成功！", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(FloatingActivity.this, "权限授予成功！", Toast.LENGTH_SHORT).add();
         ////启动FxService
         //startService(floatWinIntent);
       } else {

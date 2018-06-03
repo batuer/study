@@ -6,7 +6,6 @@
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -96,7 +95,9 @@
     <activity android:name=".screenshot.ScreenShotActivity" />
     <activity android:name=".formlayout.horizontalweight.HorizontalWeightActivity" />
     <activity android:name=".protobuf.ProtobufActivity" />
-    <activity android:name=".excel.ExcelActivity"></activity>
+    <activity android:name=".excel.ExcelActivity" />
+    <activity android:name=".sheet.BottomSheetActivity" />
+    <activity android:name=".anim.AnimActivity"></activity>
   </application>
 
 </manifest>
