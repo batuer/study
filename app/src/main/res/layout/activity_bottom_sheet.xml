@@ -8,29 +8,35 @@
     android:orientation="vertical"
     tools:context=".sheet.BottomSheetActivity">
 
-  <include layout="@layout/layout_tool_bar" />
+    <include layout="@layout/layout_tool_bar" />
 
-  <Button
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:onClick="add"
-      android:text="show" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="add"
+        android:text="show" />
 
-  <Button
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:onClick="add1"
-      android:text="show1" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="add1"
+        android:text="show1" />
 
-  <Button
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:onClick="remove"
-      android:text="remove" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="remove"
+        android:text="remove" />
 
-  <Button
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:onClick="remove1"
-      android:text="remove1" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="remove1"
+        android:text="remove1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="dialog"
+        android:text="dialog" />
 </LinearLayout>
