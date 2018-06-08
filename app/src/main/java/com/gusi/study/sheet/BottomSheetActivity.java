@@ -154,13 +154,13 @@ public class BottomSheetActivity extends BaseActivity {
     public void dialog(View v) {
         Dialog dialog = new Dialog(this, R.style.dialog_bottom_full);
         Window window = dialog.getWindow();
-        window.setGravity(Gravity.BOTTOM);
+        window.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
         View view = View.inflate(this, R.layout.dialog_bottom, null);
 //        int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
 //        view.measure(0, spec);
         Log.w("Fire", "BottomSheetActivity:155行:" + view.getMeasuredHeight());
         window.setContentView(view);
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);//设置横向全屏
+        window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);//设置横向全屏
         dialog.show();
 
         tv = (TextView) view.findViewById(R.id.tv);
