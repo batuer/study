@@ -6,14 +6,11 @@
 
     <include layout="@layout/layout_tool_bar" />
 
-    <com.gusi.study.surface.SurfaceViewL
-        android:id="@+id/sf"
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:onClick="startService"
+        android:text="startService" />
 
-
-    <!--<com.gusi.study.surface.TestView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
 
 </LinearLayout>

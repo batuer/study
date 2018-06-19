@@ -97,8 +97,13 @@
         <activity android:name=".protobuf.ProtobufActivity" />
         <activity android:name=".excel.ExcelActivity" />
         <activity android:name=".sheet.BottomSheetActivity" />
-        <activity android:name=".anim.AnimActivity"></activity>
+        <activity android:name=".anim.AnimActivity" />
         <activity android:name=".surface.SurfaceActivity" />
+        <activity android:name=".intentservice.IntentServiceActivity" />
+
+        <service
+            android:name=".intentservice.MyIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
