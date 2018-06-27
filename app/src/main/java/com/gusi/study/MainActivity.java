@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.SPUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.anim.AnimActivity;
@@ -68,6 +70,14 @@ public class MainActivity extends BaseActivity {
         mRcv.setLayoutManager(new LinearLayoutManager(this));
         mRcv.setHasFixedSize(true);
         mRcv.setAdapter(new Adapter());
+
+        boolean setting = SPUtils.getInstance().getBoolean("Setting");
+        if (!setting){
+            ToastUtils.showShort("请先配置!");
+            startActivity(new Intent(this,Main2Activity.class));
+            finish();
+        }
+
     }
 
     private void initData() {

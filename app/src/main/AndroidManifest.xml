@@ -21,15 +21,36 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Study"
-            android:persistableMode="persistAcrossReboots"
-            android:resizeableActivity="true">
+            android:label="Study">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<activity-alias-->
+        <!--android:name="SecondIcon"-->
+        <!--android:icon="@mipmap/ic_launcheralias"-->
+        <!--android:label="设置"-->
+        <!--android:targetActivity=".Main2Activity">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.MAIN" />-->
+        <!--<category android:name="android.intent.category.LAUNCHER" />-->
+        <!--</intent-filter>-->
+
+        <!--</activity-alias>-->
+
+        <activity android:name=".Main2Activity"
+            android:label="设置"
+            android:icon="@mipmap/ic_launcheralias"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".ui.ContactsActivity" />
         <activity android:name=".piechart.PieChartActivity" />
         <activity android:name=".slide.SlideActivity" />
@@ -103,7 +124,9 @@
 
         <service
             android:name=".intentservice.MyIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+
     </application>
 
 </manifest>
