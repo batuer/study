@@ -8,6 +8,7 @@ import android.os.Message;
 import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.Window;
@@ -152,7 +153,7 @@ public class BottomSheetActivity extends BaseActivity {
     }
 
     public void dialog(View v) {
-        Dialog dialog = new Dialog(this, R.style.dialog_bottom_full);
+        Dialog dialog = new BottomDialog(this, R.style.dialog_bottom_full);
         Window window = dialog.getWindow();
         window.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
         View view = View.inflate(this, R.layout.dialog_bottom, null);
@@ -164,8 +165,27 @@ public class BottomSheetActivity extends BaseActivity {
         dialog.show();
 
         tv = (TextView) view.findViewById(R.id.tv);
-        mHandler.sendEmptyMessageDelayed(0, 1000);
+
+
+//        mHandler.sendEmptyMessageDelayed(0, 1000);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.w("Fire", "BottomSheetActivity:175行:dispatchTouchEvent 开始");
+        boolean b = super.dispatchTouchEvent(ev);
+        Log.w("Fire", "BottomSheetActivity:177行:dispatchTouchEvent 结束" + b);
+        return b;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.w("Fire", "BottomSheetActivity:183行:onTouchEvent 开始");
+        boolean b = super.onTouchEvent(event);
+        Log.w("Fire", "BottomSheetActivity:185行:onTouchEvent 结束" + b);
+        return b;
+    }
+
 
     Handler mHandler = new Handler() {
         @Override

@@ -25,6 +25,7 @@ import com.gusi.study.flow.FlowActivity;
 import com.gusi.study.formlayout.FormActivity;
 import com.gusi.study.formlayout.horizontalweight.HorizontalWeightActivity;
 import com.gusi.study.granzort.GranzortActivity;
+import com.gusi.study.intentservice.IntentServiceActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
 import com.gusi.study.nestedscroll.NestedScroll1Activity;
@@ -43,6 +44,7 @@ import com.gusi.study.transparent.TransparentActivity;
 import com.gusi.study.vlayout.VLayoutActivity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -67,6 +69,7 @@ public class MainActivity extends BaseActivity {
         mRcv.setLayoutManager(new LinearLayoutManager(this));
         mRcv.setHasFixedSize(true);
         mRcv.setAdapter(new Adapter());
+
     }
 
     private void initData() {
@@ -103,6 +106,9 @@ public class MainActivity extends BaseActivity {
         list.add("BottomSheet");
         list.add("Anim");
         list.add("Surface");
+        list.add("IntentService");
+
+        Collections.sort(list);
     }
 
     private void itemClick(String txt) {
@@ -207,6 +213,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case "Surface":
                 intent.setClass(this, SurfaceActivity.class);
+                break;
+            case "IntentService":
+                intent.setClass(this, IntentServiceActivity.class);
                 break;
         }
         startActivity(intent);

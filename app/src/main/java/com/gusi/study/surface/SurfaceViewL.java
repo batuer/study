@@ -13,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.github.lzyzsd.randomcolor.RandomColor;
+
 /**
  * @Author ylw  2018/6/8 09:29
  */
@@ -94,14 +96,72 @@ public class SurfaceViewL extends SurfaceView implements SurfaceHolder.Callback,
 
     @Override
     public void run() {
-        while (isRunning) {
-            if (needDraw) {
-                performDraw();
-            } else {
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
+//        while (isRunning) {
+//            if (needDraw) {
+//                performDraw();
+//            } else {
+//                try {
+//                    Thread.sleep(200);
+//                } catch (InterruptedException e) {
+//                }
+//            }
+//        }
+
+        test();
+
+    }
+
+    private void test() {
+
+        try {
+            mCanvas = mSurfaceHolder.lockCanvas();
+            mCanvas.drawColor(Color.WHITE);
+            Log.w("Fire", "SurfaceViewL:115行:" + mCanvas);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+
+
+            }
+
+            int height = getHeight();
+            int width = getWidth();
+            Log.e("Fire", "SurfaceViewL:118行:" + width + ":" + height);
+            if (width > 0 && height > 0) {
+                Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paint.setStrokeWidth(0.5f);
+
+                int alpha = 0;
+                int red = 0;
+                int green = 0;
+                int blue = 0;
+                RandomColor randomColor = new RandomColor();
+                for (int i = 0; i < height; i++) {
+                    for (int j = 0; j < width; j++) {
+                        Log.w("Fire", "TestView:38行:" + alpha + ":" + red + ":" + green + ":" + blue);
+                        paint.setColor(randomColor.randomColor());
+                        mCanvas.drawPoint(j, i, paint);
+                        if (alpha < 255) {
+                            alpha++;
+                        } else if (red < 255) {
+                            red++;
+                        } else if (green < 255) {
+                            green++;
+                        } else if (blue < 255) {
+                            blue++;
+                        } else {
+                            alpha = 0;
+                            red = 0;
+                            green = 0;
+                            blue = 0;
+                        }
+
+                    }
                 }
+            }
+        } finally {
+            if (mCanvas != null) {
+                mSurfaceHolder.unlockCanvasAndPost(mCanvas);
             }
         }
     }
@@ -137,11 +197,6 @@ public class SurfaceViewL extends SurfaceView implements SurfaceHolder.Callback,
         return true;
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Log.w("Fire", "SurfaceViewL:142行:" + canvas);
-    }
 
     private void performDraw() {
         try {
