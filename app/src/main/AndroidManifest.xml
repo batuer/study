@@ -29,25 +29,23 @@
             </intent-filter>
         </activity>
 
-        <!--<activity-alias-->
-        <!--android:name="SecondIcon"-->
-        <!--android:icon="@mipmap/ic_launcheralias"-->
-        <!--android:label="设置"-->
-        <!--android:targetActivity=".Main2Activity">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MAIN" />-->
-        <!--<category android:name="android.intent.category.LAUNCHER" />-->
-        <!--</intent-filter>-->
+        <!-- <activity-alias -->
+        <!-- android:name="SecondIcon" -->
+        <!-- android:icon="@mipmap/ic_launcheralias" -->
+        <!-- android:label="设置" -->
+        <!-- android:targetActivity=".Main2Activity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
 
-        <!--</activity-alias>-->
+
+        <!-- </activity-alias> -->
 
         <activity
             android:name=".Main2Activity"
             android:icon="@mipmap/ic_launcheralias"
-            android:label="设置">
-
-        </activity>
-
+            android:label="设置"></activity>
         <activity android:name=".ui.ContactsActivity" />
         <activity android:name=".piechart.PieChartActivity" />
         <activity android:name=".slide.SlideActivity" />
@@ -123,7 +121,7 @@
             android:name=".intentservice.MyIntentService"
             android:exported="false" />
 
-
+        <activity android:name=".svg.SvgActivity"></activity>
     </application>
 
 </manifest>
