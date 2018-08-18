@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gusi.study.constraint.Constraint1Activity">
+
+  <include layout="@layout/layout_tool_bar" />
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <!--<View-->
+    <!--android:id="@+id/btn1"-->
+    <!--android:layout_width="10dp"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:background="#123"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+    <!--&lt;!&ndash;//引用的控件ID&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircle="@+id/buttonA"&ndash;&gt;-->
+    <!--&lt;!&ndash;//圆半径&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircleRadius="100dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;//偏移圆角度  水平右方向为0逆时针方向旋转&ndash;&gt;-->
+    <!--&lt;!&ndash;app:layout_constraintCircleAngle="45"&ndash;&gt;-->
+    <!--<Button-->
+    <!--android:id="@+id/btn2"-->
+    <!--android:layout_width="10dp"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:background="#0ff"-->
+    <!--app:layout_constraintCircle="@id/btn1"-->
+    <!--app:layout_constraintCircleAngle="45"-->
+    <!--app:layout_constraintCircleRadius="20dp" />-->
+
+    <!--<View-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:background="#a23"-->
+    <!--app:layout_constraintCircle="@id/btn1"-->
+    <!--app:layout_constraintCircleAngle="90"-->
+    <!--app:layout_constraintCircleRadius="20dp" />-->
+
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:background="#22000000" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#a23"
+        app:layout_constrainedWidth="true"
+        android:text="爱对方感受到各回各家划分工会经费和高科技123徐1才2不3是对方感受到"
+        app:layout_constraintLeft_toRightOf="@+id/btn1"
+        app:layout_constraintRight_toRightOf="parent" />
+
+  </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

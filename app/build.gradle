@@ -1,63 +1,107 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.google.protobuf'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.3"
-  defaultConfig {
-    applicationId "com.gusi.study"
-    minSdkVersion 19
-    targetSdkVersion 25
-    versionCode 1
-    versionName "1.0"
-    //    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.gusi.study"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        //    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
-  tasks.whenTaskAdded { task ->
-    if (task.name.contains("lint") || task.name.equals("clean")
-        //如果项目中有用到aidl则不可以舍弃这个任务
-        ||
-        task.name.contains("Aidl")
-        //用不到测试的时候就可以先关闭
-        ||
-        task.name.contains("mockableAndroidJar") ||
-        task.name.contains("UnitTest") ||
-        task.name.contains("AndroidTest")
-        //用不到NDK和JNI的也关闭掉
-        ||
-        task.name.contains("Ndk") ||
-        task.name.contains("Jni")) {
-      task.enabled = false
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
-  }
+    tasks.whenTaskAdded { task ->
+        if (task.name.contains("lint") || task.name.equals("clean")
+                //如果项目中有用到aidl则不可以舍弃这个任务
+                ||
+                task.name.contains("Aidl")
+                //用不到测试的时候就可以先关闭
+                ||
+                task.name.contains("mockableAndroidJar") ||
+                task.name.contains("UnitTest") ||
+                task.name.contains("AndroidTest")
+                //用不到NDK和JNI的也关闭掉
+                ||
+                task.name.contains("Ndk") ||
+                task.name.contains("Jni")) {
+            task.enabled = false
+        }
+    }
+
+    sourceSets {
+        main {
+            // 定义proto文件目录
+            proto {
+                srcDir 'src/main/proto'
+                include '**/*.proto'
+            }
+            java {
+                srcDir 'src/main/java'
+            }
+        }
+    }
 }
 
 dependencies {
-  compile fileTree(include: ['*.jar'], dir: 'libs')
-  //noinspection GradleCompatible
-  compile 'com.android.support:appcompat-v7:25.3.1'
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
-  compile 'com.jakewharton:butterknife:8.6.0'
-  compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
-  compile 'com.orhanobut:logger:2.1.1'
-  compile 'com.android.support:design:25.3.1'
-  compile 'com.zhy:flowlayout-lib:1.0.3'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
-  compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-  //  compile 'com.android.support:percent:25.3.0'
-  //  compile 'com.android.support:percent:22.2.0'
-  compile 'org.greenrobot:eventbus:3.0.0'
-  compile 'com.gusi:HeadLineTab:1.0.1'
-  compile 'com.gusi:CircleShowTv:1.0.3'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    //  compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support.constraint:constraint-layout:1.1.0'
+    compile 'com.jakewharton:butterknife:8.6.0'
+    compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
+    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.zhy:flowlayout-lib:1.0.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    //  compile 'com.android.support:percent:25.3.0'
+    //  compile 'com.android.support:percent:22.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.gusi:HeadLineTab:1.0.1'
+    compile 'com.gusi:CircleShowTv:1.0.3'
+    compile('com.alibaba.android:vlayout:1.2.2@aar') {
+        transitive = true
+    }
+    //
+    compile 'com.blankj:utilcode:1.11.0'
+    compile 'com.airbnb.android:lottie:2.1.2'
+    // 定义protobuf依赖，使用精简版
+    compile 'com.google.protobuf:protobuf-lite:3.0.0'
+    compile('com.squareup.retrofit2:converter-protobuf:2.2.0') {
+        exclude group: 'com.google.protobuf', module: 'protobuf-java'
+    }
+    compile files('libs/jxl.jar')
+}
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    plugins {
+        javalite {
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                javalite {}
+            }
+        }
+    }
 }
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 apply plugin: 'kotlin-android-extensions'

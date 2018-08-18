@@ -1,87 +1,120 @@
 package com.gusi.study;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
-import butterknife.OnClick;
-import com.gusi.study.ScrollTv.ScrollTvActivity;
+import android.view.ViewGroup;
+import android.widget.Button;
+
 import com.gusi.study.base.BaseActivity;
-import com.gusi.study.constraint.ConstraintActivity;
-import com.gusi.study.drawable.DrawableActivity;
-import com.gusi.study.flippertv.FlipperTvActivity;
-import com.gusi.study.floating.FloatingActivity;
-import com.gusi.study.flow.FlowActivity;
-import com.gusi.study.formlayout.FormActivity;
-import com.gusi.study.granzort.GranzortActivity;
-import com.gusi.study.keyboard.KeyBoardActivity;
-import com.gusi.study.loading.LoadingActivity;
-import com.gusi.study.piechart.PieChartActivity;
-import com.gusi.study.today.TodayActivity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import butterknife.BindView;
+
+/**
+ * @author ylw   2017-11-14 16:03
+ */
 public class MainActivity extends BaseActivity {
+    @BindView(R.id.rcv)
+    RecyclerView mRcv;
+    private List<ActivityInfo> mActivityInfoList;
+    //    List<String> list = new ArrayList<>();
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    initToolBar(mToolbar, true, "Study");
-  }
-
-  @Override protected int getLayout() {
-    return R.layout.activity_main;
-  }
-
-  @OnClick(R.id.btn_pie_chart) public void pieChart(View view) {
-    startActivity(new Intent(this, PieChartActivity.class));
-  }
-
-  @OnClick(R.id.btn_drawable) public void drawable(View view) {
-    startActivity(new Intent(this, DrawableActivity.class));
-  }
-
-  @OnClick(R.id.btn_flow) public void flowLayout(View view) {
-    startActivity(new Intent(this, FlowActivity.class));
-  }
-
-  @OnClick(R.id.btn_constraint) public void constraint(View view) {
-    startActivity(new Intent(this, ConstraintActivity.class));
-  }
-
-  @OnClick(R.id.btn_form) public void formLayout(View view) {
-    startActivity(new Intent(this, FormActivity.class));
-  }
-
-  @OnClick(R.id.btn_scroll_tv) public void scrollTv(View view) {
-    startActivity(new Intent(this, ScrollTvActivity.class));
-  }
-
-  @OnClick(R.id.btn_show_loading) public void loading(View view) {
-    startActivity(new Intent(this, LoadingActivity.class));
-  }
-
-  @OnClick(R.id.btn_granzort) public void granzort(View view) {
-    startActivity(new Intent(this, GranzortActivity.class));
-  }
-
-  @OnClick(R.id.btn_keyboard) public void keyboard(View view) {
-    startActivity(new Intent(this, KeyBoardActivity.class));
-  }
-
-  @OnClick(R.id.btn_float_ball) public void floatBall(View view) {
-    startActivity(new Intent(this, FloatingActivity.class));
-  }
-
-  @OnClick(R.id.btn_flipper) public void flipperTv(View view) {
-    startActivity(new Intent(this, FlipperTvActivity.class));
-  }
-  @OnClick(R.id.btn_today_tablayout) public void todayTabLayout(View view) {
-    startActivity(new Intent(this, TodayActivity.class));
-  }
-
-  @Override public boolean onKeyDown(int keyCode, KeyEvent event) {
-    if (keyCode == KeyEvent.KEYCODE_BACK) {
-      moveTaskToBack(false);
-      return true;
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_main;
     }
-    return super.onKeyDown(keyCode, event);
-  }
+
+    @Override
+    protected void initView() {
+        initToolBar(mToolbar, true, "Study");
+        initData();
+        mRcv.setLayoutManager(new LinearLayoutManager(this));
+        mRcv.setHasFixedSize(true);
+        mRcv.setAdapter(new Adapter());
+    }
+
+    private void initData() {
+        PackageManager pm = getPackageManager();
+        try {
+            String packageName = getPackageName();
+            PackageInfo packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            mActivityInfoList = new ArrayList<>();
+            for (ActivityInfo activityInfo : packageInfo.activities) {
+                if (!activityInfo.name.contains(getPackageName())) continue;
+                mActivityInfoList.add(activityInfo);
+            }
+
+            Collections.sort(mActivityInfoList, new Comparator<ActivityInfo>() {
+                @Override
+                public int compare(ActivityInfo o1, ActivityInfo o2) {
+                    return o1.name.substring(o1.name.lastIndexOf(".") + 1, o1.name.length()).replace("Activity", "")
+                            .compareTo(o2.name.substring(o2.name.lastIndexOf(".") + 1, o2.name.length()).replace("Activity", ""));
+                }
+            });
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+
+    }
+
+
+    class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            Button btn = new Button(MainActivity.this);
+            ViewGroup.LayoutParams params =
+                    new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+            btn.setLayoutParams(params);
+            btn.setPadding(0, 10, 0, 10);
+            return new RecyclerView.ViewHolder(btn) {
+
+            };
+        }
+
+        @Override
+        public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+            final Button btn = (Button) holder.itemView;
+            final ActivityInfo activityInfo = mActivityInfoList.get(position);
+            String name = activityInfo.name;
+            name = name.substring(name.lastIndexOf(".") + 1, name.length()).replace("Activity", "");
+            btn.setText(name);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ClassLoader classLoader = getClassLoader();
+                    try {
+                        Class<?> aClass = classLoader.loadClass(activityInfo.name);
+                        startActivity(new Intent(MainActivity.this, aClass));
+                    } catch (ClassNotFoundException e) {
+                    }
+
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return mActivityInfoList.size();
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(false);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

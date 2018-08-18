@@ -19,4 +19,20 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="StartService" />
+
+  <Button
+      android:id="@+id/btn_trans"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="共享" />
+
+  <com.gusi.study.floating.TimeTv
+      android:transitionName="timetv"
+      android:id="@+id/time_tv"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:background="#0ff"
+      android:gravity="center"
+      android:text="1"
+      android:textSize="16sp" />
 </LinearLayout>

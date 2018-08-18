@@ -6,90 +6,10 @@
 
   <include layout="@layout/layout_tool_bar" />
 
-  <ScrollView
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rcv"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:padding="5dp">
+      android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-      <Button
-          android:id="@+id/btn_pie_chart"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="PieChartView" />
-
-      <Button
-          android:id="@+id/btn_flow"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="FlowLayout" />
-
-      <Button
-          android:id="@+id/btn_drawable"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Drawable" />
-
-      <Button
-          android:id="@+id/btn_constraint"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Constraint" />
-
-      <Button
-          android:id="@+id/btn_form"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="FormLayout" />
-
-      <Button
-          android:id="@+id/btn_scroll_tv"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="ScrollTv" />
-
-      <Button
-          android:id="@+id/btn_show_loading"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Loading" />
-
-      <Button
-          android:id="@+id/btn_granzort"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="Granzort" />
-
-      <Button
-          android:id="@+id/btn_keyboard"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="KeyBoard" />
-
-      <Button
-          android:id="@+id/btn_float_ball"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="FloatBall" />
-
-      <Button
-          android:id="@+id/btn_flipper"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="FlipperTv" />
-
-      <Button
-          android:id="@+id/btn_today_tablayout"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="TodayTabLayout" />
-    </LinearLayout>
-
-
-  </ScrollView>
 
 </LinearLayout>

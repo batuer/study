@@ -16,7 +16,8 @@ import com.gusi.study.R;
 import com.gusi.study.loading.LoadingView;
 
 /**
- * 作者：${ylw} on 2017-06-21 10:17
+ * @author ylw
+ * @Date 2017年11月7日13:44:45
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -38,9 +39,11 @@ public abstract class BaseActivity extends AppCompatActivity {
       mBind.unbind();
     }
   }
-  protected void initView(){
+
+  protected void initView() {
 
   }
+
   /**
    * 初始化 Toolbar
    */

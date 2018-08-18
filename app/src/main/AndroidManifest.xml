@@ -2,70 +2,126 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gusi.study">
 
-  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-  <application
-      android:name=".App"
-      android:allowBackup="true"
-      android:icon="@mipmap/icon"
-      android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/BaseTheme">
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/BaseTheme">
 
-    <!-- //android:resizeableActivity="true" 分屏' -->
+        <!-- //android:resizeableActivity="true" 分屏' -->
 
-    <activity
-        android:name=".MainActivity"
-        android:label="Study"
-        android:resizeableActivity="true">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Study">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-    <activity android:name=".ui.ContactsActivity" />
-    <activity android:name=".piechart.PieChartActivity" />
-    <activity android:name=".slide.SlideActivity" />
-    <activity android:name=".flow.FlowActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
-    <!-- <receiver android:name=".receiver.BootReceiver"> -->
-    <!-- <intent-filter android:priority="2147483647"> -->
-    <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
-
-
-    <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-    <!-- </intent-filter> -->
-    <!-- <intent-filter> -->
-    <!-- <action android:name="android.intent.action.MEDIA_MOUNTED" /> -->
-    <!-- <action android:name="android.intent.action.MEDIA_UNMOUNTED" /> -->
+        <!-- <activity-alias -->
+        <!-- android:name="SecondIcon" -->
+        <!-- android:icon="@mipmap/ic_launcheralias" -->
+        <!-- android:label="设置" -->
+        <!-- android:targetActivity=".Main2Activity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
 
 
-    <!-- <data android:scheme="file" /> -->
-    <!-- </intent-filter> -->
-    <!-- </receiver> -->
+        <!-- </activity-alias> -->
 
-    <activity android:name=".drawable.DrawableActivity" />
-    <activity android:name=".constraint.ConstraintActivity" />
-    <activity android:name=".formlayout.FormActivity" />
-    <activity android:name=".ScrollTv.ScrollTvActivity" />
-    <activity android:name=".loading.LoadingActivity" />
-    <activity android:name=".granzort.GranzortActivity" />
-    <activity android:name=".keyboard.KeyBoardActivity" />
-    <activity android:name=".floating.FloatingActivity" />
+        <activity
+            android:name=".Main2Activity"
+            android:icon="@mipmap/ic_launcheralias"
+            android:label="设置"></activity>
+        <activity android:name=".ui.ContactsActivity" />
+        <activity android:name=".piechart.PieChartActivity" />
+        <activity android:name=".slide.SlideActivity" />
+        <activity android:name=".flow.FlowActivity" />
 
-    <service
-        android:name=".floating.FloatService"
-        android:enabled="true"
-        android:exported="true" />
+        <!-- <receiver android:name=".receiver.BootReceiver"> -->
+        <!-- <intent-filter android:priority="2147483647"> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
 
-    <activity android:name=".flippertv.FlipperTvActivity" />
-    <activity android:name=".singlepixel.SinglePixelActivity" />
-    <activity android:name=".today.TodayActivity" />
-    <activity android:name=".eventbus.EventBusActivity"></activity>
-  </application>
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MEDIA_MOUNTED" /> -->
+        <!-- <action android:name="android.intent.action.MEDIA_UNMOUNTED" /> -->
+
+
+        <!-- <data android:scheme="file" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+        <activity android:name=".drawable.DrawableActivity" />
+        <activity android:name=".constraint.ConstraintActivity" />
+        <activity android:name=".formlayout.FormActivity" />
+        <activity android:name=".ScrollTv.ScrollTvActivity" />
+        <activity android:name=".loading.LoadingActivity" />
+        <activity
+            android:name=".granzort.GranzortActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".keyboard.KeyBoardActivity" />
+        <activity android:name=".floating.FloatingActivity" />
+
+        <service
+            android:name=".floating.FloatService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".flippertv.FlipperTvActivity" />
+        <activity android:name=".singlepixel.SinglePixelActivity" />
+        <activity android:name=".today.TodayActivity" />
+        <activity android:name=".eventbus.EventBusActivity" />
+        <activity android:name=".nestedscroll.NestedScrollActivity" />
+        <activity android:name=".nestedscroll.NestedScroll1Activity" />
+        <activity android:name=".rainbow.RainbowActivity" />
+        <activity android:name=".vlayout.VLayoutActivity" />
+        <activity
+            android:name=".nestedscroll.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/BaseTheme" />
+        <activity android:name=".span.SpanActivity" />
+        <activity android:name=".constraint.Constraint1Activity" />
+        <activity android:name=".threadlocal.ThreadLocalActivity" />
+        <activity android:name=".swipe.SwipeActivity" />
+        <activity android:name=".floating.Float1Activity" />
+        <activity android:name=".transparent.TransparentActivity" />
+        <activity
+            android:name=".bigrcv.BigRcvActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".canvas.CanvasActivity" />
+        android:screenOrientation="portrait" />
+        <activity android:name=".Lottie.LottieActivity" />
+        <activity android:name=".dragshadow.DragShadowActivity" />
+        <activity android:name=".screenshot.ScreenShotActivity" />
+        <activity android:name=".formlayout.horizontalweight.HorizontalWeightActivity" />
+        <activity android:name=".protobuf.ProtobufActivity" />
+        <activity android:name=".excel.ExcelActivity" />
+        <activity android:name=".sheet.BottomSheetActivity" />
+        <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".surface.SurfaceActivity" />
+        <activity android:name=".intentservice.IntentServiceActivity" />
+
+        <service
+            android:name=".intentservice.MyIntentService"
+            android:exported="false" />
+
+        <activity android:name=".svg.SvgActivity"></activity>
+    </application>
 
 </manifest>

@@ -5,6 +5,10 @@ import android.support.annotation.Nullable;
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
 
+/**
+ * @author ylw
+ * @Date
+ */
 public class ConstraintActivity extends BaseActivity {
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {

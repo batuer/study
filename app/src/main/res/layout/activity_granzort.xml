@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#22000000"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.gusi.study.granzort.GranzortActivity">
 
@@ -20,7 +20,111 @@
   <!--android:layout_gravity="center"-->
   <!--/>-->
 
-  <com.gusi.study.granzort.SpringView
+  <!--<com.gusi.study.granzort.SpringView-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="200dp" />-->
+  <!--<FrameLayout-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="200dp"-->
+  <!--android:layout_gravity="center_horizontal"-->
+  <!--android:background="#22000000">-->
+
+  <!--<com.gusi.study.granzort.MyIv-->
+  <!--android:id="@+id/iv"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_gravity="center_horizontal"-->
+  <!--android:layout_margin="10dp"-->
+  <!--android:background="#0ff" />-->
+  <!--</FrameLayout>-->
+
+  <!--<FrameLayout-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:layout_gravity="center_horizontal"-->
+  <!--android:background="#22000000">-->
+
+  <!--<com.gusi.study.granzort.MyIv1-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:layout_gravity="center_horizontal"-->
+  <!--android:layout_margin="10dp"-->
+  <!--android:orientation="vertical">-->
+
+  <!--<ImageView-->
+  <!--android:id="@+id/iv"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="200dp"-->
+  <!--android:scaleType="centerCrop"-->
+  <!--android:src="@mipmap/ic_img1" />-->
+
+  <!--<TextView-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:padding="10dp"-->
+  <!--android:background="@color/white"-->
+  <!--android:gravity="center_horizontal"-->
+  <!--android:text="标题文字"-->
+  <!--android:textColor="@color/c_333333"-->
+  <!--android:textSize="20sp" />-->
+
+  <!--<TextView-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:padding="5dp"-->
+  <!--android:background="@color/white"-->
+  <!--android:gravity="start"-->
+  <!--android:text="万恶的国内设计,都喜欢偏向于ios的扁平化风格，这里涉及到很多原因，国内的网路环境导致大家无法使用国外的优秀app.上篇的学习，Paint中的基础知识基本结束，笔学完了，学习开始学习画布。本篇记录学习Canvas中的一些知识。在drawBitmap()方法中会引出计划下篇要学习的内容Matrix，drawPath()方法会引出计划在下下篇学习的贝塞尔曲线，学习的重点也是这两个方法"-->
+  <!--android:textColor="@color/c_333333"-->
+  <!--android:textSize="16sp" />-->
+
+  <!--<View-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="1dp"-->
+  <!--android:layout_marginLeft="5dp"-->
+  <!--android:layout_marginRight="5dp"-->
+  <!--android:background="#282727" />-->
+
+  <!--<TextView-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:padding="10dp"-->
+  <!--android:background="@color/white"-->
+  <!--android:gravity="center_horizontal"-->
+  <!--android:text="确定按钮"-->
+  <!--android:textColor="@color/c_9d472c"-->
+  <!--android:textSize="20sp" />-->
+  <!--</com.gusi.study.granzort.MyIv1>-->
+  <!--</FrameLayout>-->
+
+  <!--<com.gusi.study.granzort.LineFrameLayout-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_margin="10dp"-->
+  <!--android:background="@drawable/shape_out_line">-->
+
+  <!--<LinearLayout-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_margin="10dp"-->
+  <!--android:orientation="horizontal">-->
+
+  <!--<com.gusi.study.granzort.View1-->
+  <!--android:layout_width="0dp"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_weight="1"-->
+  <!--android:background="#33000000" />-->
+
+  <!--</LinearLayout>-->
+
+  <!--</com.gusi.study.granzort.LineFrameLayout>-->
+
+  <com.gusi.study.granzort.CircularLRBtn
       android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:text="321251" />
+
+
 </LinearLayout>

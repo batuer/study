@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+  <include layout="@layout/layout_tool_bar" />
+
+
+  <com.gusi.study.formlayout.horizontalweight.HorizontalWeightBorderView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="10dp"
+      app:border="20dp"
+      app:top_border="0dp"
+      app:weight_total="10">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="#8e234e"
+        app:weight="3" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#6969f5"
+        android:text="aaaa"
+        app:weight="2" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="#3eb678"
+        app:weight="4" />
+
+  </com.gusi.study.formlayout.horizontalweight.HorizontalWeightBorderView>
+
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:layout_marginTop="10dp"
+      android:background="@android:color/black" />
+
+  <!--<android.support.v7.widget.RecyclerView-->
+  <!--android:id="@+id/rcv"-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="200dp"-->
+  <!--android:layout_marginLeft="10dp"-->
+  <!--android:layout_marginRight="10dp" />-->
+</LinearLayout>

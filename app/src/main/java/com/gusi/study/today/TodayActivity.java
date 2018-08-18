@@ -28,7 +28,7 @@ public class TodayActivity extends BaseActivity {
       }
 
       @Override public int getCount() {
-        return data.size();
+        return 1;
       }
 
       @Override public CharSequence getPageTitle(int position) {
