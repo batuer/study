@@ -1,13 +1,21 @@
 package com.gusi.study.svg;
 
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
+import android.animation.PointFEvaluator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.graphics.PointF;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
@@ -43,6 +51,7 @@ public class SvgActivity extends BaseActivity {
         animation.setDuration(2000);
         view.startAnimation(animation);
 
+
         View view1 = findViewById(R.id.view1);
         int type1 = Animation.RELATIVE_TO_SELF;
         TranslateAnimation animation1 = new TranslateAnimation(type1, 0, type1, 2f, type1, 0, type1, 0);
@@ -70,5 +79,42 @@ public class SvgActivity extends BaseActivity {
         animator.setDuration(2000);
         animator.start();
 
+        View view4 = findViewById(R.id.view4);
+        view4.animate()
+                .translationX(200)
+                .setInterpolator(new BounceInterpolator())
+                .setDuration(2000)
+                .start();
+
+        keyFrame(findViewById(R.id.objectAnimatorView));
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @SuppressLint("ObjectAnimatorBinding")
+    private void evaluator(View view) {
+        ObjectAnimator animator = ObjectAnimator.ofObject(view, "position",
+                new PointFEvaluator(), new PointF(0, 0), new PointF(1, 1));
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setDuration(1000);
+    }
+
+    private void propertyValuesHolder(View view) {
+        PropertyValuesHolder holder1 = PropertyValuesHolder.ofFloat("scaleX", 0, 1);
+        PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("scaleY", 0, 1);
+        PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("alpha", 0, 1);
+        ObjectAnimator.ofPropertyValuesHolder(view, holder1, holder2, holder3).start();
+    }
+
+    private void keyFrame(View view) {
+        Keyframe keyframe1 = Keyframe.ofFloat(0, 0); // 开始：progress 为 0
+        Keyframe keyframe2 = Keyframe.ofFloat(0.5f, 100); // 进行到一半是，progres 为 100
+        Keyframe keyframe3 = Keyframe.ofFloat(1, 80); // 结束时倒回到 80
+        PropertyValuesHolder holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1, keyframe2, keyframe3);
+
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, holder);
+        animator.setDuration(2000);
+        animator.setInterpolator(new FastOutSlowInInterpolator());
+        animator.start();
     }
 }
