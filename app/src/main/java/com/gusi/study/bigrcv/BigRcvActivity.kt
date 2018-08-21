@@ -62,9 +62,9 @@ class BigAdapter(list: List<BigItem>) : RecyclerView.Adapter<BigAdapter.ViewHold
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tv1: TextView = itemView.findViewById(R.id.tv_1) as TextView
-        var tv2: TextView = itemView.findViewById(R.id.tv_2) as TextView
-        var tv3: TextView = itemView.findViewById(R.id.tv_3) as TextView
+        var tv1: TextView = itemView.findViewById(R.id.tv_1)
+        var tv2: TextView = itemView.findViewById(R.id.tv_2)
+        var tv3: TextView = itemView.findViewById(R.id.tv_3)
     }
 }
 

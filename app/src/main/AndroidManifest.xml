@@ -6,8 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -29,25 +30,22 @@
             </intent-filter>
         </activity>
 
-        <!--<activity-alias-->
-        <!--android:name="SecondIcon"-->
-        <!--android:icon="@mipmap/ic_launcheralias"-->
-        <!--android:label="设置"-->
-        <!--android:targetActivity=".Main2Activity">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.MAIN" />-->
-        <!--<category android:name="android.intent.category.LAUNCHER" />-->
-        <!--</intent-filter>-->
+        <!-- <activity-alias -->
+        <!-- android:name="SecondIcon" -->
+        <!-- android:icon="@mipmap/ic_launcheralias" -->
+        <!-- android:label="设置" -->
+        <!-- android:targetActivity=".Main2Activity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
 
-        <!--</activity-alias>-->
+        <!-- </activity-alias> -->
 
         <activity
             android:name=".Main2Activity"
             android:icon="@mipmap/ic_launcheralias"
-            android:label="设置">
-
-        </activity>
-
+            android:label="设置" />
         <activity android:name=".ui.ContactsActivity" />
         <activity android:name=".piechart.PieChartActivity" />
         <activity android:name=".slide.SlideActivity" />
@@ -57,13 +55,11 @@
         <!-- <intent-filter android:priority="2147483647"> -->
         <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
 
-
         <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
         <!-- </intent-filter> -->
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MEDIA_MOUNTED" /> -->
         <!-- <action android:name="android.intent.action.MEDIA_UNMOUNTED" /> -->
-
 
         <!-- <data android:scheme="file" /> -->
         <!-- </intent-filter> -->
@@ -123,7 +119,8 @@
             android:name=".intentservice.MyIntentService"
             android:exported="false" />
 
-
+        <activity android:name=".markdwon.MarkDownActivity" />
+        <activity android:name=".fragment.FragmentActivity"></activity>
     </application>
 
 </manifest>

@@ -5,22 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Main2Activity">
+    tools:context=".markdwon.MarkDownActivity">
+
+    <include layout="@layout/layout_tool_bar" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="setting"
-        android:text="配置" />
+        android:onClick="down"
+        android:text="down" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="main"
-        android:text="Main" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="ARouter"
-        android:text="ARouter" />
 </LinearLayout>

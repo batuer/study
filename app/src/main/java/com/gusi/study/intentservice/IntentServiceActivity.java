@@ -23,6 +23,16 @@ public class IntentServiceActivity extends BaseActivity {
     }
 
     public void startService(View view) {
-        startService(new Intent(this, MyIntentService.class));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    Intent service = new Intent(IntentServiceActivity.this, MyIntentService.class);
+                    service.putExtra("no", i);
+                    startService(service);
+                }
+            }
+        }).start();
+
     }
 }

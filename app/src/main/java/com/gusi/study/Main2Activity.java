@@ -3,6 +3,7 @@ package com.gusi.study;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.blankj.utilcode.util.SPUtils;
@@ -23,6 +24,10 @@ public class Main2Activity extends AppCompatActivity {
         } else {
             ToastUtils.showShort("Setting");
         }
+    }
+
+    public void ARouter(View view) {
+        Log.w("Fire", "Main2Activity:31行:" );
     }
 
     public void setting(View view) {

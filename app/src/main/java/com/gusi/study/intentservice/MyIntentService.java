@@ -26,12 +26,13 @@ public class MyIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.w("Fire", "MyIntentService:29行:onHandleIntent" + intent.getIntExtra("no", -1) );
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Log.w("Fire", "MyIntentService:34行:onHandleIntent");
+        Log.w("Fire", "MyIntentService:34行:onHandleIntent" + intent.getIntExtra("no", -1));
     }
 
 }

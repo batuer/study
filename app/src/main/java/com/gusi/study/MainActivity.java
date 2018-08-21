@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.gusi.study.Lottie.LottieActivity;
 import com.gusi.study.ScrollTv.ScrollTvActivity;
 import com.gusi.study.anim.AnimActivity;
@@ -28,6 +29,7 @@ import com.gusi.study.granzort.GranzortActivity;
 import com.gusi.study.intentservice.IntentServiceActivity;
 import com.gusi.study.keyboard.KeyBoardActivity;
 import com.gusi.study.loading.LoadingActivity;
+import com.gusi.study.markdwon.MarkDownActivity;
 import com.gusi.study.nestedscroll.NestedScroll1Activity;
 import com.gusi.study.nestedscroll.ScrollingActivity;
 import com.gusi.study.piechart.PieChartActivity;
@@ -107,6 +109,8 @@ public class MainActivity extends BaseActivity {
         list.add("Anim");
         list.add("Surface");
         list.add("IntentService");
+        list.add("MarkDown");
+        list.add("Fragment");
 
         Collections.sort(list);
     }
@@ -217,6 +221,12 @@ public class MainActivity extends BaseActivity {
             case "IntentService":
                 intent.setClass(this, IntentServiceActivity.class);
                 break;
+            case "MarkDown":
+                intent.setClass(this, MarkDownActivity.class);
+                break;
+            case "Fragment":
+                intent.setClass(this, com.gusi.study.fragment.FragmentActivity.class);
+                break;
         }
         startActivity(intent);
     }
@@ -226,9 +236,8 @@ public class MainActivity extends BaseActivity {
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             Button btn = new Button(MainActivity.this);
-            ViewGroup.LayoutParams params =
-                    new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT);
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams
+                    .MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             btn.setLayoutParams(params);
             btn.setPadding(0, 10, 0, 10);
 
