@@ -59,7 +59,6 @@ dependencies {
     //  compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.1.0'
     compile 'com.android.support:design:26.1.0'
-
     compile 'com.jakewharton:butterknife:8.6.0'
     compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
     compile 'com.orhanobut:logger:2.1.1'
@@ -84,6 +83,7 @@ dependencies {
         exclude group: 'com.google.protobuf', module: 'protobuf-java'
     }
     compile files('libs/jxl.jar')
+    compile 'com.google.code.gson:gson:2.8.5'
 }
 protobuf {
     protoc {
