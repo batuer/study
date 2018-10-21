@@ -1,6 +1,7 @@
 package com.gusi.study.anim;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ public class AnimActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         Log.w("Fire", "AnimActivity:36行:onResume");
+        Looper.loop();
     }
 
     @Override

@@ -2,67 +2,473 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.gusi.study.constraint.Constraint1Activity">
 
-  <include layout="@layout/layout_tool_bar" />
-
-  <android.support.constraint.ConstraintLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-
-    <!--<View-->
-    <!--android:id="@+id/btn1"-->
-    <!--android:layout_width="10dp"-->
-    <!--android:layout_height="10dp"-->
-    <!--android:background="#123"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--app:layout_constraintRight_toRightOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent" />-->
-    <!--&lt;!&ndash;//引用的控件ID&ndash;&gt;-->
-    <!--&lt;!&ndash;app:layout_constraintCircle="@+id/buttonA"&ndash;&gt;-->
-    <!--&lt;!&ndash;//圆半径&ndash;&gt;-->
-    <!--&lt;!&ndash;app:layout_constraintCircleRadius="100dp"&ndash;&gt;-->
-    <!--&lt;!&ndash;//偏移圆角度  水平右方向为0逆时针方向旋转&ndash;&gt;-->
-    <!--&lt;!&ndash;app:layout_constraintCircleAngle="45"&ndash;&gt;-->
-    <!--<Button-->
-    <!--android:id="@+id/btn2"-->
-    <!--android:layout_width="10dp"-->
-    <!--android:layout_height="10dp"-->
-    <!--android:background="#0ff"-->
-    <!--app:layout_constraintCircle="@id/btn1"-->
-    <!--app:layout_constraintCircleAngle="45"-->
-    <!--app:layout_constraintCircleRadius="20dp" />-->
-
-    <!--<View-->
-    <!--android:layout_width="20dp"-->
-    <!--android:layout_height="20dp"-->
-    <!--android:background="#a23"-->
-    <!--app:layout_constraintCircle="@id/btn1"-->
-    <!--app:layout_constraintCircleAngle="90"-->
-    <!--app:layout_constraintCircleRadius="20dp" />-->
+    <include layout="@layout/layout_tool_bar" />
 
 
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="40dp"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#22000000" />
+        android:columnCount="4"
+        android:orientation="horizontal"
+        android:rowCount="3">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#a23"
-        app:layout_constrainedWidth="true"
-        android:text="爱对方感受到各回各家划分工会经费和高科技123徐1才2不3是对方感受到"
-        app:layout_constraintLeft_toRightOf="@+id/btn1"
-        app:layout_constraintRight_toRightOf="parent" />
-
-  </android.support.constraint.ConstraintLayout>
+        <Button
+            android:onClick="angle"
+            android:text="角度定位" />
 
 
+        <Button
+            android:onClick="margin"
+            android:text="边距" />
+
+        <Button
+            android:onClick="bias"
+            android:text="居中和偏移" />
+
+
+        <Button
+            android:onClick="ratio"
+            android:text="尺寸约束" />
+
+        <Button
+            android:onClick="chains"
+            android:text="权重Chains"
+            app:layout_column="1" />
+
+        <Button
+            android:onClick="optimizer"
+            android:text="optimizer" />
+
+        <Button
+            android:onClick="barrier"
+            android:text="barrier" />
+
+        <Button
+            android:onClick="group"
+            android:text="group" />
+
+        <Button
+            android:onClick="Placeholder"
+            android:text="Placeholder" />
+
+        <Button
+            android:onClick="GuideLine"
+            android:text="GuideLine" />
+
+    </GridLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_angle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#215"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#456"
+            android:text="Circle \n Angle 角度 \n Radius 距离"
+            app:layout_constraintCircle="@id/view1"
+            app:layout_constraintCircleAngle="0"
+            app:layout_constraintCircleRadius="80dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#215"
+            android:onClick="gonemargin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#123"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#456"
+            android:text="goneMargin主要用于约束的控件可见性被设置为gone的时候使用的margin值"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/view2"
+            app:layout_constraintRight_toRightOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="100dp" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_bias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#215"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="#567"
+            android:text="layout_constraintHorizontal_bias 水平偏移\n layout_constraintVertical_bias 垂直偏移"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_ratio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#645"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="#143"
+            android:text="constraintDimensionRatio设置宽高比 \n H,2:3指的是高:宽=2:3 \n W,2:3指的是  宽:高=2:3"
+            app:layout_constraintDimensionRatio="H,2:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_chains"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/TextView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#121"
+            android:text="chainStyle:spread"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/TextView2" />
+
+        <TextView
+            android:id="@+id/TextView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#423"
+            android:text="tv2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/TextView1"
+            app:layout_constraintRight_toLeftOf="@+id/TextView3"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/TextView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#432"
+            android:text="tv3"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/TextView2"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/TextView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#121"
+            android:text="chainStyle:packed"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/TextView5"
+            app:layout_constraintTop_toBottomOf="@+id/TextView1" />
+
+        <TextView
+            android:id="@+id/TextView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#423"
+            android:text="tv2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/TextView4"
+            app:layout_constraintRight_toLeftOf="@+id/TextView6"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/TextView4"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/TextView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#432"
+            android:text="tv3"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintLeft_toRightOf="@+id/TextView5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/TextView4"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_optimizer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当我们使用 MATCH_CONSTRAINT 时，ConstraintLayout 将对控件进行 2 次测量，ConstraintLayout在1.1中可以通过设置 layout_optimizationLevel 进行优化，可设置的值有：
+none：无优化
+standard：仅优化直接约束和屏障约束（默认）
+direct：优化直接约束
+barrier：优化屏障约束
+chain：优化链约束
+dimensions：优化尺寸测量" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_barrier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/TextView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#963"
+            android:text="TextView7" />
+
+        <TextView
+            android:id="@+id/TextView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#789"
+            android:text="TextView788"
+            app:layout_constraintTop_toBottomOf="@+id/TextView7" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#845"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="TextView7,TextView8" />
+
+        <TextView
+            android:id="@+id/TextView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#141"
+            android:text="TextView9"
+            app:layout_constraintLeft_toRightOf="@+id/barrier" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/TextView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#215"
+            android:text="TextView10" />
+
+        <TextView
+            android:id="@+id/TextView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#789"
+            android:text="TextView788"
+            app:layout_constraintTop_toBottomOf="@+id/TextView10" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#657"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="TextView10,TextView11" />
+
+        <TextView
+            android:id="@+id/TextView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#854"
+            android:onClick="groupClick"
+            android:text="TextView9"
+            app:layout_constraintLeft_toRightOf="@+id/barrier1" />
+
+        <android.support.constraint.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:constraint_referenced_ids="TextView10,TextView11" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_place_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.constraint.Placeholder
+            android:id="@+id/placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:content="@+id/textview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#cccccc"
+            android:maxWidth="150dp"
+            android:padding="16dp"
+            android:text="Placeholder指的是占位符。在Placeholder中可使用setContent()设置另一个控件的id，使这个控件移动到占位符的位置"
+            android:textColor="#000000"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#879"
+            android:maxWidth="150dp"
+            android:padding="16dp"
+            android:text="Placeholder  TextView1"
+            android:textColor="#000000"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#741"
+            android:onClick="placeClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_guide_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="android:orientation 水平vertical，垂直horizontal \n layout_constraintGuide_begin 开始位置 \n layout_constraintGuide_end 结束位置 \n layout_constraintGuide_percent 距离顶部的百分比(orientation = horizontal时则为距离左边)" />
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/gl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <View
+            android:layout_width="2px"
+            android:layout_height="match_parent"
+            android:background="#a23"
+            app:layout_constraintLeft_toRightOf="@+id/gl" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#ba1"
+            app:layout_constraintTop_toBottomOf="@+id/gl1" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#789"
+            app:layout_constraintLeft_toRightOf="@+id/gl"
+            app:layout_constraintTop_toBottomOf="@+id/gl1" />
+
+    </android.support.constraint.ConstraintLayout>
 </LinearLayout>

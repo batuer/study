@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="FlipperTextView"><attr format="string" name="texts"/><attr format="integer" name="standing_time"/><attr format="integer" name="anim_time"/></declare-styleable>
-    <string name="app_name">FlpperTextView</string>
-</resources>

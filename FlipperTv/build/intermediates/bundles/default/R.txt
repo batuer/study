@@ -1,8 +1,0 @@
-int attr anim_time 0x7f010002
-int attr standing_time 0x7f010001
-int attr texts 0x7f010000
-int string app_name 0x7f020000
-int[] styleable FlipperTextView { 0x7f010000, 0x7f010001, 0x7f010002 }
-int styleable FlipperTextView_anim_time 2
-int styleable FlipperTextView_standing_time 1
-int styleable FlipperTextView_texts 0
