@@ -43,7 +43,8 @@ public class MainActivity extends BaseActivity {
         initData();
         mRcv.setLayoutManager(new LinearLayoutManager(this));
         mRcv.setHasFixedSize(true);
-        mRcv.setAdapter(new Adapter());
+        Adapter adapter = new Adapter();
+        mRcv.setAdapter(adapter);
     }
 
     private void initData() {
