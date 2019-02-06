@@ -128,6 +128,7 @@
         <activity android:name=".markdwon.MarkDownActivity" />
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".autolayout.AutoLayoutActivity" />
+        <activity android:name=".listenbook.ListenBook"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <EditText
+        android:id="@+id/et_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="天龙八部"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_get_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="getKey"
+        android:text="getKey" />
+
+    <Button
+        android:id="@+id/btn_get_directory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="getDirectory"
+        android:text="getDirectory" />
+
+    <Button
+        android:text="Download"
+        android:onClick="performDownload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" />
+</LinearLayout>
