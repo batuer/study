@@ -4,16 +4,15 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.blankj.utilcode.constant.PermissionConstants;
+import com.blankj.utilcode.util.PermissionUtils;
 import com.gusi.study.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -45,6 +44,14 @@ public class MainActivity extends BaseActivity {
         mRcv.setHasFixedSize(true);
         Adapter adapter = new Adapter();
         mRcv.setAdapter(adapter);
+        initPermission();
+    }
+
+    private void initPermission() {
+        if (!PermissionUtils.isGranted(PermissionConstants.STORAGE, PermissionConstants.MICROPHONE)) {
+            PermissionUtils.permission(PermissionConstants.STORAGE, PermissionConstants.MICROPHONE)
+                    .request();
+        }
     }
 
     private void initData() {
@@ -61,8 +68,10 @@ public class MainActivity extends BaseActivity {
             Collections.sort(mActivityInfoList, new Comparator<ActivityInfo>() {
                 @Override
                 public int compare(ActivityInfo o1, ActivityInfo o2) {
-                    return o1.name.substring(o1.name.lastIndexOf(".") + 1, o1.name.length()).replace("Activity", "")
-                            .compareTo(o2.name.substring(o2.name.lastIndexOf(".") + 1, o2.name.length()).replace("Activity", ""));
+                    return o1.name.substring(o1.name.lastIndexOf(".") + 1, o1.name.length())
+                            .replace("Activity", "")
+                            .compareTo(o2.name.substring(o2.name.lastIndexOf(".") + 1, o2.name.length())
+                                    .replace("Activity", ""));
                 }
             });
         } catch (PackageManager.NameNotFoundException e) {
@@ -91,7 +100,8 @@ public class MainActivity extends BaseActivity {
             final Button btn = (Button) holder.itemView;
             final ActivityInfo activityInfo = mActivityInfoList.get(position);
             String name = activityInfo.name;
-            name = name.substring(name.lastIndexOf(".") + 1, name.length()).replace("Activity", "");
+            name = name.substring(name.lastIndexOf(".") + 1, name.length())
+                    .replace("Activity", "");
             btn.setText(name);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -123,39 +133,39 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.w("Fire", "MainActivity:127行:onCreate");
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.w("Fire", "MainActivity:134行:onStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.w("Fire", "MainActivity:140行:onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.w("Fire", "MainActivity:146行:onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.w("Fire", "MainActivity:152行:onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.w("Fire", "MainActivity:158行:onDestroy");
-    }
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        Log.w("Fire", "MainActivity:127行:onCreate");
+//    }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        Log.w("Fire", "MainActivity:134行:onStart");
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Log.w("Fire", "MainActivity:140行:onResume");
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        Log.w("Fire", "MainActivity:146行:onPause");
+//    }
+//
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        Log.w("Fire", "MainActivity:152行:onStop");
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        Log.w("Fire", "MainActivity:158行:onDestroy");
+//    }
 }
