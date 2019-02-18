@@ -27,6 +27,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="mediaPlay"
+        android:text="MediaPlay" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="audioStart"
         android:text="AudioStart" />
 
@@ -47,5 +53,12 @@
         android:layout_height="wrap_content"
         android:onClick="audioPlay"
         android:text="AudioPlay" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="mixPCMPlay"
+        android:text="MixPCMPlay" />
+
 
 </LinearLayout>
