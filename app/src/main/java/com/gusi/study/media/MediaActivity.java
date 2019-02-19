@@ -1,7 +1,9 @@
 package com.gusi.study.media;
 
+import android.media.MediaRecorder;
 import android.os.Environment;
 import android.view.View;
+import android.widget.EditText;
 
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
@@ -13,6 +15,8 @@ public class MediaActivity extends BaseActivity {
 
     private Audio mAudio;
     private Media mMedia;
+    private Audio1 mAudio1;
+    private EditText mEtWeight;
 
     @Override
     protected int getLayout() {
@@ -23,7 +27,9 @@ public class MediaActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         initToolBar(mToolbar, true, "Record");
+        mEtWeight = findViewById(R.id.et_weight);
         mAudio = new Audio();
+        mAudio1 = new Audio1();
         mMedia = new Media();
     }
 
@@ -75,11 +81,36 @@ public class MediaActivity extends BaseActivity {
                         .getAbsolutePath() +
                         "/recorderDemo/mix" + System.currentTimeMillis() + ".pcm");
                 List<File> mixFileList = mAudio.getMixFileList();
-                PCM.mixAudios(mixFileList.toArray(new File[mixFileList.size()]), destFile);
+
+                double weight = Double.parseDouble(mEtWeight.getText()
+                        .toString()
+                        .trim());
+                if (weight < 0) {
+                    weight = 0.1;
+                }
+                if (weight > 1) {
+                    weight = 1;
+                }
+
+                PCM.mixAudios(mixFileList.toArray(new File[mixFileList.size()]), destFile,weight);
 
                 mAudio.play(destFile);
             }
         }).start();
+
+
+    }
+
+    public void audioSystemStart(View v) {
+        mAudio1.record1(MediaRecorder.AudioSource.MIC);
+    }
+
+    public void audioSystemStop(View v) {
+        mAudio1.stop();
+    }
+
+    public void audioSystemPlay(View v) {
+        mAudio1.play1(mAudio1.getAudioRecordFile());
     }
 
 }

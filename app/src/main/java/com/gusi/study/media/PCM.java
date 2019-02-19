@@ -3,6 +3,7 @@ package com.gusi.study.media;
 import android.util.Log;
 
 import com.blankj.utilcode.util.CloseUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -134,7 +135,7 @@ public class PCM {
      * @param weights         权值（直接叠加为1、平均叠加为0.5）weights.length = bMulRoadAudioes.length
      * @return
      */
-    public static byte[] mixRawAudioBytes(byte[][] bMulRoadAudioes, int[] weights) {
+    public static byte[] mixRawAudioBytes(byte[][] bMulRoadAudioes, double[] weights) {
         if (bMulRoadAudioes == null || bMulRoadAudioes.length == 0) return null;
 
         byte[] realMixAudio = bMulRoadAudioes[0];
@@ -171,7 +172,7 @@ public class PCM {
             //这里采取累加法
             for (; sr < row; ++sr) {
 //                mixVal += sMulRoadAudioes[sr][sc];
-                int weight = weights[sr];//权值
+                double weight = weights[sr];//权值
                 Log.w("Fire", "PCM:173行:" + weight);
                 mixVal += sMulRoadAudioes[sr][sc] * weight;
             }
@@ -194,8 +195,8 @@ public class PCM {
      * @param rawAudioFiles
      * @param destFile
      */
-    public static void mixAudios(File[] rawAudioFiles, File destFile) {
-
+    public static void mixAudios(File[] rawAudioFiles, File destFile, double weight) {
+        ToastUtils.showShort("开始合并PCM文件");
         final int fileSize = rawAudioFiles.length;
         FileInputStream[] audioFileStreams = new FileInputStream[fileSize];
         File audioFile = null;
@@ -227,9 +228,9 @@ public class PCM {
                         allAudioBytes[streamIndex] = new byte[512];
                     }
                 }
-                int[] weights = new int[allAudioBytes.length];
+                double[] weights = new double[allAudioBytes.length];
                 for (int i = 0; i < allAudioBytes.length; i++) {
-                    weights[i] = 1;
+                    weights[i] = weight;
                 }
 
 
@@ -255,9 +256,7 @@ public class PCM {
         } finally {
             CloseUtils.closeIOQuietly(audioFileStreams);
             CloseUtils.closeIOQuietly(output, bufferedOutput);
+            ToastUtils.showShort("结束合并PCM文件");
         }
-
     }
-
-
 }
