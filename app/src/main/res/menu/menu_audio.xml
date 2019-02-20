@@ -4,7 +4,6 @@
     <item
         android:id="@+id/action_clear"
         android:icon="@drawable/ic_clear"
-        android:orderInCategory="100"
         android:title="清空"
         app:showAsAction="always" />
 </menu>
