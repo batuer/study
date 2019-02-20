@@ -12,8 +12,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="startRecord"
-        android:text="录制" />
+        android:onClick="startSystemRecord"
+        android:text="录制系统" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startMicRecord"
+        android:text="录制Mic" />
 
     <Button
         android:layout_width="match_parent"

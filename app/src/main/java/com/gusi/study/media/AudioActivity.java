@@ -67,7 +67,11 @@ public class AudioActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void startRecord(View view) {
+    public void startSystemRecord(View view) {
+        mAudio2.record(MediaRecorder.AudioSource.REMOTE_SUBMIX);
+    }
+
+    public void startMicRecord(View view) {
         mAudio2.record(MediaRecorder.AudioSource.MIC);
     }
 
@@ -79,7 +83,7 @@ public class AudioActivity extends BaseActivity {
             mFileList.add(recordFile);
             StringBuilder sb = new StringBuilder();
             String s = Environment.getExternalStorageDirectory()
-                    .getAbsolutePath() + "/recorderDemo/" ;
+                    .getAbsolutePath() + "/recorderDemo/";
             for (File file1 : mFileList) {
                 String path = file1.getPath();
                 sb.append(path.replace(s, "") + "\n");
@@ -88,6 +92,7 @@ public class AudioActivity extends BaseActivity {
         }
 
     }
+
 
     public void play(View view) {
         File recordFile = mAudio2.getAudioRecordFile();
@@ -135,4 +140,6 @@ public class AudioActivity extends BaseActivity {
         }
         mAudio2.play(mMixFile);
     }
+
+
 }
