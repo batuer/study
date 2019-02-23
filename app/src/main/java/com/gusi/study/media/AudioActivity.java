@@ -40,6 +40,18 @@ public class AudioActivity extends BaseActivity {
         mFileList = new ArrayList<>();
         mAudio2 = new Audio2();
 
+//        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+//        audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+//        audioManager.setSpeakerphoneOn(true);
+
+        findViewById(R.id.btn_record_play).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mAudio2.recordAndPlay(MediaRecorder.AudioSource.MIC, false);
+                ToastUtils.showShort("不去噪音");
+                return true;
+            }
+        });
     }
 
     @Override
@@ -67,12 +79,20 @@ public class AudioActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void startSystemRecordPlay(View view) {
+
+    }
+
+    public void startMicRecordPlay(View view) {
+        mAudio2.recordAndPlay(MediaRecorder.AudioSource.MIC, true);
+    }
+
     public void startSystemRecord(View view) {
-        mAudio2.record(MediaRecorder.AudioSource.REMOTE_SUBMIX);
+        mAudio2.record(MediaRecorder.AudioSource.REMOTE_SUBMIX, true);
     }
 
     public void startMicRecord(View view) {
-        mAudio2.record(MediaRecorder.AudioSource.MIC);
+        mAudio2.record(MediaRecorder.AudioSource.MIC, true);
     }
 
     public void stopRecord(View view) {

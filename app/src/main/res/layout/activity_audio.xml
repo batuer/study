@@ -8,7 +8,17 @@
     tools:context=".media.AudioActivity">
 
     <include layout="@layout/layout_tool_bar" />
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startSystemRecordPlay"
+        android:text="录制系统并播放" />
+    <Button
+        android:id="@+id/btn_record_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startMicRecordPlay"
+        android:text="录制Mic并播放" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
