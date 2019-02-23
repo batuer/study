@@ -103,6 +103,7 @@ dependencies {
     }
     compile files('libs/jxl.jar')
     compile 'com.google.code.gson:gson:2.8.5'
+    compile 'org.jsoup:jsoup:1.11.3'
 }
 protobuf {
     protoc {
