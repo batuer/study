@@ -53,6 +53,7 @@ public class PCM {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            Log.e("Fire", "PCM:56行:" + e.toString());
         } finally {
             CloseUtils.closeIO(in, out);
         }

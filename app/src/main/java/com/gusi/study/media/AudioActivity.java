@@ -47,8 +47,8 @@ public class AudioActivity extends BaseActivity {
         findViewById(R.id.btn_record_play).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                mAudio2.recordAndPlay(MediaRecorder.AudioSource.MIC, false);
-                ToastUtils.showShort("不去噪音");
+                mAudio2.recordAndPlayShort(MediaRecorder.AudioSource.MIC, new AudioEffectEntity());
+                ToastUtils.showShort("Short");
                 return true;
             }
         });
@@ -84,21 +84,21 @@ public class AudioActivity extends BaseActivity {
     }
 
     public void startMicRecordPlay(View view) {
-        mAudio2.recordAndPlay(MediaRecorder.AudioSource.MIC, true);
+        mAudio2.recordAndPlayByte(MediaRecorder.AudioSource.MIC, new AudioEffectEntity());
     }
 
     public void startSystemRecord(View view) {
-        mAudio2.record(MediaRecorder.AudioSource.REMOTE_SUBMIX, true);
+        mAudio2.record(MediaRecorder.AudioSource.REMOTE_SUBMIX, new AudioEffectEntity());
     }
 
     public void startMicRecord(View view) {
-        mAudio2.record(MediaRecorder.AudioSource.MIC, true);
+        mAudio2.record(MediaRecorder.AudioSource.MIC, new AudioEffectEntity());
     }
 
     public void stopRecord(View view) {
         mAudio2.stop();
         //
-        File recordFile = mAudio2.getAudioRecordFile();
+        final File recordFile = mAudio2.getAudioRecordFile();
         if (recordFile != null) {
             mFileList.add(recordFile);
             StringBuilder sb = new StringBuilder();
@@ -109,6 +109,7 @@ public class AudioActivity extends BaseActivity {
                 sb.append(path.replace(s, "") + "\n");
             }
             mTvPcm.setText(sb.toString());
+            //
         }
 
     }
