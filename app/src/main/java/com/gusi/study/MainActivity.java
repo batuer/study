@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -111,6 +112,7 @@ public class MainActivity extends BaseActivity {
                         Class<?> aClass = classLoader.loadClass(activityInfo.name);
                         startActivity(new Intent(MainActivity.this, aClass));
                     } catch (ClassNotFoundException e) {
+                        Log.e("Fire", "Adapter:114行:" + e.toString());
                     }
 
                 }
@@ -131,41 +133,4 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
-
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        Log.w("Fire", "MainActivity:127行:onCreate");
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        Log.w("Fire", "MainActivity:134行:onStart");
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Log.w("Fire", "MainActivity:140行:onResume");
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        Log.w("Fire", "MainActivity:146行:onPause");
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        Log.w("Fire", "MainActivity:152行:onStop");
-//    }
-//
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        Log.w("Fire", "MainActivity:158行:onDestroy");
-//    }
 }

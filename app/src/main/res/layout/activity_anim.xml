@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".anim.AnimActivity">
 
-  <include layout="@layout/layout_tool_bar" />
+    <include layout="@layout/layout_tool_bar" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="delete"
+        android:text="delete" />
 
 </LinearLayout>
