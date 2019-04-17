@@ -7,10 +7,16 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.PointF;
 import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.Animation;
@@ -33,6 +39,35 @@ public class SvgActivity extends BaseActivity {
     protected void initView() {
         super.initView();
         initToolBar(mToolbar, true, "SVG");
+        //兼容api16
+        ImageView ivAnimatedVector = findViewById(R.id.iv_animated_vector);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            AnimatedVectorDrawable morphing = (AnimatedVectorDrawable) getDrawable(R.drawable.anim);
+            ivAnimatedVector.setImageDrawable(morphing);
+            if (morphing != null) {
+                morphing.start();
+            }
+        } else {
+//            Bitmap bitmap = getBitmapFromVectorDrawable(this, R.drawable.anim);
+//            ivAnimatedVector.setImageBitmap(bitmap);
+        }
+
+    }
+
+    public Bitmap getBitmapFromVectorDrawable(Context context, int drawableId) {
+        Drawable drawable = ContextCompat.getDrawable(context, drawableId);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            drawable = (DrawableCompat.wrap(drawable)).mutate();
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(),
+                drawable.getIntrinsicHeight(),
+                Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+
+        return bitmap;
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -54,7 +89,8 @@ public class SvgActivity extends BaseActivity {
 
         View view1 = findViewById(R.id.view1);
         int type1 = Animation.RELATIVE_TO_SELF;
-        TranslateAnimation animation1 = new TranslateAnimation(type1, 0, type1, 2f, type1, 0, type1, 0);
+        TranslateAnimation animation1 = new TranslateAnimation(type1, 0, type1, 2f, type1, 0,
+                type1, 0);
         animation1.setInterpolator(new BounceInterpolator());
         animation1.setRepeatCount(-1);
         animation1.setRepeatMode(Animation.REVERSE);
@@ -63,7 +99,8 @@ public class SvgActivity extends BaseActivity {
 
         int type2 = Animation.RELATIVE_TO_PARENT;
         View view2 = findViewById(R.id.view2);
-        TranslateAnimation animation2 = new TranslateAnimation(type2, 0, type2, 0.2f, type2, 0, type2, 0);
+        TranslateAnimation animation2 = new TranslateAnimation(type2, 0, type2, 0.2f, type2, 0,
+                type2, 0);
         animation2.setInterpolator(new BounceInterpolator());
         animation2.setRepeatCount(-1);
         animation2.setRepeatMode(Animation.REVERSE);
@@ -103,14 +140,16 @@ public class SvgActivity extends BaseActivity {
         PropertyValuesHolder holder1 = PropertyValuesHolder.ofFloat("scaleX", 0, 1);
         PropertyValuesHolder holder2 = PropertyValuesHolder.ofFloat("scaleY", 0, 1);
         PropertyValuesHolder holder3 = PropertyValuesHolder.ofFloat("alpha", 0, 1);
-        ObjectAnimator.ofPropertyValuesHolder(view, holder1, holder2, holder3).start();
+        ObjectAnimator.ofPropertyValuesHolder(view, holder1, holder2, holder3)
+                .start();
     }
 
     private void keyFrame(View view) {
         Keyframe keyframe1 = Keyframe.ofFloat(0, 0); // 开始：progress 为 0
         Keyframe keyframe2 = Keyframe.ofFloat(0.5f, 100); // 进行到一半是，progres 为 100
         Keyframe keyframe3 = Keyframe.ofFloat(1, 80); // 结束时倒回到 80
-        PropertyValuesHolder holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1, keyframe2, keyframe3);
+        PropertyValuesHolder holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1,
+                keyframe2, keyframe3);
 
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, holder);
         animator.setDuration(2000);

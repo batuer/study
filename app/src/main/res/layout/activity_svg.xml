@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -17,7 +18,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:onClick="trans"
-            android:src="@drawable/ic_arrow_back_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <ImageView
             android:id="@+id/view3"
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_2" />
+            app:srcCompat="@drawable/ic_2" />
 
         <ImageView
             android:id="@+id/view1"
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_arrow_back_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <ImageView
             android:id="@+id/view2"
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_arrow_back_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <ImageView
             android:id="@+id/view4"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_arrow_back_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <com.gusi.study.svg.Sample06KeyframeView
             android:id="@+id/objectAnimatorView"
@@ -59,12 +60,28 @@
             android:layout_margin="10dp" />
 
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_animated_vector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="#66000000"
             android:onClick="anim"
-            android:src="@drawable/anim" />
+             />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#66000000"
+            app:srcCompat="@drawable/vector" />
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/meinv1" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

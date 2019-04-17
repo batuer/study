@@ -3,18 +3,19 @@ package com.gusi.study.nestedscroll;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import butterknife.BindView;
-import com.gusi.headline.HeadLineTabLayout;
+
 import com.gusi.study.R;
 import com.gusi.study.base.BaseActivity;
 import com.gusi.study.today.PageFragment;
+
+import butterknife.BindView;
 
 /**
  * @author
  * @Date
  */
 public class NestedScrollActivity extends BaseActivity {
-  @BindView(R.id.tabLayout1) HeadLineTabLayout mTabLayout;
+//  @BindView(R.id.tabLayout1) HeadLineTabLayout mTabLayout;
   @BindView(R.id.view_pager) ViewPager mViewPager;
   String[] titles = { "保障", "家人", "首页", "我的", "药丸", "简介" };
 
@@ -43,6 +44,6 @@ public class NestedScrollActivity extends BaseActivity {
     };
 
     mViewPager.setAdapter(adapter);
-    mTabLayout.setupWithViewPager(mViewPager);
+//    mTabLayout.setupWithViewPager(mViewPager);
   }
 }
