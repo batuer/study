@@ -7,8 +7,6 @@
 
     <path
         android:fillType="evenOdd"
-        android:fillAlpha="0.5"
-        android:fillColor="#1296db"
         android:pathData="M693.403-9.263l-376.691 4.628c-93.005 1.142-141.47 64.931-141.47
 121.987v760.555c0 70.909 48.497 147.571 146.098
 145.113l367.435-9.257c88.235-2.223 160.61-37.038

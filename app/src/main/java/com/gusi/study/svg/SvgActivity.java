@@ -18,6 +18,8 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
@@ -79,6 +81,15 @@ public class SvgActivity extends BaseActivity {
     }
 
     public void trans(View view) {
+        boolean b = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
+        Log.w("Fire", "SvgActivity:84行:" + b);
+        if (b) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        recreate();
+
         TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0);
         animation.setInterpolator(new BounceInterpolator());
         animation.setRepeatCount(-1);
