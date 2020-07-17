@@ -118,6 +118,7 @@
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".autolayout.AutoLayoutActivity" />
         <activity android:name=".listenbook.ListenBook" />
+        <activity android:name=".provider.ProviderActivity" />
     </application>
 
 </manifest>
